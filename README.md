@@ -20,7 +20,7 @@ Please cite and [star](https://docs.github.com/en/get-started/exploring-projects
 3. [Manuscript](#manuscript)
 4. [Results](#results)
 5. [How to use](#how-to-use)
-6. [Data availability](data-availability)
+6. [Database availability](database-availability)
 7. [Credits](credits)
 
 ## Objectives
@@ -51,7 +51,7 @@ Please cite and [star](https://docs.github.com/en/get-started/exploring-projects
 
 All of the tutorial notebooks can be accessed [here](https://GitHub.com/omicscodeathon/denguedrug/notebooks)
 
-## Data availability
+## Database availability
 
 **Links to directories containing original and processed databases, DL/ML models and methods/scripts, molecular modeling methods/scripts,etc** 
 
