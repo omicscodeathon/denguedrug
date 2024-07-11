@@ -2,10 +2,6 @@
 [![Open In Collab](https://colab.research.google.com/assets/colab-badge.svg)](xxxxxx)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 [![GitHub stars](https://img.shields.io/github/stars/omicscodeathon/denguedrug.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/omicscodeathon/denguedrug/stargazers/)
-
-[![GitHub stars](https://img.shields.io/github/stars/omicscodeathon/denguedrug.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/omicscodeathon/denguedrug/stargazers/)
-
-
 [![Github all releases](https://img.shields.io/github/downloads/omicscodeathon/denguedrug/total.svg)](https://GitHub.com/omicscodeathon/denguedrug/releases/)
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
 [![GitHub contributors](https://img.shields.io/github/contributors/omicscodeathon/denguedrug.svg)](https://GitHub.com/omicscodeathon/denguedrug/graphs/contributors/)
