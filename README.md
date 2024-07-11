@@ -20,8 +20,8 @@ Please cite and [star](https://docs.github.com/en/get-started/exploring-projects
 3. [Manuscript](#manuscript)
 4. [Results](#results)
 5. [How to use](#how-to-use)
-6. [Database availability](database-availability)
-7. [Credits](credits)
+6. [Data availability](#data-availability)
+7. [Credits](#credits)
 
 ## Objectives
 - [ ] Identfiy dengue virus protein target.
