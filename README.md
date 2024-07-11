@@ -51,7 +51,7 @@ Please cite and [star](https://docs.github.com/en/get-started/exploring-projects
 
 All of the tutorial notebooks can be accessed [here](https://GitHub.com/omicscodeathon/denguedrug/notebooks)
 
-## Database availability
+## Data availability
 
 **Links to directories containing original and processed databases, DL/ML models and methods/scripts, molecular modeling methods/scripts,etc** 
 
