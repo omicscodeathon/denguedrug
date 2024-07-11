@@ -11,9 +11,9 @@
 Deep Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus
 
 ## Overview 
-In this project we are building a in silico pipeline to identify novel dengue virus inhibitors. We will be incorporating Deep/Machine Learning (DL/ML) and molecular modeling techniques into the pipeline.
+In this project we are building a _in silico_ pipeline to identify novel dengue virus inhibitors. We will be incorporating Deep/Machine Learning (DL/ML) and molecular modeling techniques into the pipeline.
 
-Please cite and [star](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars) the repository if you utilise the pipeline for research or commercial purposes
+Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars) the repository if you utilise the pipeline for research or commercial purposes
 
 ## Table of contents
 1. [Objectives](#objectives)
@@ -36,23 +36,45 @@ Please cite and [star](https://docs.github.com/en/get-started/exploring-projects
 
 ## Description
 
-**Proposed pipeline image  with description when confirmed**
+**Proposed pipeline image**
+
+**Step 1: DL/ML prediction of novel ligands**
+
+ Brief explaination
+
+**Step 2: Molecular docking of top xx% preidcted actives**
+
+ Brief explaination
+
+**Step 3: Molecular Dynamics and binding free energy calculations**
+
+Brief explaination
 
 ## Manuscript
 
-**link to manuscript directory with brief description or doi**
+**Abstract**
+
+When using the pipeline in for research or commercial purposes please [cite](xxx) our research.
+
+cite: doi_link
 
 ## Results
 
-**To be added**
+**to be conducted**
 
 ## How to use
 
-**Self-explanatory jupyter notebooks with links to each ones directory. Description for each notebook**
+The [documenation](docs) and [tutorial](notebooks) give a general overview of how the pipeline can be utilized for identifying novel Dengue Virus inhibitors.
 
-All of the tutorial notebooks can be accessed [here](https://GitHub.com/omicscodeathon/denguedrug/notebooks)
+**Tutorial 1**
+DL/ML pipeline
+
+**Turtorial 2**
+Molecular docking and dynamics
 
 ## Data availability
+
+The data utilized for the project can be found [here](data)
 
 **Links to directories containing original and processed databases, DL/ML models and methods/scripts, molecular modeling methods/scripts,etc** 
 
