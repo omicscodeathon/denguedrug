@@ -1,3 +1,4 @@
+![Static Badge](https://img.shields.io/badge/:badgeContent)
 # denguedrug
 Deep Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus
 
@@ -40,3 +41,9 @@ In this project we are building a in silico pipeline to identify novel dengue vi
 ## Data availability
 
 **Links to directories containing original and processed databases, DL/ML models and methods/scripts, molecular modeling methods/scripts,etc** 
+
+## Credits
+
+**list of contributors**
+
+
