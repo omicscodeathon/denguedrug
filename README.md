@@ -1,9 +1,9 @@
 ![DenD](https://img.shields.io/badge/Project-DengueDrug-lightblue) 
-[![DOI](xxx)]
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)](https://jupyter.org/try)
 [![Open In Collab](https://colab.research.google.com/assets/colab-badge.svg)](xxxxxx)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/omicscodeathon/denguedrug)
+[![GitHub stars](https://img.shields.io/github/stars/omicscodeathon/denguedrug.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/omicscodeathon/denguedrug/stargazers/)
 
 # denguedrug
 Deep Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus
