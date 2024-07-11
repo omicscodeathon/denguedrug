@@ -1,5 +1,5 @@
 ![DenD](https://img.shields.io/badge/Project-DengueDrug-lightblue) 
-[![DOI to be assigned](xxx)]
+[![DOI](xxx)]
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)](https://jupyter.org/try)
 [![Open In Collab](https://colab.research.google.com/assets/colab-badge.svg)](xxxxxx)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
