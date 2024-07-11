@@ -13,12 +13,12 @@ In this project we are building a in silico pipeline to identify novel dengue vi
 6. Data availability
 
 ## Objectives
-- [] Identfiy dengue protein target.
-- [] Identify dengue ligand database for DL/ML training and molecular modeling method validation.
-- [] Determine DL/ML algorithm to be utilised in project.
-- [] Process ligand database and train DL/ML model.
-- [] Evaluate DL/ML performance.
-- [] Validate molecular modeling method using prepared ligand database (Actives vs non-actives)
+- [ ] Identfiy dengue protein target.
+- [ ] Identify dengue ligand database for DL/ML training and molecular modeling method validation.
+- [ ] Determine DL/ML algorithm to be utilised in project.
+- [ ] Process ligand database and train DL/ML model.
+- [ ] Evaluate DL/ML performance.
+- [ ] Validate molecular modeling method using prepared ligand database (Actives vs non-actives)
 - **more to be added**
 
 ## Proposed Pipeline
