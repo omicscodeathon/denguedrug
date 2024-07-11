@@ -4,7 +4,8 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/omicscodeathon/denguedrug)
 [![GitHub stars](https://img.shields.io/github/stars/omicscodeathon/denguedrug.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/omicscodeathon/denguedrug/stargazers/)
 [![Github all releases](https://img.shields.io/github/downloads/omicscodeathon/denguedrug/total.svg)](https://GitHub.com/omicscodeathon/denguedrug/releases/)
-![Python](https://img.shields.io/badge/python-3.6-blue.svg)
+![Python](https://img.shields.io/badge/python-3.12-blue.svg)
+[![GitHub contributors](https://img.shields.io/github/contributors/omicscodeathon/denguedrug.svg)](https://GitHub.com/omicscodeathon/denguedrug/graphs/contributors/)
 
 # denguedrug
 Deep Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus
