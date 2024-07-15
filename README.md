@@ -36,17 +36,28 @@ Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-p
 
 ## Description
 
-**Proposed pipeline image**
+<p align="center">
+  <img src="figures/WhatsApp Image 2024-07-14 at 6.38.49 PM.jpeg" alt="Proposed Dengue Drug Pipeline" width="800"/>
+  <br>
+  <font size="1">
+  Figure illustrates the proposed DengueDrug pipeline to be utilized to identify Dengue Virus Inhibitors.</a>
+  </font>
+</p>
 
-**Step 1: DL/ML prediction of novel ligands**
+**Step 1: Identification of Dengue Virus inhibitors database for ML training**
 
+The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pubchem.ncbi.nlm.nih.gov/bioassay/651640). The ligand database was experimentally generated using (_in vivo_) DENV2 CPE-Based HTS Measured in Cell-Based and Microorganism Combination System method by the [Broad Institute](http://www.broadinstitute.org/). A total of 347,136 compounds were analyzed for their Dengue Virus inhibition and 5,946 actives and 324,845 non-actives were identified. A active is represented as a compound that can exhibit an ATP activity level above 20% at 10 $\mu M$. 
+
+**Step 2: Preporcessing**
+
+ The unprocessed database can be found here
  Brief explaination
 
-**Step 2: Molecular docking of top xx% preidcted actives**
+**Step 3: Model construction**
 
- Brief explaination
+Brief explaination
 
-**Step 3: Molecular Dynamics and binding free energy calculations**
+**Step 4: Prediction**
 
 Brief explaination
 
