@@ -38,7 +38,7 @@ Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-p
 The figure illustrates the proposed DengueDrug pipeline to be utilized to identify Dengue Virus Inhibitors.
 
 <p align="center">
-  <img src="figures/DengueDrug%20project%20workflow%20diagram.png" alt="Proposed Dengue Drug Identification Pipeline" width="800"/>
+  <img src="figures/DengueDrug%20project%20workflow%20diagram.png" alt="Proposed Dengue Drug Identification Pipeline" title="Proposed Dengue Drug Identification Pipeline" width="800"/>
   <br>
   <font size="1">
   </a>
