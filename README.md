@@ -49,7 +49,7 @@ The figure illustrates the proposed DengueDrug pipeline to be utilized to identi
 
 The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pubchem.ncbi.nlm.nih.gov/bioassay/651640). The ligand database was experimentally generated using (_in vivo_) DENV2 CPE-Based HTS Measured in Cell-Based and Microorganism Combination System method by the [Broad Institute](http://www.broadinstitute.org/). A total of 347,136 compounds were analyzed for their Dengue Virus inhibition and 5,946 actives and 324,845 non-actives were identified. A active is represented as a compound that can exhibit an ATP activity level above 20% at 10 $\mu M$. 
 
-**Step 2: Preporcessing**
+**Step 2: Preprocessing**
 
  The unprocessed database can be found here
  Brief explaination
