@@ -51,8 +51,9 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 **Step 2: Preprocessing**
 
- The unprocessed database can be found here
- Brief explaination
+ - The unprocessed database can be found [here](data/unprocessed_database_PubChem_651640).
+
+ - The molecular descriptors of the actives and inactives were calculated using [PaDEL-Descriptors](http://www.yapcwsoft.com/dd/padeldescriptor/). The descriptors of the [actives and inactives](data) were calculated using the [DescriptorCalculator.py](scripts/DescriptorCalculator.py) script.
 
 **Step 3: Model construction**
 
