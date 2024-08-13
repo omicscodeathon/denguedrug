@@ -64,11 +64,14 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 **Step 3: Model construction**
 
-Brief explaination
+The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The Logisitic model exhibited the greatest Accuracy, F1-score, precision, recall and specificity results and was selected for screening of a compound database.
 
 **Step 4: Prediction**
 
-Brief explaination
+The [African Natural Products Database](https://african-compounds.org/anpdb/) was selected for virtual screening for this project.
+
+**Step 5: Molecular Docking**
+
 
 ## Manuscript
 
