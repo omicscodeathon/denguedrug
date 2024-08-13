@@ -28,7 +28,7 @@ Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-p
 7. [Credits](#credits)
 
 ## Objectives
-- [ ] Identfiy dengue virus protein target.
+- [ ] Identify dengue virus protein target.
 - [ ] Identify dengue virus ligand database for DL/ML training and molecular modeling method validation.
 - [ ] Determine DL/ML algorithm to be utilised in project.
 - [ ] Process ligand database and train DL/ML model.
@@ -64,7 +64,7 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 **Step 3: Model construction**
 
-The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The Logisitic model exhibited the greatest Accuracy, F1-score, precision, recall and specificity results and was selected for screening of a compound database.
+The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The Logistic Regression Model exhibited the greatest Accuracy, F1-score, precision, recall and specificity results and was selected for screening of a compound database. The perfromance of each model against the stated metrices are in the reesult directory.
 
 **Step 4: Prediction**
 
