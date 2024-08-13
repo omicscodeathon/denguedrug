@@ -72,7 +72,7 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 - The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The models that exhibited the greatest Accuracy, F1-score, Balanced Accuracy and ROC AUC [metrics](figures/Lazy_predict_results.jpeg) were selected for validation.
 
-- The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logisitic regression. The models can be found [here](). Using K-fold splitting of the training data the models were cross validated and the models suitability was evaluated using the Accuracy, F1-score, Precision, Recall and Specificity, false and true positive and negative rate [metrics](figures). 
+- The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logisitic regression. The models can be found [here](output/models). Using K-fold splitting of the training data the models were cross validated and the models suitability was evaluated using the Accuracy, F1-score, Precision, Recall and Specificity, false and true positive and negative rate [metrics](figures). 
 
 - The models prediction ability was assessed using the test data. The models prediction accuracy was determined using Accuracy, F1-score, Precision and Recall [metrics](figures/Model_selection_resulst_test_dataset.png).
 
