@@ -62,13 +62,25 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
  - The molecular descriptors of the actives and inactives were calculated using [PaDEL-Descriptors](http://www.yapcwsoft.com/dd/padeldescriptor/). The descriptors of the [actives and inactives](data) were calculated using the [DescriptorCalculator.py](scripts/DescriptorCalculator.py) script.
 
+ - The actives and inactives databases were combined and all missing descriptor were filled with the value 0. Next dimesionality reduction was conducted using a variance filter (scikit-learn VarianceThreshold library)
+
+ - The data was then standardized using the mean and standard deviation [metrics](data/metrics.csv)
+
 **Step 3: Model construction**
 
-The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The Logistic Regression Model exhibited the greatest Accuracy, F1-score, precision, recall and specificity results and was selected for screening of a compound database. The perfromance of each model against the stated metrices are in the reesult directory.
+- The data was split into a training, test and external datasets. The training dataset was equvialent of 70% (14875 compounds) of the data base and the test and external datastest were equivalent to 15% (~3188) each. The training dataset contained 3105 actives vs 11770 inactives.
+
+- The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The models that exhibited the greatest Accuracy, F1-score, Balanced Accuracy and ROC AUC [metrics](figures/Lazy_predict_results.jpeg) were selected for validation.
+
+- The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logisitic regression. The models can be found [here](). Using K-fold splitting of the training data the models were cross validated and the models suitability was evaluated using the Accuracy, F1-score, Precision, Recall and Specificity, false and true positive and negative rate [metrics](figures). 
+
+- The models prediction ability was assessed using the test data. The models prediction accuracy was determined using Accuracy, F1-score, Precision and Recall [metrics](figures/Model_selection_resulst_test_dataset.png).
+
+- The logisitic regression (LR) model exhibited the the greatest results on the test dataset and therefore was evaluated on the external dataset. The LR model obtained a 82% active and 98% inactive accuracy.
 
 **Step 4: Prediction**
 
-The [African Natural Products Database](https://african-compounds.org/anpdb/) was selected for virtual screening for this project.
+The logisitic regression model was employed screening the [African Natural Products Database](https://african-compounds.org/anpdb/). 
 
 **Step 5: Molecular Docking**
 
