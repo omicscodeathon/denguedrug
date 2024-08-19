@@ -28,14 +28,16 @@ Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-p
 7. [Credits](#credits)
 
 ## Objectives
-- [ ] Identify dengue virus protein target.
-- [ ] Identify dengue virus ligand database for DL/ML training and molecular modeling method validation.
-- [ ] Determine DL/ML algorithm to be utilised in project.
-- [ ] Process ligand database and train DL/ML model.
-- [ ] Evaluate DL/ML performance.
-- [ ] Validate molecular modeling method using prepared ligand database (Actives vs non-actives)
-
-  **more to be added**
+- [X] Identify dengue virus protein target.
+- [X] Identify dengue virus ligand database for DL/ML training and molecular modeling method validation.
+- [X] Determine DL/ML algorithm to be utilised in project.
+- [X] Process ligand database and train DL/ML model.
+- [X] Evaluate DL/ML performance.
+- [ ] Validate molecular modeling method using prepared ligand database (Actives vs non-actives).
+- [ ] Virtual screening of predicted actives into identified protein crystal structures.
+- [ ] Assess and identify hits using criterion: docking score, interactions with important residues.
+- [ ] Assess hits ADMET properties.
+- [ ] Conduct MD simlatons to deterine compounds binding mode stability and binding free energy. 
 
 ## Description
 
@@ -80,38 +82,53 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 **Step 4: Prediction**
 
-The logisitic regression model was employed screening the [African Natural Products Database](https://african-compounds.org/anpdb/). 
+- The LR model was employed to screen the [Northern African Natural Products Database (NANPD)](https://african-compounds.org/about/nanpdb/), [East African Natural Products Database (EANPD)](https://african-compounds.org/about/eanpdb/), [AfroDB](https://african-compounds.org/about/afrodb/)and [Tradtional Chinese Medicine (TCM) database](http://tcm.cmu.edu.tw/about01.php?menuid=1).
+
+- The natural products chemical strcutures were prepared in the same manner as the training dataset and ~43,000 compounds were screened using the LR model.
+
+- 7,722 compounds were predicted to be active and subsequnetly utilized for molecular docking
 
 **Step 5: Molecular Docking**
 
+- The crystal structure of the dengue 2 virus envelope protein (PDB: [10KE](https://doi.org/10.2210/pdb1OKE/pdb)) was identified for structure-based virtual screening.
+
+- [AutoDock Vina](https://vina.scripps.edu) was utilized to screen the 7,722 compounds into the dengue 2 virus envelope protein.
+
+- The potential hits were selected using the criterion:
+  - AutoDock Vina binding score
+  - Prescence of binding interactions between important binding site residues and ligand (LigPlot + v1.4.5).
+ 
+**Step 6: ADMET prediction**
+
+- The ADMET properties of the identified hits will be predicted using [SwissADME](http://www.swissadme.ch).
+- The hits with potential pharmacokinetic and toxicity moeities will be removed.
+
+**Step 7: Molecular Dynamic (MD) Simulations**
+
+- The hits binding mode stability and will be assessed through a 100 nanosecond (ns) MD simulations utilising GROMACS.
+- The stability will be assessed using metrics like root-mean-square deviation (RMSD) and fluctuation (RMSF), Radius of Gyration, etc.
+- The compounds binding interactions retention with importnat residues throughout the MD simulations will be assessed with the [ProLIF] (https://prolif.readthedocs.io/en/stable/) python library.
+- The compounds binding free energy throughout the MD simulation was calculated using Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA).
 
 ## Manuscript
 
-**Abstract**
-
-When using the pipeline in for research or commercial purposes please [cite](xxx) our research.
-
-cite: doi_link
-
-## Results
-
-**to be conducted**
+When using the pipeline for research or commercial purposes please [cite](xxx) our research.
 
 ## How to use
 
 The [documenation](docs) and [tutorial](notebooks) give a general overview of how the pipeline can be utilized for identifying novel Dengue Virus inhibitors.
 
 **Tutorial 1**
-DL/ML pipeline
+
+[DL/ML pipeline](notebooks/ML_Dengue.ipynb) describes how the models were constructed, validated and selected.
 
 **Turtorial 2**
+
 Molecular docking and dynamics
 
 ## Data availability
 
 The data utilized for the project can be found [here](data)
-
-**Links to directories containing original and processed databases, DL/ML models and methods/scripts, molecular modeling methods/scripts,etc** 
 
 ## Credits
 
