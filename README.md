@@ -107,7 +107,7 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 - The hits binding mode stability and will be assessed through a 100 nanosecond (ns) MD simulations utilising GROMACS.
 - The stability will be assessed using metrics like root-mean-square deviation (RMSD) and fluctuation (RMSF), Radius of Gyration, etc.
-- The compounds binding interactions retention with importnat residues throughout the MD simulations will be assessed with the [ProLIF] (https://prolif.readthedocs.io/en/stable/) python library.
+- The compounds binding interactions retention with importnat residues throughout the MD simulations will be assessed with the [ProLIF](https://prolif.readthedocs.io/en/stable/) python library.
 - The compounds binding free energy throughout the MD simulation was calculated using Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA).
 
 ## Manuscript
