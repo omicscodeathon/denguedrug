@@ -64,29 +64,29 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
  - The molecular descriptors of the actives and inactives were calculated using [PaDEL-Descriptors](http://www.yapcwsoft.com/dd/padeldescriptor/). The descriptors of the [actives and inactives](data) were calculated using the [DescriptorCalculator.py](scripts/DescriptorCalculator.py) script.
 
- - The actives and inactives databases were combined and all missing descriptor were filled with the value 0. Next dimesionality reduction was conducted using a variance filter (scikit-learn VarianceThreshold library)
+ - The actives and inactives databases were combined and all missing descriptors were filled with the value 0. Next dimensionality reduction was conducted using a variance filter (scikit-learn VarianceThreshold library)
 
  - The data was then standardized using the mean and standard deviation [metrics](data/metrics.csv)
 
 **Step 3: Model construction**
 
-- The data was split into a training, test and external datasets. The training dataset was equvialent of 70% (14875 compounds) of the data base and the test and external datastest were equivalent to 15% (~3188) each. The training dataset contained 3105 actives vs 11770 inactives.
+- The data was split into training, test and external datasets. The training dataset was equivalent to 70% (14875 compounds) of the data set and the test and external data sets were equivalent to 15% (~3188) each. The training dataset contained 3105 actives vs 11770 inactives.
 
 - The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The models that exhibited the greatest Accuracy, F1-score, Balanced Accuracy and ROC AUC [metrics](figures/Lazy_predict_results.jpeg) were selected for validation.
 
-- The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logisitic regression. The models can be found [here](output/models). Using K-fold splitting of the training data the models were cross validated and the models suitability was evaluated using the Accuracy, F1-score, Precision, Recall and Specificity, false and true positive and negative rate [metrics](figures). 
+- The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logistic regression. The models can be found [here](output/models). Using K-fold splitting of the training data the models were cross-validated and the models suitability was evaluated using the Accuracy, F1-score, Precision, Recall and Specificity, and false and true positive and negative rate [metrics](figures). 
 
-- The models prediction ability was assessed using the test data. The models prediction accuracy was determined using Accuracy, F1-score, Precision and Recall [metrics](figures/Model_selection_resulst_test_dataset.png).
+- The models' prediction ability was assessed using the test data. The models prediction accuracy was determined using Accuracy, F1-score, Precision and Recall [metrics](figures/Model_selection_resulst_test_dataset.png).
 
-- The logisitic regression (LR) model exhibited the the greatest results on the test dataset and therefore was evaluated on the external dataset. The LR model obtained a 82% active and 98% inactive accuracy.
+- The logistic regression (LR) model exhibited the greatest results on the test dataset and therefore was evaluated on the external dataset. The LR model obtained an 82% active and 98% inactive accuracy.
 
 **Step 4: Prediction**
 
 - The LR model was employed to screen the [Northern African Natural Products Database (NANPD)](https://african-compounds.org/about/nanpdb/), [East African Natural Products Database (EANPD)](https://african-compounds.org/about/eanpdb/), [AfroDB](https://african-compounds.org/about/afrodb/)and [Tradtional Chinese Medicine (TCM) database](http://tcm.cmu.edu.tw/about01.php?menuid=1).
 
-- The natural products chemical strcutures were prepared in the same manner as the training dataset and ~43,000 compounds were screened using the LR model.
+- The natural products' chemical structures were prepared in a similar manner as for the training dataset and ~43,000 compounds were screened using the LR model.
 
-- 7,722 compounds were predicted to be active and subsequnetly utilized for molecular docking
+- 7,722 compounds were predicted to be active and subsequently utilized for molecular docking
 
 **Step 5: Molecular Docking**
 
@@ -96,18 +96,18 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 - The potential hits were selected using the criterion:
   - AutoDock Vina binding score
-  - Prescence of binding interactions between important binding site residues and ligand (LigPlot + v1.4.5).
+  - Presence of binding interactions between important binding site residues and ligand (LigPlot + v1.4.5).
  
 **Step 6: ADMET prediction**
 
 - The ADMET properties of the identified hits will be predicted using [SwissADME](http://www.swissadme.ch).
-- The hits with potential pharmacokinetic and toxicity moeities will be removed.
+- The hits with potential pharmacokinetic and toxicity moieties will be removed.
 
 **Step 7: Molecular Dynamic (MD) Simulations**
 
-- The hits binding mode stability and will be assessed through a 100 nanosecond (ns) MD simulations utilising GROMACS.
+- The hits binding mode stability will be assessed through a 100-nanosecond (ns) MD simulations utilising GROMACS.
 - The stability will be assessed using metrics like root-mean-square deviation (RMSD) and fluctuation (RMSF), Radius of Gyration, etc.
-- The compounds binding interactions retention with importnat residues throughout the MD simulations will be assessed with the [ProLIF](https://prolif.readthedocs.io/en/stable/) python library.
+- The compounds binding interactions retention with important residues throughout the MD simulations will be assessed with the [ProLIF](https://prolif.readthedocs.io/en/stable/) python library.
 - The compounds binding free energy throughout the MD simulation was calculated using Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA).
 
 ## Manuscript
@@ -116,19 +116,23 @@ When using the pipeline for research or commercial purposes please [cite](xxx) o
 
 ## How to use
 
-The [documenation](docs) and [tutorial](notebooks) give a general overview of how the pipeline can be utilized for identifying novel Dengue Virus inhibitors.
+The [documentation](docs) and [tutorial](notebooks) give a general overview of how the pipeline can be utilized for identifying novel Dengue Virus inhibitors.
 
 **Tutorial 1**
 
 [DL/ML pipeline](notebooks/ML_Dengue.ipynb) describes how the models were constructed, validated and selected.
 
-**Turtorial 2**
+**Tutorial 2**
 
 Molecular docking and dynamics
 
 ## Data availability
 
 The data utilized for the project can be found [here](data)
+
+## Prerequisites
+
+The codes and scripts were run on Python 3.8.
 
 ## Credits
 
