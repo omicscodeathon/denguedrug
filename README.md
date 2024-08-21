@@ -37,7 +37,7 @@ Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-p
 - [ ] Virtual screening of predicted actives into identified protein crystal structures.
 - [ ] Assess and identify hits using criterion: docking score, interactions with important residues.
 - [ ] Assess hits ADMET properties.
-- [ ] Conduct MD simlatons to deterine compounds binding mode stability and binding free energy. 
+- [ ] Conduct MD simulations to determine compounds' binding mode stability and binding free energy. 
 
 ## Description
 
@@ -74,9 +74,9 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 - The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The models that exhibited the greatest Accuracy, F1-score, Balanced Accuracy and ROC AUC [metrics](figures/Lazy_predict_results.jpeg) were selected for validation.
 
-- The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logistic regression. The models can be found [here](output/models). Using K-fold splitting of the training data the models were cross-validated and the models suitability was evaluated using the Accuracy, F1-score, Precision, Recall and Specificity, and false and true positive and negative rate [metrics](figures). 
+- The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logistic regression. The models can be found [here](output/models). Using K-fold splitting of the training data the models were cross-validated and the model's suitability was evaluated using the Accuracy, F1-score, Precision, Recall and Specificity, and false and true positive and negative rate [metrics](figures). 
 
-- The models' prediction ability was assessed using the test data. The models prediction accuracy was determined using Accuracy, F1-score, Precision and Recall [metrics](figures/Model_selection_resulst_test_dataset.png).
+- The models' prediction ability was assessed using the test data. The model's prediction accuracy was determined using Accuracy, F1-score, Precision and Recall [metrics](figures/Model_selection_resulst_test_dataset.png).
 
 - The logistic regression (LR) model exhibited the greatest results on the test dataset and therefore was evaluated on the external dataset. The LR model obtained an 82% active and 98% inactive accuracy.
 
