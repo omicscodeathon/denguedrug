@@ -8,12 +8,12 @@
 [![Github tag](https://badgen.net/github/tag/omicscodeathon/denguedrug)](https://github.com/omicscodeathon/denguedrug/tags/)
 
 # denguedrug
-Deep Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus
+Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus
 
 ## Overview 
 In this project, we are building a _in silico_ pipeline to identify novel dengue virus inhibitors. We will incorporate Deep/Machine Learning (DL/ML) and molecular modelling techniques into the pipeline.
 
-Dengue virus (DENV) is a Flaviviridae family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. The transmission of Dengue virus to humans primarily occurs through mosquito bites from species such as Aedes aegypti and Aedes albopictus, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as dengue hemorrhagic fever (DHF) and dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. 
+Dengue virus (DENV) is a Flaviviridae family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as Aedes aegypti and Aedes albopictus, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as dengue hemorrhagic fever (DHF) and dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. 
 Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow below.
 
 Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars) the repository if you utilise the pipeline for research or commercial purposes
@@ -28,11 +28,11 @@ Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-p
 7. [Credits](#credits)
 
 ## Objectives
-- [X] Identify dengue virus protein target.
-- [X] Identify dengue virus ligand database for DL/ML training and molecular modeling method validation.
-- [X] Determine DL/ML algorithm to be utilised in project.
-- [X] Process ligand database and train DL/ML model.
-- [X] Evaluate DL/ML performance.
+- [X] Identify the Dengue virus protein target.
+- [X] Identify Dengue virus ligand database for ML training and molecular modeling method validation.
+- [X] Determine ML algorithm to be utilised in the project.
+- [X] Process ligand database and train ML model.
+- [X] Evaluate ML performance.
 - [ ] Validate molecular modeling method using prepared ligand database (Actives vs non-actives).
 - [ ] Virtual screening of predicted actives into identified protein crystal structures.
 - [ ] Assess and identify hits using criterion: docking score, interactions with important residues.
@@ -116,7 +116,7 @@ When using the pipeline for research or commercial purposes please [cite](xxx) o
 
 ## How to use
 
-The [documentation](docs) and [tutorial](notebooks) give a general overview of how the pipeline can be utilized for identifying novel Dengue Virus inhibitors.
+The [documentation](docs) and [tutorial](notebooks) give a general overview of how the pipeline can be utilized to identify novel Dengue Virus inhibitors.
 
 **Tutorial 1**
 
