@@ -8,15 +8,16 @@
 [![Github tag](https://badgen.net/github/tag/omicscodeathon/denguedrug)](https://github.com/omicscodeathon/denguedrug/tags/)
 
 # denguedrug
-Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus
+**Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus**
 
 ## Overview 
-In this project, we are building a _in silico_ pipeline to identify novel dengue virus inhibitors. We will incorporate Deep/Machine Learning (DL/ML) and molecular modelling techniques into the pipeline.
+<p align="justify">In this project, we are building a _in silico_ pipeline to identify novel dengue virus inhibitors. We will incorporate Deep/Machine Learning (DL/ML) and molecular modelling techniques into the pipeline.</p>
 
-Dengue virus (DENV) is a Flaviviridae family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as Aedes aegypti and Aedes albopictus, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as dengue hemorrhagic fever (DHF) and dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. 
-Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow below.
+<p align="justify">Dengue virus (DENV) is a <i>Flaviviridae</i> family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as <i>Aedes aegypti</i> and <i>Aedes albopictus</i>, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as dengue hemorrhagic fever (DHF) and dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. 
+Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow below.</p>
 
-Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars) the repository if you utilise the pipeline for research or commercial purposes
+<p align="justify">Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars) the repository if you utilise the pipeline for research or commercial purposes.</p>
+
 
 ## Table of contents
 1. [Objectives](#objectives)
@@ -24,8 +25,9 @@ Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-p
 3. [Manuscript](#manuscript)
 4. [Results](#results)
 5. [How to use](#how-to-use)
-6. [Data availability](#data-availability)
-7. [Credits](#credits)
+6. [Data Availability](#data-availability)
+7. [Reproducibility Prerequisites](#reproducibility-prerequisites)
+8. [Credits](#credits)
 
 ## Objectives
 - [X] Identify the Dengue virus protein target.
@@ -33,7 +35,7 @@ Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-p
 - [X] Determine ML algorithm to be utilised in the project.
 - [X] Process ligand database and train ML model.
 - [X] Evaluate ML performance.
-- [ ] Validate molecular modeling method using prepared ligand database (Actives vs non-actives).
+- [X] Validate molecular modeling method using prepared ligand database (Actives vs non-actives).
 - [ ] Virtual screening of predicted actives into identified protein crystal structures.
 - [ ] Assess and identify hits using criterion: docking score, interactions with important residues.
 - [ ] Assess hits ADMET properties.
@@ -56,7 +58,7 @@ Please [cite](xxx) and [star](https://docs.github.com/en/get-started/exploring-p
 
 **Step 1: Identification of Dengue Virus inhibitors database for ML training**
 
-The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pubchem.ncbi.nlm.nih.gov/bioassay/651640). The ligand database was experimentally generated using (_in vivo_) DENV2 CPE-Based HTS Measured in Cell-Based and Microorganism Combination System method by the [Broad Institute](http://www.broadinstitute.org/). A total of 347,136 compounds were analyzed for their Dengue Virus inhibition and 5,946 actives and 324,845 non-actives were identified. A active is represented as a compound that can exhibit an ATP activity level above 20% at 10 $\mu M$. 
+<p align="justify">The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pubchem.ncbi.nlm.nih.gov/bioassay/651640). The ligand database was experimentally generated using (<i>in vivo</i>) DENV2 CPE-Based HTS Measured in Cell-Based and Microorganism Combination System method by the [Broad Institute](http://www.broadinstitute.org/). A total of 347,136 compounds were analyzed for their Dengue Virus inhibition and 5,946 actives and 324,845 non-actives were identified. A active is represented as a compound that can exhibit an ATP activity level above 20% at 10 $\mu M$.</p>
 
 **Step 2: Preprocessing**
 
@@ -74,7 +76,7 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 - The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The models that exhibited the greatest Accuracy, F1-score, Balanced Accuracy and ROC AUC [metrics](figures/Lazy_predict_results.jpeg) were selected for validation.
 
-- The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logistic regression. The models can be found [here](output/models). Using K-fold splitting of the training data the models were cross-validated and the model's suitability was evaluated using the Accuracy, F1-score, Precision, Recall and Specificity, and false and true positive and negative rate [metrics](figures). 
+- <p align="justify">The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logistic regression. The models can be found [here](output/models). Using K-fold splitting of the training data the models were cross-validated and the model's suitability was evaluated using the Accuracy, F1-score, Precision, Recall and Specificity, and false and true positive and negative rate [metrics](figures).</p>
 
 - The models' prediction ability was assessed using the test data. The model's prediction accuracy was determined using Accuracy, F1-score, Precision and Recall [metrics](figures/Model_selection_resulst_test_dataset.png).
 
@@ -82,7 +84,7 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 **Step 4: Prediction**
 
-- The LR model was employed to screen the [Northern African Natural Products Database (NANPD)](https://african-compounds.org/about/nanpdb/), [East African Natural Products Database (EANPD)](https://african-compounds.org/about/eanpdb/), [AfroDB](https://african-compounds.org/about/afrodb/)and [Tradtional Chinese Medicine (TCM) database](http://tcm.cmu.edu.tw/about01.php?menuid=1).
+- <p align="justify">The LR model was employed to screen the [Northern African Natural Products Database (NANPD)](https://african-compounds.org/about/nanpdb/), [East African Natural Products Database (EANPD)](https://african-compounds.org/about/eanpdb/), [AfroDB](https://african-compounds.org/about/afrodb/)and [Tradtional Chinese Medicine (TCM) database](http://tcm.cmu.edu.tw/about01.php?menuid=1).</p>
 
 - The natural products' chemical structures were prepared in a similar manner as for the training dataset and ~43,000 compounds were screened using the LR model.
 
@@ -103,7 +105,7 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 - The ADMET properties of the identified hits will be predicted using [SwissADME](http://www.swissadme.ch).
 - The hits with potential pharmacokinetic and toxicity moieties will be removed.
 
-**Step 7: Molecular Dynamic (MD) Simulations**
+**Step 7: Molecular Dynamics (MD) Simulations**
 
 - The hits binding mode stability will be assessed through a 100-nanosecond (ns) MD simulations utilising GROMACS.
 - The stability will be assessed using metrics like root-mean-square deviation (RMSD) and fluctuation (RMSF), Radius of Gyration, etc.
@@ -112,11 +114,15 @@ The ligand database was obtained from PubChem [(BioAssay ID: 651640)](https://pu
 
 ## Manuscript
 
-When using the pipeline for research or commercial purposes please [cite](xxx) our research.
+<p align="justify">When using the pipeline for research or commercial purposes please [cite](xxx) our research.</p>
+
+## Results
+
+
 
 ## How to use
 
-The [documentation](docs) and [tutorial](notebooks) give a general overview of how the pipeline can be utilized to identify novel Dengue Virus inhibitors.
+<p align="justify">The [documentation](docs) and [tutorial](notebooks) give a general overview of how the [pipeline](pipeline/README.md) can be utilized to identify novel Dengue Virus inhibitors.</p>
 
 **Tutorial 1**
 
@@ -126,13 +132,13 @@ The [documentation](docs) and [tutorial](notebooks) give a general overview of h
 
 Molecular docking and dynamics
 
-## Data availability
+## Data Availability
 
-The data utilized for the project can be found [here](data)
+The data utilized for the project can be found [here](data).
 
-## Prerequisites
+## Reproducibility Prerequisites
 
-The codes and scripts were run on Python 3.8.
+<p align="justify">The codes and scripts were run on Python 3.8 and Jupyter Notebook version xx.</p>
 
 ## Credits
 
