@@ -1,11 +1,17 @@
-Steps: [Convert the steps into workflow diagram (include tools for each step) and update README.md]
+Steps: [Convert the steps into a workflow diagram (include tools for each step) and update README.md]
 . Pull down the reads
-.
-.
-.
-.
-.
-.
-.
-.
-.
+. Data acquisition.
+. Data preprocessing (Wrangling and Cleaning).
+. Feature engineering and Data selection (for Training, Testing and Model Evaluation).
+. Machine learning model construction, assessment and validation using [Lazy Predict](https://github.com/shankarpandala/lazypredict) Python package.
+. The Machine Learning model with the best prediction accuracy metrics will be selected and pushed into production for active compound prediction on the natural compounds screened.
+. Identification of the Dengue 2 virus envelope protein's crystal structure for structure-based virtual screening.
+. Screening of the active compounds docking to the Dengue 2 envelope protein via AutoDock Vina.
+. Protein-Ligand interactions assessment between important binding site residues and ligands using LigPlot + v1.4.5 and AutoDock Vina binding score recorded.
+. ADMET testing for prediction of ADMET properties of identified hits using SwissADME (hits with potential pharmacokinetic and toxicity moieties will be removed).
+. Molecular Dynamics Simulations
+. Binding Mode Analysis
+. Calculation of compounds binding free energy using Molecular Mechanics Poisson-Boltzmann Surface Area.
+. 
+. 
+. 
