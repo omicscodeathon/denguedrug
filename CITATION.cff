@@ -77,7 +77,7 @@ preferred-citation:
     orcid: "https://orcid.org/0000-0002-4257-3611"
   doi: "10.0000/00000"
   journal: "Journal Title"
-  month: 9
+  month: 10
   start: 1 # First page number
   end: 10 # Last page number
   title: "Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus"
