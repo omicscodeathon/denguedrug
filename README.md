@@ -158,7 +158,7 @@ The data utilized for the project can be found [here](data).
 5. Emmanuel Israel Nsedu - emmanuel.israelpgs@stu.cu.edu.ng
 6. Hem Bondarwad – hembondarwad@gmail.com
 7. Kisaakye Maureen -  maureenkisaakye6@gmail.com
-8. Lewis Tem -  lewistem8@gmail.com
+8. Lewis Tem Bueh -  lewistem8@gmail.com
 9. Luke Zondagh -  lukeshandzondagh@gmail.com
 10. Soham Amod Shirolkar -  sohamshirolkar@usf.edu
 
