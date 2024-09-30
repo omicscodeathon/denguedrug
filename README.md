@@ -146,7 +146,7 @@ The data utilized for the project can be found [here](data).
 
 ## Reproducibility Prerequisites
 
-<p align="justify">The codes and scripts were run on Python 3.8, Anaconda xx and Jupyter Notebook version xx.</p>
+<p align="justify">The codes and scripts were run on Python 3.8, Anaconda xx and Jupyter Notebook version xx. R version 4.3.0 was used for some of the data visualization.</p>
 
 ## Credits
 
