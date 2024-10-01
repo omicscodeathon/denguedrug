@@ -161,5 +161,6 @@ The data utilized for the project can be found [here](data).
 8. Lewis Tem Bueh -  lewistem8@gmail.com
 9. Luke Zondagh -  lukeshandzondagh@gmail.com
 10. Soham Amod Shirolkar -  sohamshirolkar@usf.edu
+11. Olaitan I. Awe - laitanawe@gmail.com
 
 
