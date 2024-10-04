@@ -1,0 +1,27 @@
+
+[ bondtypes ]
+;      i        j  func           b0           kb
+
+
+[ angletypes ]
+;      i        j        k  func       theta0       ktheta          ub0          kub
+   CG2O1   CG2R51   CG3C52     5   119.830000   379.488800   0.00000000         0.00
+
+
+[ dihedraltypes ]
+;      i        j        k        l  func         phi0         kphi  mult
+   NG2S1    CG2O1   CG2R51   CG3C52     9   180.000000     4.602400     2
+   NG2S1    CG2O1   CG2R51   CG3C52     9     0.000000     1.255200     4
+   OG2D1    CG2O1   CG2R51   CG3C52     9   180.000000     4.602400     2
+   OG2D1    CG2O1   CG2R51   CG3C52     9     0.000000     1.255200     4
+  CG2R51    CG2O1    NG2S1   CG2R61     9     0.000000     6.694400     1
+  CG2R51    CG2O1    NG2S1   CG2R61     9   180.000000    10.460000     2
+   CG2O1   CG2R51   CG2R51    CG331     9   180.000000     0.000000     2
+   CG2O1   CG2R51   CG2R51   OG3C51     9   180.000000     8.315700     2
+   CG2O1   CG2R51   CG3C52   NG3C51     9   180.000000     2.928800     3
+   CG2O1   CG2R51   CG3C52     HGA2     9     0.000000     0.000000     3
+
+
+[ dihedraltypes ]
+; 'improper' dihedrals 
+;      i        j        k        l  func         phi0         kphi
