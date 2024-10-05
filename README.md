@@ -12,7 +12,7 @@
 
 ## Overview 
 <p align="justify">
-  In this project, we are building a <i>in silico</i> pipeline to identify novel dengue virus inhibitors. We will incorporate Deep/Machine Learning (DL/ML) and molecular modelling techniques into the pipeline.
+  In this project, we are building a <i>in silico</i> pipeline to identify novel dengue virus inhibitors. We will incorporate Deep/Machine Learning (DL/ML) and molecular modeling techniques into the pipeline.
 </p>
 
 <p align="justify">
@@ -21,15 +21,30 @@ Our approach seeks to train different machine learning models using the Anti-Den
 </p>
 
 <p align="justify">
-  Please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> and <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars">star</a> the repository if you utilise the pipeline for research or commercial purposes.
+  Please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> and <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars">star</a> the repository if you utilize the pipeline for research or commercial purposes.
 </p>
 
 
 ## Table of contents
 1. [Objectives](#objectives)
 2. [Description](#description)
+   - [Identification of Dengue Virus inhibitors database for ML training](#step-1-identification-of-dengue-virus-inhibitors-database-for-ml-training)
+   - [Preprocessing](#step-2-preprocessing)
+   - [Model construction](#step-3-model-construction)
+   - [Prediction](#step-4-prediction)
+   - [Molecular Docking](#step-5-molecular-docking)
+   - [ADMET prediction](#step-6-admet-prediction)
+   - [Molecular Dynamics (MD) Simulations](#step-7-molecular-dynamics-md-simulations)
 3. [Manuscript](#manuscript)
 4. [Results](#results)
+   - [Data Acquisition and Processing](#data-acquisition-and-processing)
+   - [Model Development and Evaluation](#model-development-and-evaluation)
+   - [Prediction of Inhibitors and Compounds](#prediction-of-inhibitors-and-new-compounds)
+   - [Target Selection and Molecular Docking of Predicted Compounds](#target-selection-and-molecular-docking-of-predicted-compounds)
+   - [Mechanism of Binding Characterization of Selected Compounds](#mechanism-of-binding-characterization-of-selected-compounds)
+   - [ADMET Screening of Selected Compounds](#admet-screening-of-selected-compounds)
+   - [Molecular Dynamics Simulations](#molecular-dynamics-simulations)
+   - [MMPBSA Computations](#mmpbsa-computations)
 5. [How to use](#how-to-use)
 6. [Data Availability](#data-availability)
 7. [Reproducibility Prerequisites](#reproducibility-prerequisites)
@@ -38,12 +53,12 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ## Objectives
 - [X] Identify the Dengue virus protein target.
 - [X] Identify Dengue virus ligand database for ML training and molecular modeling method validation.
-- [X] Determine ML algorithm to be utilised in the project.
+- [X] Determine ML algorithm to be utilized in the project.
 - [X] Process ligand database and train ML model.
 - [X] Evaluate ML performance.
 - [X] Validate molecular modeling method using prepared ligand database (Actives vs Non-actives).
-- [ ] Virtual screening of predicted actives into identified protein crystal structures.
-- [ ] Assess and identify hits using criterion: docking score, interactions with important residues.
+- [X] Virtual screening of predicted actives into identified protein crystal structures.
+- [X] Assess and identify hits using criterion: docking score, interactions with important residues.
 - [ ] Assess hits ADMET properties.
 - [ ] Conduct MD simulations to determine compounds' binding mode stability and binding free energy. 
 
@@ -58,17 +73,17 @@ Our approach seeks to train different machine learning models using the Anti-Den
   <img src="workflow/DengueDrug%20project%20workflow%20diagram.png" alt="Proposed Dengue Drug Identification Pipeline" title="Proposed Dengue Drug Identification Pipeline" width="800"/>
   <br>
   <font size="1">
-  Proposed Dengue Drug Identification Pipeline</a>
+  <b>Proposed Dengue Drug Identification Pipeline</b>
   </font>
 </p>
 
-**Step 1: Identification of Dengue Virus inhibitors database for ML training**
+### Step 1: Identification of Dengue Virus inhibitors database for ML training
 
 <p align="justify">
   The ligand database was obtained from PubChem <a href="https://pubchem.ncbi.nlm.nih.gov/bioassay/651640">BioAssay ID: 651640</a>. The ligand database was experimentally generated using (<i>in vivo</i>) DENV2 CPE-Based HTS Measured in Cell-Based and Microorganism Combination System method by the <a href="http://www.broadinstitute.org/">Broad Institute</a>. A total of 347,136 compounds were analyzed for their Dengue Virus inhibition and 5,946 actives and 324,845 non-actives were identified. An active is represented as a compound that can exhibit an ATP activity level above 20% at 10 $\mu M$.
 </p>
 
-**Step 2: Preprocessing**
+### Step 2: Preprocessing
 
  - The unprocessed database can be found [here](data/unprocessed_database_PubChem_651640).
 
@@ -78,19 +93,19 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
  - The data was then standardized using the mean and standard deviation [metrics](data/metrics.csv)
 
-**Step 3: Model construction**
+### Step 3: Model construction
 
-- The data was split into training, test and external datasets. The training dataset was equivalent to 70% (14875 compounds) of the data set and the test and external data sets were equivalent to 15% (~3188) each. The training dataset contained 3105 actives vs 11770 inactives.
+- The data was split into training, test, and external datasets. The training dataset was equivalent to 70% (14875 compounds) of the data set and the test and external data sets were equivalent to 15% (~3188) each. The training dataset contained 3105 actives vs 11770 inactives.
 
 - The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The models that exhibited the greatest Accuracy, F1-score, Balanced Accuracy and ROC AUC [metrics](figures/Lazy_predict_results.jpeg) were selected for validation.
 
-- <p align="justify">The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logistic regression. The models can be found <a href="output/models">here</a>. Using K-fold splitting of the training data the models were cross-validated and the model's suitability was evaluated using the Accuracy, F1-score, Precision, Recall and Specificity, and false and true positive and negative rate <a href="ML_results_for_model_selection.jpeg">metrics</a>.</p>
+- <p align="justify">The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logistic regression. The models can be found <a href="output/models">here</a>. Using K-fold splitting of the training data the models were cross-validated and the model's suitability was evaluated using the Accuracy, F1-score, Precision, Recall, and Specificity, and false and true positive and negative rate <a href="ML_results_for_model_selection.jpeg">metrics</a>.</p>
 
-- The models' prediction ability was assessed using the test data. The model's prediction accuracy was determined using Accuracy, F1-score, Precision and Recall [metrics](figures/Model_selection_results_on_test_dataset.png).
+- The models' prediction ability was assessed using the test data. The model's prediction accuracy was determined using Accuracy, F1-score, Precision, and Recall [metrics](figures/Model_selection_results_on_test_dataset.png).
 
 - The logistic regression (LR) model exhibited the greatest results on the test dataset and therefore was evaluated on the external dataset. The LR model obtained an 82% active and 98% inactive accuracy.
 
-**Step 4: Prediction**
+### Step 4: Prediction
 
 - <p align="justify">The LR model was employed to screen the <a href="https://african-compounds.org/about/nanpdb/">Northern African Natural Products Database (NANPD)</a>, <a href="https://african-compounds.org/about/eanpdb/">East African Natural Products Database (EANPD)</a>, <a href="https://african-compounds.org/about/afrodb/">AfroDB</a> and <a href="http://tcm.cmu.edu.tw/about01.php?menuid=1">Tradtional Chinese Medicine (TCM) database</a>.</p>
 
@@ -98,7 +113,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
 - 7,722 compounds were predicted to be active and subsequently utilized for molecular docking
 
-**Step 5: Molecular Docking**
+### Step 5: Molecular Docking
 
 - The crystal structure of the dengue 2 virus envelope protein ([PDB: 10KE](https://doi.org/10.2210/pdb1OKE/pdb)) was identified for structure-based virtual screening.
 
@@ -108,17 +123,17 @@ Our approach seeks to train different machine learning models using the Anti-Den
   - AutoDock Vina binding score
   - Presence of binding interactions between important binding site residues and ligand (LigPlot + v1.4.5).
  
-**Step 6: ADMET prediction**
+### Step 6: ADMET prediction
 
 - The ADMET properties of the identified hits will be predicted using [SwissADME](http://www.swissadme.ch).
 - The hits with potential pharmacokinetic and toxicity moieties will be removed.
 
-**Step 7: Molecular Dynamics (MD) Simulations**
+### Step 7: Molecular Dynamics (MD) Simulations
 
-- The hits binding mode stability will be assessed through a 100-nanosecond (ns) MD simulations utilising GROMACS.
+- The hits binding mode stability will be assessed through a 100-nanosecond (ns) MD simulations utilizing GROMACS.
 - The stability will be assessed using metrics like root-mean-square deviation (RMSD) and fluctuation (RMSF), Radius of Gyration, etc.
 - The compounds binding interactions retention with important residues throughout the MD simulations will be assessed with the [ProLIF](https://prolif.readthedocs.io/en/stable/) python library.
-- The compounds binding free energy throughout the MD simulation were calculated using Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA).
+- The compounds' binding free energies throughout the MD simulation were calculated using Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA).
 
 ## Manuscript
 
@@ -126,7 +141,98 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
 ## Results
 
+<p align="justify">
+  From the various analyses and computations performed throughout this <i>in silico</i> exploration, the following results were obtained and observations made.
+</p>
 
+---
+
+### Data Acquisition and Processing
+
+<p align="justify">
+  The bioactive dataset obtained from PubChem consisted of imbalanced data from which 1/3 where active compounds. As shown below, inactive compounds dominated the dataset. Using PaDEL, 1,444 molecular descriptors were generated, providing a mathematical representation of the compounds for QSAR modeling by converting chemical information about the compounds into numerical values. The dataset of 21,250 compounds was split into training, validation, and test sets, as follows: 14,875 training data, 3,187 test data, and 3,188 externally held data. Applying a variance filter reduced the number of descriptors from 1,444 to 684 using a variance threshold of 0.1 to filter out descriptors with minimal variance, ensuring that only the most informative features were retained for subsequent modeling. 
+</p>
+<p align="center">
+  <br>
+  </font> 
+  <img src="figures/Correlation%20between%20actives%20and%20inactives%20from%20ML_legend.png" title="3D plot showing the correlation between the active and inactive compounds based on ALogP, XLogP, and Zagreb" width="650"/>
+  <br>
+  <font size="1">
+  3D plot showing the correlation between the active and inactive compounds based on ALogP, XLogP, and Zagreb.
+  </font>
+</p>
+
+### Model Development and Evaluation
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+### Prediction of Inhibitors and New Compounds 
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+### Target Selection and Molecular Docking of Predicted Compounds
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+### Mechanism of Binding Characterization of selected compounds
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+### ADMET Screening of Selected Compounds
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+### Molecular Dynamics Simulations
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+#### Root mean square deviation (RMSD) for 100 ns MD simulations
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+#### Radius of gyration for 100 ns MD simulations
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+#### Root mean square fluctuations (RMSF) for 100 ns MD simulations
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+### MMPBSA Computations
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+#### Contributing Energy Terms 
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+#### Per-residue Energy Decomposition
+
+<p align="justify">
+  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
 
 ## How to use
 
