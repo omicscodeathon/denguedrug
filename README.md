@@ -97,7 +97,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
 - The data was split into training, test, and external datasets. The training dataset was equivalent to 70% (14875 compounds) of the data set and the test and external data sets were equivalent to 15% (~3188) each. The training dataset contained 3105 actives vs 11770 inactives.
 
-- The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The models that exhibited the greatest Accuracy, F1-score, Balanced Accuracy and ROC AUC [metrics](figures/Lazy_predict_results.jpeg) were selected for validation.
+- The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The models that exhibited the greatest Accuracy, F1-score, Balanced Accuracy, and ROC AUC [metrics](figures/Lazy_predict_results.jpeg) were selected for validation.
 
 - <p align="justify">The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logistic regression. The models can be found <a href="output/models">here</a>. Using K-fold splitting of the training data the models were cross-validated and the model's suitability was evaluated using the Accuracy, F1-score, Precision, Recall, and Specificity, and false and true positive and negative rate <a href="ML_results_for_model_selection.jpeg">metrics</a>.</p>
 
@@ -130,7 +130,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
 ### Step 7: Molecular Dynamics (MD) Simulations
 
-- The hits binding mode stability will be assessed through a 100-nanosecond (ns) MD simulations utilizing GROMACS.
+- The hits binding mode stability will be assessed through 100-nanosecond (ns) MD simulations utilizing GROMACS.
 - The stability will be assessed using metrics like root-mean-square deviation (RMSD) and fluctuation (RMSF), Radius of Gyration, etc.
 - The compounds binding interactions retention with important residues throughout the MD simulations will be assessed with the [ProLIF](https://prolif.readthedocs.io/en/stable/) python library.
 - The compounds' binding free energies throughout the MD simulation were calculated using Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA).
@@ -150,7 +150,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Data Acquisition and Processing
 
 <p align="justify">
-  The bioactive dataset obtained from PubChem consisted of imbalanced data from which 1/3 where active compounds. As shown below, inactive compounds dominated the dataset. Using PaDEL, 1,444 molecular descriptors were generated, providing a mathematical representation of the compounds for QSAR modeling by converting chemical information about the compounds into numerical values. The dataset of 21,250 compounds was split into training, validation, and test sets, as follows: 14,875 training data, 3,187 test data, and 3,188 externally held data. Applying a variance filter reduced the number of descriptors from 1,444 to 684 using a variance threshold of 0.1 to filter out descriptors with minimal variance, ensuring that only the most informative features were retained for subsequent modeling. 
+  The bioactive dataset obtained from PubChem consisted of imbalanced data from which 1/3 where active compounds. As shown below, inactive compounds dominated the dataset. Using PaDEL, 1,444 molecular descriptors were generated, providing a mathematical representation of the compounds for QSAR modeling by converting chemical information about the compounds into numerical values. The dataset of 21,250 compounds was split into training, validation, and test sets as follows: 14,875 training data, 3,187 test data, and 3,188 externally held data. Applying a variance filter reduced the number of descriptors from 1,444 to 684 using a variance threshold of 0.1 to filter out descriptors with minimal variance, ensuring that only the most informative features were retained for subsequent modeling. 
 </p>
 <p align="center">
   <br>
@@ -158,21 +158,45 @@ Our approach seeks to train different machine learning models using the Anti-Den
   <img src="figures/Correlation%20between%20actives%20and%20inactives%20from%20ML_legend.png" title="3D plot showing the correlation between the active and inactive compounds based on ALogP, XLogP, and Zagreb" width="650"/>
   <br>
   <font size="1">
-  3D plot showing the correlation between the active and inactive compounds based on ALogP, XLogP, and Zagreb.
+  <b>3D plot showing the correlation between the active and inactive compounds based on ALogP, XLogP, and Zagreb.</b>
   </font>
 </p>
+
+---
 
 ### Model Development and Evaluation
 
 <p align="justify">
-  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+ Five machine learning algorithms (k-NN, Gaussian Naïve Bayes, SVM, Random Forest, and Logistic Regression) were employed to build robust predictive models, each assessed based on several statistical parameters including accuracy, precision, recall, and F1 score. LR produced the best results across most metrics, followed by the SVM model. The results of each model's performance are shown below.
 </p>
+  
+| Model | Accuracy | Precision | Recall | F1 Score |
+| :---- | :------: | :-------: | :----: | :------: |
+| LR    | 0.94     | 0.91      | 0.76   | 0.83     |
+| SVM   | 0.93     | 0.94      | 0.71   | 0.81     |
+| KNN   | 0.92     | 0.89      | 0.68   | 0.77     |
+| RF    | 0.91     | 0.94      | 0.60   | 0.73     |
+| NB    | 0.81     | 0.55      | 0.47   | 0.51     |
+
+<p align="center">
+  <br>
+  </font> 
+  <img src="figures/ML_Val_Results.jpeg" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="800"/>
+  <br>
+  <font size="1">
+  <b>Bar plot of model performance of each model based on statistical evaluation parameters.</b>
+  </font>
+</p>
+
+---
 
 ### Prediction of Inhibitors and New Compounds 
 
 <p align="justify">
-  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+  To further validate model performance, 18 known Dengue Virus inhibitors were retrieved from literature and used as initial test data before predicting new data. The names, IC50s, mechanism of action as well as predictions are detailed in Table 2. The Logistic Regression model predicted 11 of these inhibitors as active, showing superior performance compared to the other models. Preprocessing of these compounds was conducted in the same manner as the training data to commence the prediction of the new compounds, ensuring consistency in descriptor calculation and transformation. The Logistic Regression model was employed to predict 812 compounds from the ZINC database and 1871 from the EANPDB database. The predictions aimed to identify new, promising compounds that could act as Dengue Virus inhibitors, expanding the pool of potential candidates for further validation.  A total of 933 out of the 2683 were predicted to be active by the logistic regression model.
 </p>
+
+---
 
 ### Target Selection and Molecular Docking of Predicted Compounds
 
@@ -180,17 +204,23 @@ Our approach seeks to train different machine learning models using the Anti-Den
   When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
 </p>
 
+-----
+
 ### Mechanism of Binding Characterization of selected compounds
 
 <p align="justify">
   When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
 </p>
 
+-----
+
 ### ADMET Screening of Selected Compounds
 
 <p align="justify">
   When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
 </p>
+
+------
 
 ### Molecular Dynamics Simulations
 
@@ -216,6 +246,8 @@ Our approach seeks to train different machine learning models using the Anti-Den
   When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
 </p>
 
+------
+
 ### MMPBSA Computations
 
 <p align="justify">
@@ -233,6 +265,8 @@ Our approach seeks to train different machine learning models using the Anti-Den
 <p align="justify">
   When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
 </p>
+
+-------
 
 ## How to use
 
