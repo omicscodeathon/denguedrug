@@ -240,10 +240,129 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Prediction of Inhibitors and New Compounds 
 
 <p align="justify">
-  18 known Dengue Virus inhibitors retrieved from literature were used for initial testing and further validation of the model performance. The Logistic Regression model predicted 11 of these inhibitors as active, outperforming the other models. Preprocessing of these compounds was conducted in the same manner as the training data to commence the prediction of the new compounds, ensuring consistency in descriptor calculation and transformation. The Logistic Regression model was employed to predict 812 compounds from the ZINC database and 1871 from the EANPDB database. The predictions aimed to identify new, promising compounds that could act as Dengue Virus inhibitors, expanding the pool of potential candidates for further validation.  A total of 933 out of the 2683 were predicted to be active by the logistic regression model.
+  18 known Dengue Virus inhibitors retrieved from literature were used for initial testing and further validation of the model performance. The Logistic Regression model predicted 11 of these inhibitors as active, outperforming the other models as seen in the table below. Preprocessing of these compounds was conducted in the same manner as the training data to ensure consistency in descriptor calculation and transformation. Pentoxifylline, Prochlorperazine, and Balapiravir were correctly classified by LR, just to cite a few. The Logistic Regression model was employed to predict 812 compounds from the ZINC database and 1871 from the EANPDB database. Of the 2683 assessed compounds, 933 were predicted to be active and suitable for further exploration.
 </p>
 
----
+<p align=center>
+  <table>
+    <tr>
+      <th>Inhibitors</th>
+      <th>Prediction</th>
+      <th>Mechanism of Action</th>
+      <th>References</th>
+    </tr>
+    <tr>
+      <td>Pentoxifylline</td>
+      <td>1</td>
+      <td>Immune modulation</td>
+      <td><a href="https://doi.org/10.1097/INF.0b013e3182575e6a">Salgado et al., 2012</a></td>
+    </tr>
+    <tr>
+      <td>4-hydroxyphenyl retinamide</td>
+      <td>0</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/10.1128/AAC.04177-14">Carocci et al., 2015</a>; <a href="https://doi.org/10.1093/infdis/jiu319">Fraser et al., 2014</a></td>
+    </tr>
+    <tr>
+      <td>Prochlorperazine</td>
+      <td>1</td>
+      <td>Inhibits viral binding and viral entry</td>
+      <td><a href="https://doi.org/10.1093/infdis/jiu377">Simanjuntak et al., 2015</a></td>
+    </tr>
+    <tr>
+      <td>Balapiravir</td>
+      <td>1</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/10.1093/infdis/jis470">Nguyen et al., 2013</a></td>
+    </tr>
+    <tr>
+     <td>Bortezomib</td>
+      <td>1</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/10.1016/j.chembiol.2022.10.003">Ci et al., 2023</a></td>
+    </tr>
+    <tr>
+     <td>Leflunomide</td>
+      <td>1</td>
+      <td>Immunosuppressive effects</td>
+      <td><a href="https://doi.org/10.1007/s10875-011-9578-7">Wu et al., 2011</a></td>
+    </tr>
+    <tr>
+     <td>SKI-417616</td>
+      <td>1</td>
+      <td>Inhibition of D4R suppressed DENV infection</td>
+      <td><a href="https://doi.org/10.1128/JVI.00365-14">Smith et al., 2014</a></td>
+    </tr>
+    <tr>
+     <td>Celgosivir</td>
+      <td>1</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/10.1248/cpb.c17-00794">Tian et al., 2018</a></td>
+    </tr>
+    <tr>
+     <td>UV-4B</td>
+      <td>1</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/10.3390/v13050771">Franco et al., 2021</a></td>
+    </tr>
+    <tr>
+     <td>2-C-methylcytidine</td>
+      <td>0</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/10.1016/j.antiviral.2015.01.002">Lee et al., 2015</a></td>
+    </tr>
+    <tr>
+     <td>Ketotifen</td>
+      <td>1</td>
+      <td>Vascular leakage</td>
+      <td><a href="https://doi.org/https://doi.org/10.1016/j.bcp.2017.01.005">Lai et al., 2017</a></td>
+    </tr>
+    <tr>
+     <td>Chloroquine</td>
+      <td>1</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/https://doi.org/10.1016/j.bcp.2017.01.005">Lai et al., 2017</a></td>
+    </tr>
+    <tr>
+     <td>Dasatinib</td>
+      <td>0</td>
+      <td>RNA replication inhibition</td>
+      <td><a href="https://doi.org/10.1128/JVI.00632-13">de Wispelaere et al., 2013</a></td>
+    </tr>
+    <tr>
+     <td>Lovastatin</td>
+      <td>0</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/10.1093/cid/civ949">Whitehorn et al., 2016</a></td>
+    </tr>
+    <tr>
+     <td>ST-148</td>
+      <td>0</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/10.1128/AAC.01429-12">Byrd et al., 2013</a></td>
+    </tr>
+    <tr>
+     <td>Dexamethasone</td>
+      <td>0</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/10.1136/pgmj.2008.078444">Kularatne et al., 2009</a></td>
+    </tr>
+    <tr>
+     <td>Prednisolone</td>
+      <td>1</td>
+      <td>Inhibits viral replication</td>
+      <td><a href="https://doi.org/https://doi.org/10.1016/j.bcp.2017.01.005">Lai et al., 2017</a></td>
+    </tr>
+    <tr>
+     <td>Ivermectin</td>
+      <td>0</td>
+      <td>Helicase inhibition</td>
+      <td><a href="https://doi.org/10.1371/journal.pntd.0006934">Xu et al., 2018</a></td>
+    </tr>
+  </table>
+</p>
+
+-----
 
 ### Target Selection and Molecular Docking of Predicted Compounds
 
