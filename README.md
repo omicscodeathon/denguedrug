@@ -155,7 +155,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 <p align="center">
   <br>
   </font> 
-  <img src="figures/Correlation%20between%20actives%20and%20inactives%20from%20ML_legend.png" title="3D plot showing the correlation between the active and inactive compounds based on ALogP, XLogP, and Zagreb" width="650"/>
+  <img src="figures/Correlation%20between%20actives%20and%20inactives%20from%20ML_legend.jpeg" title="Three-dimensional plot showing the correlation between the active and inactive compounds from the processed data based on ALogP, XLogP, and Zagreb" width="650"/>
   <br>
   <font size="1">
   <b>3D plot showing the correlation between the active and inactive compounds based on ALogP, XLogP, and Zagreb.</b>
@@ -193,7 +193,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Prediction of Inhibitors and New Compounds 
 
 <p align="justify">
-  To further validate model performance, 18 known Dengue Virus inhibitors were retrieved from literature and used as initial test data before predicting new data. The names, IC50s, mechanism of action as well as predictions are detailed in Table 2. The Logistic Regression model predicted 11 of these inhibitors as active, showing superior performance compared to the other models. Preprocessing of these compounds was conducted in the same manner as the training data to commence the prediction of the new compounds, ensuring consistency in descriptor calculation and transformation. The Logistic Regression model was employed to predict 812 compounds from the ZINC database and 1871 from the EANPDB database. The predictions aimed to identify new, promising compounds that could act as Dengue Virus inhibitors, expanding the pool of potential candidates for further validation.  A total of 933 out of the 2683 were predicted to be active by the logistic regression model.
+  18 known Dengue Virus inhibitors retrieved from literature were used for initial testing and further validation of the model performance. The Logistic Regression model predicted 11 of these inhibitors as active, outperforming the other models. Preprocessing of these compounds was conducted in the same manner as the training data to commence the prediction of the new compounds, ensuring consistency in descriptor calculation and transformation. The Logistic Regression model was employed to predict 812 compounds from the ZINC database and 1871 from the EANPDB database. The predictions aimed to identify new, promising compounds that could act as Dengue Virus inhibitors, expanding the pool of potential candidates for further validation.  A total of 933 out of the 2683 were predicted to be active by the logistic regression model.
 </p>
 
 ---
