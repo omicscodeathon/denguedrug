@@ -169,7 +169,54 @@ Our approach seeks to train different machine learning models using the Anti-Den
 <p align="justify">
  Five machine learning algorithms (k-NN, Gaussian Naïve Bayes, SVM, Random Forest, and Logistic Regression) were employed to build robust predictive models, each assessed based on several statistical parameters including accuracy, precision, recall, and F1 score. LR produced the best results across most metrics, followed by the SVM model. The results of each model's performance are shown below.
 </p>
-  
+
+<!---
+  <table>
+    <tr>
+      <th>Model</th>
+      <th>Accuracy</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1 Score</th>
+    </tr>
+    <tr>
+      <td>LR</td>
+      <td>0.94</td>
+      <td>0.91</td>
+      <td>0.76</td>
+      <td>0.83</td>
+    </tr>
+    <tr>
+      <td>SVM</td>
+      <td>0.93</td>
+      <td>0.94</td>
+      <td>0.71</td>
+      <td>0.81</td>
+    </tr>
+    <tr>
+      <td>KNN</td>
+      <td>0.92</td>
+      <td>0.89</td>
+      <td>0.68</td>
+      <td>0.77</td>
+    </tr>
+    <tr>
+      <td>RF</td>
+      <td>0.91</td>
+      <td>0.94</td>
+      <td>0.60</td>
+      <td>0.73</td>
+    </tr>
+    <tr>
+      <td>NB</td>
+      <td>0.81</td>
+      <td>0.55</td>
+      <td>0.47</td>
+      <td>0.51</td>
+    </tr>
+  </table>
+--->
+
 | Model | Accuracy | Precision | Recall | F1 Score |
 | :---- | :------: | :-------: | :----: | :------: |
 | LR    | 0.94     | 0.91      | 0.76   | 0.83     |
