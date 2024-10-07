@@ -17,13 +17,48 @@
 
 <p align="justify">
   Dengue virus (DENV) is a <i>Flaviviridae</i> family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as <i>Aedes aegypti</i> and <i>Aedes albopictus</i>, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as Dengue hemorrhagic fever (DHF) and Dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. 
-Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow below.
+Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow presented in the <a href="#description">description</a> below.
 </p>
+
+
+```geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "ID": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+              [25,33],
+              [31,31],
+              [38,20],
+              [44,12],
+              [52,11.5],
+              [47,2],
+              [39,-5],
+              [41.5,-15],
+              [35,-20],
+              [30,-23],
+              [21,-18],
+              [25,33]
+          ]
+        ]
+      }
+    }
+  ]
+}
+```
+<p align="center"><b>East Africa Coordinate Mapping.</b></p>
 
 <p align="justify">
   Please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> and <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars">star</a> the repository if you utilize the pipeline for research or commercial purposes.
 </p>
-
 
 ## Table of contents
 1. [Objectives](#objectives)
@@ -53,14 +88,15 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ## Objectives
 - [X] Identify the Dengue virus protein target.
 - [X] Identify Dengue virus ligand database for ML training and molecular modeling method validation.
-- [X] Determine ML algorithm to be utilized in the project.
+- [X] Determine ML `python` algorithm to be utilized in the project.
 - [X] Process ligand database and train ML model.
-- [X] Evaluate ML performance.
+- [X] Evaluate ML performance and perform EDA.
 - [X] Validate molecular modeling method using prepared ligand database (Actives vs Non-actives).
 - [X] Virtual screening of predicted actives into identified protein crystal structures.
 - [X] Assess and identify hits using criterion: docking score, interactions with important residues.
-- [ ] Assess hits ADMET properties.
-- [ ] Conduct MD simulations to determine compounds' binding mode stability and binding free energy. 
+- [X] Assess hits ADMET properties.
+- [X] Conduct MD simulations to determine compounds' binding mode stability and binding free energy.
+- [X] Compile results.
 
 ## Description
 
@@ -240,7 +276,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Prediction of Inhibitors and New Compounds 
 
 <p align="justify">
-  18 known Dengue Virus inhibitors retrieved from literature were used for initial testing and further validation of the model performance. The Logistic Regression model predicted 11 of these inhibitors as active, outperforming the other models as seen in the table below. Preprocessing of these compounds was conducted in the same manner as the training data to ensure consistency in descriptor calculation and transformation. Pentoxifylline, Prochlorperazine, and Balapiravir were correctly classified by LR, just to cite a few. The Logistic Regression model was employed to predict 812 compounds from the ZINC database and 1871 from the EANPDB database. Of the 2683 assessed compounds, 933 were predicted to be active and suitable for further exploration.
+  18 known Dengue Virus inhibitors retrieved from literature were used for initial testing and further validation of the model performance. The Logistic Regression model predicted 11 of these inhibitors as active, outperforming the other models as seen in the table below. Preprocessing of these compounds was conducted in the same manner as the training data to ensure consistency in descriptor calculation and transformation. Pentoxifylline, Prochlorperazine, and Balapiravir were correctly classified by LR, just to cite a few. The Logistic Regression model was employed to predict 812 compounds from the ZINC database and 1871 from the EANPDB database. Of the 2683 assessed compounds, <a href="output/ML output">933 compounds</a> were predicted to be active and suitable for further exploration. This approach sought to highlight the importance of appropriate descriptor selection and data preprocessing in QSAR modeling towards effectively handling imbalanced data.
 </p>
 
 <p align=center>
@@ -360,6 +396,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
       <td><a href="https://doi.org/10.1371/journal.pntd.0006934">Xu et al., 2018</a></td>
     </tr>
   </table>
+  0 = Inactive; 1 = Active
 </p>
 
 -----
@@ -367,7 +404,28 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Target Selection and Molecular Docking of Predicted Compounds
 
 <p align="justify">
-  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+  In this study, the NS2B/NS3 protease was preferentially selected as the target structure amongst the seven nonstructural proteins of the Dengue Virus for confirmation of the LR model prediction model. The NS2B/NS3 protease is an essential enzyme for viral replication and assembly, making it one of the principal antiviral targets for developing therapeutics against the virus. There are two potential locations for inhibiting DENV protease: the active site; and the attachment site of protease (NS3) to its protein cofactor (NS2B). The active site on the NS3 which is the prime target is made up of a conserved catalytic triad like His51-Asp75-Ser135. Exploration via the Protein Data Bank repository in search of a solved structure of the NS2B/NS3 for the Dengue Virus serotype showed IDs like 4M9T, 2FOM, 4M9M, and 4M9I with resolutions 1.74, 1.50, 1.53, 2.40 Å and R-value work of 0.215, 0.176, 0.203 and 0.215 respectively. The 2FOM, solved using x-ray diffraction, was selected for this study since it had the lowest resolution and R-value. The three-dimensional structure of the 2FOM with a ligand docked in the active site can be seen below.
+</p>
+
+<p align="center">
+  <br>
+  </font> 
+  <img src="figures/NS2BNS3 protease structure.png" title="PyMOL visualization of NS2B/NS3 protease structure with ligand docking representation" width="800"/>
+  <br>
+  <font size="1">
+  <b>PyMOL visualization of NS2B/NS3 protease structure with ligand docking. [A. Pale-yellow cartoon structure representation; B. Light-green surface representation of protein with a ligand (blue) docked in its active site].</b>
+  </font>
+</p>
+
+<p align="justify">
+  A total of 853 compounds from the Logistic Regression prediction were docked into the active site of the target using <a href="https://doi.org/10.1002/jcc.21334">Autodock Vina</a>. Anhydrophlegmacin showed the highest binding affinity of -9.2 kcal/mol towards the protease amongst all docked ligands. The docked compounds demonstrated binding affinities between -9.2 and -3.6 kcal/mol, reinforcing the prediction ability of the LR model. Applying a threshold of -8.0 kcal, <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">59 compounds</a> with energies of -8.0 kcal/mol or better were selected for further analysis. This threshold was higher than -7.0 kcal/mol, taken as standard threshold for a compound to be considered active against a particular target (<a href="https://doi.org/10.1002/cbdv.202200160">Kwofie et al., 2022</a>). The higher the binding affinity, the stronger the bond between the ligands and the target protein. The protein in the complex with the ligands was visually inspected using PyMOL (Fig. 4) to select the best-docked possess. In addition, inhibitors such as Leflunomide and Prednisolone were also incorporated into the docking to act as a control. They demonstrated binding affinities of 7.1 and 7.0 kcal/mol. Table 3 shows the binding affinities of the top 20 of the selected compounds and the inhibitors.
+</p>
+
+
+<p align=justify>
+After analysis via AutoDock Vina, the <a href="https://github.com/omicscodeathon/denguedrug/blob/main/output/Molecular%20Docking/rank_vina">output file</a> from energy minimization of the natural compounds were translated to <a href="https://github.com/omicscodeathon/denguedrug/blob/main/output/Molecular%20Docking/target1.pdbqt">Protein Data Bank format</a> and used to obtain <a href="https://github.com/omicscodeathon/denguedrug/blob/main/output/Molecular%20Docking/ranked_output.tab">ranked outputs</a> arranged in decreasing order of binding affinity.
+
+The detailed structure of the various predicted ligands and the resultant binding affinities for the 933 processed compounds can be found in their <a href="https://github.com/omicscodeathon/denguedrug/blob/main/output/Molecular%20Docking/detail_structures.zip">designated folders</a>.
 </p>
 
 -----
@@ -376,6 +434,16 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
 <p align="justify">
   When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+<p align="center">
+  <br>
+  </font> 
+  <img src="figures/ZIN38628344 protein-ligand interaction_legend.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="650"/>
+  <br>
+  <font size="1">
+  <b>Bar plot of model performance of each model based on statistical evaluation parameters.</b>
+  </font>
 </p>
 
 -----
@@ -400,16 +468,48 @@ Our approach seeks to train different machine learning models using the Anti-Den
   When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
 </p>
 
+<p align="center">
+  <br>
+  </font> 
+  <img src="figures/RMSD for NS2B_NS3pro-ligand MD simulations.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="650"/>
+  <br>
+  <font size="1">
+  <b>Bar plot of model performance of each model based on statistical evaluation parameters.</b>
+  </font>
+</p>
+
+
 #### Radius of gyration for 100 ns MD simulations
 
 <p align="justify">
   When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
 </p>
 
+<p align="center">
+  <br>
+  </font> 
+  <img src="figures/Rg vs time for NS2B_NS3pro-ligand MD simulations.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="650"/>
+  <br>
+  <font size="1">
+  <b>Bar plot of model performance of each model based on statistical evaluation parameters.</b>
+  </font>
+</p>
+
+
 #### Root mean square fluctuations (RMSF) for 100 ns MD simulations
 
 <p align="justify">
   When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+</p>
+
+<p align="center">
+  <br>
+  </font> 
+  <img src="figures/RMSF fluctuations for NS2B_NS3pro-ligand MD simulations.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="650"/>
+  <br>
+  <font size="1">
+  <b>Bar plot of model performance of each model based on statistical evaluation parameters.</b>
+  </font>
 </p>
 
 ------
@@ -431,6 +531,17 @@ Our approach seeks to train different machine learning models using the Anti-Den
 <p align="justify">
   When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
 </p>
+
+<p align="center">
+  <br>
+  </font> 
+  <img src="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC14441502.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="650"/>
+  <br>
+  <font size="1">
+  <b>Bar plot of model performance of each model based on statistical evaluation parameters.</b>
+  </font>
+</p>
+
 
 -------
 
