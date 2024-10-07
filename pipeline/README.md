@@ -21,6 +21,10 @@ python descriptorCalculator.py
 
 ## Envelop protein determination of Ligand binding site
 
+```
+python rank_vina
+```
+
 ## Virtual Screening and Mechanism of Binding Characterization
 
 ## ADMET Screening of Selected Compounds
