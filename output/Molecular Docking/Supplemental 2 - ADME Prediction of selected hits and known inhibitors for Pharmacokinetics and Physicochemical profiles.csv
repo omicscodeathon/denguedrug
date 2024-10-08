@@ -1,0 +1,42 @@
+ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and physicochemical profiles.,,,,,,
+,,,,,,
+Ligands,ESOL Solubility Class,GI absorption,RO5 violation,Veber’s rule violation,Mutagenicity ,Tumorigenicity
+ZINC000004095704,Soluble,Low,1,1,None,None
+ZINC000095485958,Soluble,Low,1,1,None,None
+ZINC000095485940,Soluble,High,0,0,None,None
+ZINC000095485986,Soluble,Low,0,1,None,None
+dihydrolanneaflavonol,Moderately soluble,High,0,0,None,None
+lettowianthine,Moderately soluble,High,0,0,High,High
+millettosine,Moderately soluble,High,0,0,None,None
+ZINC000095486053,Moderately soluble,High,0,0,None,None
+ZINC000031168265,Soluble,High,0,0,Noe,None
+ZINC000095485910,Moderately soluble,High,0,0,High,High
+ZINC000014780240,Moderately soluble,High,0,0,High,None
+ZINC000085594516,Poorly soluble,Low,2,1,None,None
+"5,7'-physcion-fallacinol",Poorly soluble,Low,2,1,Low,None
+ZINC000014441502,Moderately soluble,High,0,0,None,None
+chryslandicin,Poorly soluble,Low,1,1,None,High
+"6a,12a-dehydromillettone",Moderately soluble,High,0,0,None,None
+corylin,Moderately soluble,High,0,0,None,None
+"anhydrophlegmacin-9',10'-quinone",Poorly soluble,Low,1,1,Low,High
+"anhydrophlegmacin-9,10-quinones B2",Poorly soluble,Low,1,1,Low,High
+ZINC000038628344,Moderately soluble,High,0,0,None,None
+ZINC000095486025,Moderately soluble,High,0,0,None,None
+anhydrophlegmacin,Poorly soluble,Low,1,1,Low,High
+ZINC000095485956,Poorly soluble,Low,2,1,None,None
+ZINC000014825190,Moderately soluble,High,0,0,None,Low
+ZINC000034165799,Moderately soluble,High,0,0,None,None
+ZINC000095486052,Poorly soluble,High,0,0,None,None
+amentoflavone,Poorly soluble,Low,2,1,None,Nonoe
+(S)-lupinifolin 4'-methyl ether,Poorly soluble,High,0,0,None,None
+ZINC000028462577,Poorly soluble,Low,1,1,None,None
+"2',4'-dihydroxychalcone-(4-O-5''')-4'',2''',4'''-trihydroxychalcone",Poorly soluble,Low,1,1,High,None
+ZINC000095485907,Moderately soluble,High,1,0,None,None
+chamuvaritin,Poorly soluble,High,0,0,Low,Low
+ZINC000002026346,Poorly soluble,High,0,0,Low,Low
+6-oxoisoiguesterin,Poorly soluble,High,1,0,None,None
+ZINC000095486111,Poorly soluble,Low,2,0,None,None
+epi-lupeol,Poorly soluble,Low,1,0,None,None
+"5beta,24-cyclofriedelan-3-one",Poorly soluble,Low,1,0,None,None
+"voucapane-18,19-di-(4-methyl)-benzenesulphonate",Poorly soluble,Low,2,0,High,None
+ZINC000095485927,Insoluble,Low,2,0,None,None
