@@ -8,7 +8,10 @@
 [![Github tag](https://badgen.net/github/tag/omicscodeathon/denguedrug)](https://github.com/omicscodeathon/denguedrug/tags/)
 
 # denguedrug
-**Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus**
+
+<font size="2">
+  <b>Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus.</b>
+</font>
 
 ## Overview 
 <p align="justify">
@@ -17,7 +20,7 @@
 
 <p align="justify">
   Dengue virus (DENV) is a <i>Flaviviridae</i> family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as <i>Aedes aegypti</i> and <i>Aedes albopictus</i>, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as Dengue hemorrhagic fever (DHF) and Dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. 
-Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow diagram presented in the "<a href="#description" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" section. Regions of high prevalence of Dengue virus infection have been highlighted on the figure below.
+Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow diagram presented in the "<a href="#description" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" section. Regions of high prevalence of Dengue virus infection have been highlighted in the figure below.
 </p>
 <br>
 
@@ -63,7 +66,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 <p align="center"><b>East Africa Coordinates Mapping of High Dengue prevalence regions.</b></p>
 
 <p align="justify">
-  Please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> and <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars">star</a> the repository if you utilize the pipeline for research or commercial purposes.
+  Please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1"><b>cite</b></a> and <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars"><b>star</b></a> the repository if you utilize the pipeline for research or commercial purposes.
 </p>
 
 ## Table of contents
@@ -164,7 +167,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
 - The potential hits were selected using the criterion:
   - AutoDock Vina binding score.
-  - Presence of binding interactions between important binding site residues and ligand ((LigPlot + v1.4.5)[https://doi.org/10.1021/ci200227u]).
+  - Presence of binding interactions between important binding site residues and ligand ([LigPlot + v1.4.5](https://doi.org/10.1021/ci200227u)).
  
 ### Step 6: ADMET prediction
 
@@ -174,13 +177,13 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Step 7: Molecular Dynamics (MD) Simulations
 
 - The hits binding mode stability will be assessed through 100-nanosecond (ns) MD simulations utilizing GROMACS.
-- The stability will be assessed using metrics like root-mean-square deviation (RMSD) and fluctuation (RMSF), Radius of Gyration, etc.
+- The stability will be assessed using metrics like root-mean-square deviation (RMSD) and fluctuation (RMSF), Radius of Gyration (Rg), etc.
 - The compounds binding interactions retention with important residues throughout the MD simulations will be assessed with the [ProLIF](https://prolif.readthedocs.io/en/stable/) python library.
 - The compounds' binding free energies throughout the MD simulation were calculated using Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA).
 
 ## Manuscript
 
-<p align="justify">When using the pipeline or findings for research or commercial purposes, please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.</p>
+<p align="justify">When using the pipeline or findings for research or commercial purposes, please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1"><b>cite</b></a> our research.</p>
 
 ## Results
 
@@ -193,7 +196,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Data Acquisition and Processing
 
 <p align="justify">
-  The <a href="">bioactive dataset</a> obtained from PubChem consisted of imbalanced data from which 1/3 where active compounds, and inactive compounds dominated the dataset as seen on the figure below. Using PaDEL, 1,444 molecular descriptors were generated, providing a mathematical representation of the compounds for QSAR modeling by converting chemical information about them into numerical values. The dataset of 21,250 compounds was split into training, validation, and test sets as follows: <a href="data/Training Data.csv.zip">14,875 training data</a>, <a href="data/Test Data.csv">3,187 test data</a>, and <a href="data/External Data.csv">3,188 externally held data</a>. Applying a variance filter with a threshold of <b>0.1</b> reduced the number of descriptors from 1,444 to 684 filtering out descriptors with minimal variance, ensuring only the most informative features were retained for subsequent modeling. 
+  The <a href="data/unprocessed_database_PubChem_651640/DENV2_PubChem_database_AID_651640_datatable.csv">bioactive dataset</a> obtained from PubChem consisted of imbalanced data from which 1/3 where active compounds and inactive compounds dominated the dataset as seen on the figure below. Using <a href="https://doi.org/10.1002/jcc.21707">PaDEL</a>, 1,444 molecular descriptors were generated, providing a mathematical representation of the compounds for QSAR modeling by converting chemical information about them into numerical values. The dataset of 21,250 compounds was split into training, validation, and test sets as follows: <a href="data/Training Data.csv.zip">14,875 training data</a>, <a href="data/Test Data.csv">3,187 test data</a>, and <a href="data/External Data.csv">3,188 externally held data</a>. Applying a variance filter with a threshold of <b>0.1</b> reduced the number of descriptors from 1,444 to 684 filtering out descriptors with minimal variance, ensuring only the most informative features were retained for subsequent modeling. 
 </p>
 <p align="center">
   <br>
@@ -273,7 +276,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 <p align="center">
   <br>
   </font> 
-  <img src="figures/ML_Val_Results.jpeg" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="800"/>
+  <img src="figures/ML_Val_Results.jpeg" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="650"/>
   <br>
   <font size="1">
   <b>Fig. Bar plot of model performance for each model based on statistical evaluation parameters.</b>
@@ -293,115 +296,134 @@ Our approach seeks to train different machine learning models using the Anti-Den
 <p align=center>
   <table>
     <tr>
+      <th>N°</th>
       <th>Inhibitors</th>
       <th>Prediction</th>
       <th>Mechanism of Action</th>
       <th>References</th>
     </tr>
     <tr>
+      <td>1</td>
       <td>Pentoxifylline</td>
       <td>1</td>
       <td>Immune modulation</td>
       <td><a href="https://doi.org/10.1097/INF.0b013e3182575e6a">Salgado et al., 2012</a></td>
     </tr>
     <tr>
+      <td>2</td>
       <td>4-hydroxyphenyl retinamide</td>
       <td>0</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/10.1128/AAC.04177-14">Carocci et al., 2015</a>; <a href="https://doi.org/10.1093/infdis/jiu319">Fraser et al., 2014</a></td>
     </tr>
     <tr>
+      <td>3</td>
       <td>Prochlorperazine</td>
       <td>1</td>
       <td>Inhibits viral binding and viral entry</td>
       <td><a href="https://doi.org/10.1093/infdis/jiu377">Simanjuntak et al., 2015</a></td>
     </tr>
     <tr>
+      <td>4</td>
       <td>Balapiravir</td>
       <td>1</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/10.1093/infdis/jis470">Nguyen et al., 2013</a></td>
     </tr>
     <tr>
-     <td>Bortezomib</td>
+      <td>5</td>
+      <td>Bortezomib</td>
       <td>1</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/10.1016/j.chembiol.2022.10.003">Ci et al., 2023</a></td>
     </tr>
     <tr>
-     <td>Leflunomide</td>
+      <td>6</td>
+      <td>Leflunomide</td>
       <td>1</td>
       <td>Immunosuppressive effects</td>
       <td><a href="https://doi.org/10.1007/s10875-011-9578-7">Wu et al., 2011</a></td>
     </tr>
     <tr>
-     <td>SKI-417616</td>
+      <td>7</td>
+      <td>SKI-417616</td>
       <td>1</td>
       <td>Inhibition of D4R suppressed DENV infection</td>
       <td><a href="https://doi.org/10.1128/JVI.00365-14">Smith et al., 2014</a></td>
     </tr>
     <tr>
-     <td>Celgosivir</td>
+      <td>8</td>
+      <td>Celgosivir</td>
       <td>1</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/10.1248/cpb.c17-00794">Tian et al., 2018</a></td>
     </tr>
     <tr>
-     <td>UV-4B</td>
+      <td>9</td>
+      <td>UV-4B</td>
       <td>1</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/10.3390/v13050771">Franco et al., 2021</a></td>
     </tr>
     <tr>
-     <td>2-C-methylcytidine</td>
+      <td>10</td>
+      <td>2-C-methylcytidine</td>
       <td>0</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/10.1016/j.antiviral.2015.01.002">Lee et al., 2015</a></td>
     </tr>
     <tr>
-     <td>Ketotifen</td>
+      <td>11</td>
+      <td>Ketotifen</td>
       <td>1</td>
       <td>Vascular leakage</td>
       <td><a href="https://doi.org/https://doi.org/10.1016/j.bcp.2017.01.005">Lai et al., 2017</a></td>
     </tr>
     <tr>
-     <td>Chloroquine</td>
+      <td>12</td>
+      <td>Chloroquine</td>
       <td>1</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/https://doi.org/10.1016/j.bcp.2017.01.005">Lai et al., 2017</a></td>
     </tr>
     <tr>
-     <td>Dasatinib</td>
+      <td>13</td>
+      <td>Dasatinib</td>
       <td>0</td>
       <td>RNA replication inhibition</td>
       <td><a href="https://doi.org/10.1128/JVI.00632-13">de Wispelaere et al., 2013</a></td>
     </tr>
     <tr>
-     <td>Lovastatin</td>
+      <td>14</td>
+      <td>Lovastatin</td>
       <td>0</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/10.1093/cid/civ949">Whitehorn et al., 2016</a></td>
     </tr>
     <tr>
-     <td>ST-148</td>
+      <td>15</td>
+      <td>ST-148</td>
       <td>0</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/10.1128/AAC.01429-12">Byrd et al., 2013</a></td>
     </tr>
     <tr>
-     <td>Dexamethasone</td>
+      <td>16</td>
+      <td>Dexamethasone</td>
       <td>0</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/10.1136/pgmj.2008.078444">Kularatne et al., 2009</a></td>
     </tr>
     <tr>
-     <td>Prednisolone</td>
+      <td>17</td>
+      <td>Prednisolone</td>
       <td>1</td>
       <td>Inhibits viral replication</td>
       <td><a href="https://doi.org/https://doi.org/10.1016/j.bcp.2017.01.005">Lai et al., 2017</a></td>
     </tr>
     <tr>
-     <td>Ivermectin</td>
+      <td>18</td>
+      <td>Ivermectin</td>
       <td>0</td>
       <td>Helicase inhibition</td>
       <td><a href="https://doi.org/10.1371/journal.pntd.0006934">Xu et al., 2018</a></td>
