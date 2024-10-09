@@ -12,12 +12,12 @@
 
 ## Overview 
 <p align="justify">
-  In this project, we are building a <i>in silico</i> pipeline to identify novel dengue virus inhibitors. We will incorporate Deep/Machine Learning (DL/ML) and molecular modeling techniques into the pipeline.
+  In this project, we are building a <i>in silico</i> pipeline to identify novel Dengue Virus inhibitors. We will incorporate Machine Learning (ML) and Molecular Modeling techniques into the pipeline.
 </p>
 
 <p align="justify">
   Dengue virus (DENV) is a <i>Flaviviridae</i> family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as <i>Aedes aegypti</i> and <i>Aedes albopictus</i>, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as Dengue hemorrhagic fever (DHF) and Dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. 
-Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow diagram presented in the "<a href="#description" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" below.
+Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow diagram presented in the "<a href="#description" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" section. Regions of high prevalence of Dengue virus infection have been highlighted on the figure below.
 </p>
 <br>
 
@@ -60,7 +60,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
   ]
 }
 ```
-<p align="center"><b>East Africa Coordinates Mapping.</b></p>
+<p align="center"><b>East Africa Coordinates Mapping of High Dengue prevalence regions.</b></p>
 
 <p align="justify">
   Please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> and <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars">star</a> the repository if you utilize the pipeline for research or commercial purposes.
@@ -116,7 +116,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
   <img src="workflow/DengueDrug%20project%20workflow%20diagram.png" alt="Proposed Dengue Drug Identification Pipeline" title="Proposed Dengue Drug Identification Pipeline" width="800"/>
   <br>
   <font size="1">
-  <b>Proposed Dengue Drug Identification Pipeline</b>
+  <b>Fig. Proposed Dengue Drug Identification Pipeline.</b>
   </font>
 </p>
 
@@ -130,15 +130,15 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
  - The unprocessed database can be found [here](data/unprocessed_database_PubChem_651640).
 
- - The molecular descriptors of the actives and inactives were calculated using [PaDEL-Descriptors](http://www.yapcwsoft.com/dd/padeldescriptor/). The descriptors of the [actives and inactives](data) were calculated using the [Descriptor Calculator](scripts/DescriptorCalculator.py) Python script.
+ - The molecular descriptors of the [actives](data/Actives.smi) and [inactive](data/Inactives.smi) were calculated using [PaDEL-Descriptors](http://www.yapcwsoft.com/dd/padeldescriptor/). The descriptors of the [actives and inactives](data) were calculated using the [Descriptor Calculator](scripts/DescriptorCalculator.py) Python script.
 
- - The actives and inactives databases were combined and all missing descriptors were filled with the value 0. Next dimensionality reduction was conducted using a variance filter (scikit-learn VarianceThreshold library)
+ - The actives and inactives databases were combined and all missing descriptors were filled with the value 0. Next dimensionality reduction was conducted using a variance filter (scikit-learn VarianceThreshold library).
 
- - The data was then standardized using the mean and standard deviation [metrics](data/metrics.csv)
+ - The data was then standardized using the mean and standard deviation [metrics](data/metrics.csv) of various assessment parameters.
 
 ### Step 3: Model construction
 
-- The data was split into training, test, and external datasets. The training dataset was equivalent to 70% (14875 compounds) of the data set and the test and external data sets were equivalent to 15% (~3188) each. The training dataset contained 3105 actives vs 11770 inactives.
+- The data was split into [training](data/Training Data.csv.zip), [test](data/Test Data.csv), and [external](data/External Data.csv) datasets. The training dataset was equivalent to 70% (14875 compounds) of the data set and the test and external data sets were equivalent to 15% (~3188) each. The training dataset contained 3105 actives vs 11770 inactives.
 
 - The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The models that exhibited the greatest Accuracy, F1-score, Balanced Accuracy, and ROC AUC [metrics](figures/Lazy_predict_results.jpeg) were selected for validation.
 
@@ -154,7 +154,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
 - The natural compounds' chemical structures were prepared similarly to the training dataset and ~43,000 compounds were screened using the LR model.
 
-- 7,722 compounds were predicted to be active and subsequently utilized for molecular docking
+- 7,722 compounds were predicted to be active and subsequently utilized for molecular docking.
 
 ### Step 5: Molecular Docking
 
@@ -163,8 +163,8 @@ Our approach seeks to train different machine learning models using the Anti-Den
 - [AutoDock Vina](https://vina.scripps.edu) was utilized to screen the 7,722 compounds into the dengue 2 virus envelope protein.
 
 - The potential hits were selected using the criterion:
-  - AutoDock Vina binding score
-  - Presence of binding interactions between important binding site residues and ligand (LigPlot + v1.4.5).
+  - AutoDock Vina binding score.
+  - Presence of binding interactions between important binding site residues and ligand ((LigPlot + v1.4.5)[https://doi.org/10.1021/ci200227u]).
  
 ### Step 6: ADMET prediction
 
@@ -180,7 +180,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
 ## Manuscript
 
-<p align="justify">When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.</p>
+<p align="justify">When using the pipeline or findings for research or commercial purposes, please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.</p>
 
 ## Results
 
@@ -193,15 +193,15 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Data Acquisition and Processing
 
 <p align="justify">
-  The bioactive dataset obtained from PubChem consisted of imbalanced data from which 1/3 where active compounds. As shown below, inactive compounds dominated the dataset. Using PaDEL, 1,444 molecular descriptors were generated, providing a mathematical representation of the compounds for QSAR modeling by converting chemical information about the compounds into numerical values. The dataset of 21,250 compounds was split into training, validation, and test sets as follows: 14,875 training data, 3,187 test data, and 3,188 externally held data. Applying a variance filter reduced the number of descriptors from 1,444 to 684 using a variance threshold of 0.1 to filter out descriptors with minimal variance, ensuring that only the most informative features were retained for subsequent modeling. 
+  The <a href="">bioactive dataset</a> obtained from PubChem consisted of imbalanced data from which 1/3 where active compounds, and inactive compounds dominated the dataset as seen on the figure below. Using PaDEL, 1,444 molecular descriptors were generated, providing a mathematical representation of the compounds for QSAR modeling by converting chemical information about them into numerical values. The dataset of 21,250 compounds was split into training, validation, and test sets as follows: <a href="data/Training Data.csv.zip">14,875 training data</a>, <a href="data/Test Data.csv">3,187 test data</a>, and <a href="data/External Data.csv">3,188 externally held data</a>. Applying a variance filter with a threshold of <b>0.1</b> reduced the number of descriptors from 1,444 to 684 filtering out descriptors with minimal variance, ensuring only the most informative features were retained for subsequent modeling. 
 </p>
 <p align="center">
   <br>
   </font> 
-  <img src="figures/Correlation%20between%20actives%20and%20inactives%20from%20ML_legend.jpeg" title="Three-dimensional plot showing the correlation between the active and inactive compounds from the processed data based on ALogP, XLogP, and Zagreb" width="650"/>
+  <img src="figures/Correlation%20between%20actives%20and%20inactives%20from%20ML_legend.jpeg" title="Three-dimensional plot showing the correlation between the active and inactive compounds from the processed data, based on ALogP, XLogP, and Zagreb" width="650"/>
   <br>
   <font size="1">
-  <b>3D plot showing the correlation between the active and inactive compounds based on ALogP, XLogP, and Zagreb.</b>
+  <b>Fig. 3D plot showing the correlation between the active and inactive compounds based on ALogP, XLogP, and Zagreb.</b>
   </font>
 </p>
 
@@ -210,7 +210,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Model Development and Evaluation
 
 <p align="justify">
- Five machine learning algorithms (k-NN, Gaussian Naïve Bayes, SVM, Random Forest, and Logistic Regression) were employed to build robust predictive models, each assessed based on several statistical parameters including accuracy, precision, recall, and F1 score. LR produced the best results across most metrics, followed by the SVM model. The results of each model's performance are shown below.
+ Five machine learning algorithms (k-NN, Gaussian Naïve Bayes, SVM, Random Forest, and Logistic Regression) were employed to build robust predictive <a href="output/models">models</a>, each assessed based on several statistical parameters including accuracy, precision, recall, and F1 score. LR produced the best results across most metrics, followed by the SVM model. Gaussian Naïve Bayes was the poorest-performing model, with an accuracy of 81% and F1 score of 0.51. Its low precision (0.55) and recall (0.47) indicate that it struggled to balance between identifying true positives and minimizing false positives. Overall, Logistic Regression emerged as the most reliable model for predicting potential inhibitors given its robust performance across the different metrics. The results of each model's performance are shown below.
 </p>
 
 <!---
@@ -260,6 +260,8 @@ Our approach seeks to train different machine learning models using the Anti-Den
   </table>
 --->
 
+**Table 1.** Comparison of ML models performance on withheld data sets.
+
 | Model | Accuracy | Precision | Recall | F1 Score |
 | :---- | :------: | :-------: | :----: | :------: |
 | LR    | 0.94     | 0.91      | 0.76   | 0.83     |
@@ -274,7 +276,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
   <img src="figures/ML_Val_Results.jpeg" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="800"/>
   <br>
   <font size="1">
-  <b>Bar plot of model performance of each model based on statistical evaluation parameters.</b>
+  <b>Fig. Bar plot of model performance for each model based on statistical evaluation parameters.</b>
   </font>
 </p>
 
@@ -283,8 +285,10 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Prediction of Inhibitors and New Compounds 
 
 <p align="justify">
-  18 known Dengue Virus inhibitors retrieved from literature were used for initial testing and further validation of the model performance. The Logistic Regression model predicted 11 of these inhibitors as active, outperforming the other models as seen in the table below. Preprocessing of these compounds was conducted in the same manner as the training data to ensure consistency in descriptor calculation and transformation. Pentoxifylline, Prochlorperazine, and Balapiravir were correctly classified by LR, just to cite a few. The Logistic Regression model was employed to predict 812 compounds from the ZINC database and 1871 from the EANPDB database. Of the 2683 assessed compounds, <a href="output/ML output">933 compounds</a> were predicted to be active and suitable for further exploration. This approach sought to highlight the importance of appropriate descriptor selection and data preprocessing in QSAR modeling towards effectively handling imbalanced data.
+  18 known Dengue Virus inhibitors retrieved from literature were used for initial testing and further validation of the model performance. The Logistic Regression model predicted 11 of these inhibitors as active, outperforming the other models as seen in the table below. Preprocessing of these compounds was conducted in the same manner as the training data to ensure consistency in descriptor calculation and transformation. Pentoxifylline, Prochlorperazine, and Balapiravir, were correctly classified as active by Logistic Regression, just to cite a few. The <a href="output/models/">LR model</a> was employed to predict 812 compounds from the ZINC database and 1871 from the EANPDB database. Of the 2683 assessed compounds, <a href="output/ML output">933 compounds</a> were predicted to be active and suitable for further exploration. This approach sought to highlight the importance of appropriate descriptor selection and data preprocessing in QSAR modeling towards effectively handling imbalanced data.
 </p>
+
+**Table 2.** Kwnown Dengue Virus inhibitors prediction results using LR.
 
 <p align=center>
   <table>
@@ -412,7 +416,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Target Selection and Molecular Docking of Predicted Compounds
 
 <p align="justify">
-  In this study, the NS2B/NS3 protease was preferentially selected as the target structure amongst the seven nonstructural proteins of the Dengue Virus for confirmation of the LR model prediction model. The NS2B/NS3 protease is an essential enzyme for viral replication and assembly, making it one of the principal antiviral targets for developing therapeutics against the virus. There are two potential locations for inhibiting DENV protease: the active site; and the attachment site of protease (NS3) to its protein cofactor (NS2B). The active site on the NS3 which is the prime target is made up of a conserved catalytic triad like His51-Asp75-Ser135. Exploration via the Protein Data Bank repository in search of a solved structure of the NS2B/NS3 for the Dengue Virus serotype showed IDs like 4M9T, 2FOM, 4M9M, and 4M9I with resolutions 1.74, 1.50, 1.53, 2.40 Å and R-value work of 0.215, 0.176, 0.203 and 0.215 respectively. The 2FOM, solved using x-ray diffraction, was selected for this study since it had the lowest resolution and R-value. The three-dimensional structure of the 2FOM with a ligand docked in the active site can be seen below.
+  In this study, the NS2B/NS3 protease was preferentially selected as the target structure amongst the seven nonstructural proteins of the Dengue Virus for confirmation of the LR model prediction model. The NS2B/NS3 protease is an essential enzyme for viral replication and assembly, making it one of the principal antiviral targets for developing therapeutics against the virus. There are two potential locations for inhibiting DENV protease: the active site; and the attachment site of protease (NS3) to its protein cofactor (NS2B). The active site on the NS3 which is the prime target is made up of a conserved catalytic triad like His51-Asp75-Ser135. Exploration via the Protein Data Bank repository in search of a solved structure of the NS2B/NS3 for the Dengue Virus serotype showed IDs like 4M9T, 2FOM, 4M9M, and 4M9I with resolutions 1.74, 1.50, 1.53, 2.40 $Å$ and R-value work of 0.215, 0.176, 0.203 and 0.215 respectively. The 2FOM, solved using x-ray diffraction, was selected for this study since it had the lowest resolution and R-value. The three-dimensional structure of the 2FOM with a ligand docked in the active site can be seen below.
 </p>
 
 <p align="center">
@@ -421,12 +425,12 @@ Our approach seeks to train different machine learning models using the Anti-Den
   <img src="figures/NS2BNS3 protease structure.png" title="PyMOL visualization of NS2B/NS3 protease structure with ligand docking representation" width="800"/>
   <br>
   <font size="1">
-  <b>PyMOL visualization of NS2B/NS3 protease structure with ligand docking. [A. Pale-yellow cartoon structure representation; B. Light-green surface representation of protein with a ligand (blue) docked in its active site].</b>
+  <b>Fig. PyMOL visualization of NS2B/NS3 protease structure with ligand docking. [A. Pale-yellow cartoon structure representation; B. Light-green surface representation of protein with a ligand (blue) docked in its active site].</b>
   </font>
 </p>
 
 <p align="justify">
-  A total of 853 compounds from the Logistic Regression prediction were docked into the active site of the target using <a href="https://doi.org/10.1002/jcc.21334">Autodock Vina</a>. Anhydrophlegmacin showed the highest binding affinity of -9.2 kcal/mol towards the protease amongst all docked ligands. The docked compounds demonstrated binding affinities between -9.2 and -3.6 kcal/mol, reinforcing the prediction ability of the LR model. Applying a threshold of -8.0 kcal, <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">59 compounds</a> with energies of -8.0 kcal/mol or better were selected for further analysis. This threshold was higher than -7.0 kcal/mol, taken as standard threshold for a compound to be considered active against a particular target (<a href="https://doi.org/10.1002/cbdv.202200160">Kwofie et al., 2022</a>). <b>The higher the binding affinity, the stronger the bond between the ligands and the target protein</b>. The protein in the complex with the ligands was visually inspected using PyMOL to select the best-docked. Known inhibitors (Leflunomide and Prednisolone) were also incorporated into the docking stage to act as a control, demonstrating binding affinities of -7.1 and 7.0 kcal/mol respectively. The <a href="output/Molecular%20Docking/ranked_output.tab">binding affinities</a> of the predicted compounds and inhibitors were recorded.
+  A total of 853 compounds from the Logistic Regression prediction were docked into the active site of the target using <a href="https://doi.org/10.1002/jcc.21334">Autodock Vina</a>. Anhydrophlegmacin showed the highest binding affinity of -9.2 $kcal/mol$ towards the protease amongst all docked ligands. The docked compounds demonstrated binding affinities between -9.2 and -3.6 $kcal/mol$, reinforcing the prediction ability of the LR model. Applying a threshold of -8.0 $kcal/mol$, <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">59 compounds</a> with energies better than or equivalent were selected for further analysis. This threshold was higher than -7.0 $kcal/mol$, taken as standard threshold for a compound to be considered active against a particular target (<a href="https://doi.org/10.1002/cbdv.202200160">Kwofie et al., 2022</a>). <b>The higher the binding affinity, the stronger the bond between the ligands and the target protein</b>. The protein in the complex with the ligands was visually inspected using PyMOL to select the best-docked. Known inhibitors (Leflunomide and Prednisolone) were also incorporated into the docking stage to act as a control, demonstrating binding affinities of -7.1 and 7.0 kcal/mol respectively. The <a href="output/Molecular%20Docking/ranked_output.tab">binding affinities</a> of the predicted compounds and inhibitors were recorded.
 </p>
 
 -----
@@ -438,61 +442,83 @@ Our approach seeks to train different machine learning models using the Anti-Den
 </p>
 
 <p align="justify">
-  For the interactions of the protease, the ligands docked to the active site were seen to interact with the proposed residues such as His51, Ser135, Leu128, Pro132, Ser131, Tyr161, and Asp75, as shown for the best hits in the Table below and fully detailed in the <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">supplementary file</a>. Anhydrophlegmacin and anhydrophlegmacin-9,10-quinones_B2 which had the highest binding affinities interacted with similar residues such as His51, Asp75, Gly151, Leu128, Pro132, and Gly153. They interacted with conserved catalytic triad residues Asp75, Ser135, and His51 through hydrogen bonding with bond lengths of 2.57, 3.06, and 2.86 Å respectively. The inhibitor Prednisolone interacted via hydrogen bonding with Gly151 (2.90 Å, 2.71 Å), Asp75 (2.95 Å), His51 (3.21 Å), Gly153 (2.93 Å, 3.16 Å). In addition ZINC14441502 formed hydrogen bonds with Gly151 and Ser135 with bond length 2.86 and 2.99 Å respectively; and hydrophobic bonding with Leu128, Gly153, Asn152, Val72, Asp75, His151 and Phe130. <b>39</b> out of 56 hits docked firmly and interacted with critical residues in the active site, and were selected for downstream analysis.
+  For the interactions of the protease, the ligands docked to the active site were seen to interact with the proposed residues such as His51, Ser135, Leu128, Pro132, Ser131, Tyr161, and Asp75, as shown for the best hits in the Table below and fully detailed in the <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">Supplementary file 1</a>. Anhydrophlegmacin and anhydrophlegmacin-9,10-quinones_B2 which had the highest binding affinities interacted with similar residues such as His51, Asp75, Gly151, Leu128, Pro132, and Gly153. They interacted with conserved catalytic triad residues Asp75, Ser135, and His51 through hydrogen bonding with bond lengths of 2.57, 3.06, and 2.86 $Å$ respectively. The inhibitor Prednisolone interacted via hydrogen bonding with Gly151 (2.90 $Å$, 2.71 $Å$), Asp75 (2.95 $Å$), His51 (3.21 $Å$), Gly153 (2.93 $Å$, 3.16 $Å$). In addition ZINC14441502 formed hydrogen bonds with Gly151 and Ser135 with bond length 2.86 and 2.99 $Å$ respectively; and hydrophobic bonding with Leu128, Gly153, Asn152, Val72, Asp75, His151 and Phe130. <b>39</b> out of 56 hits docked firmly and interacted with critical residues in the active site, and were selected for downstream analysis.
 </p>
 
-| Compound names | Binding Affinity ($`kcal/mol`$) | Hydrogen bonding with bond length ($`Å`$) | Hydrophobic contacts |
-| :------------- | :-----------------------------: | :---------------------------------------: | :------------------: |
-| anhydrophlegmacin | -9.2     | Asn152 (2.76), Gly153 (2.88), Ser135 (3.06), Gly151 (2.86) | Val72, Asp75, His51, Pro132, Tyr150, Leu128 |
-| anhydrophlegmacin-9,10-quinones_B2 | -9.2     | Val72 (2.96), Asp75 (2.57), His51 (2.86), Lys73 (2.94) | Leu128, Pro132, Gly151, Gly153, Tyr161, Trp50 |
-| ZINC000035941652   | -9.1   | Leu149 (3.06)  | Trp83, Asn152, Ala164, Ile165, Lys73, Asn167, Thr120, Ile123, Ala166, Lys74, Gly148, Leu76 |
-| chryslandicin    | -9.0   | Val72 (2.74)  | Gly153, Trp50, His51, Tyr161, Leu128, Pro132, Gly151, Asn152, Asp75  |
-| ZINC000085594516 | -8.8   | Ser135 (3.09)  | Leu128, Tyr150, Pro132, Phe130, Gly151, His51, Asn152, G1y153, Asp75  |
-| 6a,12a-dehydromillettone | -8.7 | None   | His151, Asp75, Gly151, Gly153, Tyr150, Phe130, Pro132, Leu128  |
-| ZINC000028462577 | -8.6  | Ser135 (2.67), Val72 (2.94) | Trp50, Gly151, Leu128, Phe130, His51, Gly153, Pro132, Tyr150  |
-| anhydrophlegmacin-9',10'-quinone | -8.6   | Asn152 (2.88), Gly153 (2.84), Ser135 (2.94)  | Asp75, Val154, Val72, Trp50, His51, Pro132, Leu128, Gly151  |
+**Table 3.** Top 20 Protein-ligand interactions of selected hits with NS2B/NS3 post-docking, including interactions of two known inhibitors.
+
+| Compound names                                                      | Binding Affinity ($`kcal/mol`$) | Hydrogen bonding with bond length ($`Å`$) | Hydrophobic contacts |
+| :------------------------------------------------------------------ | :-----------------------------: | :---------------------------------------: | :------------------: |
+| anhydrophlegmacin                                                   | -9.2  | Asn152 (2.76), Gly153 (2.88), Ser135 (3.06), Gly151 (2.86) | Val72, Asp75, His51, Pro132, Tyr150, Leu128 |
+| anhydrophlegmacin-9,10-quinones_B2                                  | -9.2  | Val72 (2.96), Asp75 (2.57), His51 (2.86), Lys73 (2.94) | Leu128, Pro132, Gly151, Gly153, Tyr161, Trp50 |
+| ZINC000035941652                                                    | -9.1  | Leu149 (3.06)  | Trp83, Asn152, Ala164, Ile165, Lys73, Asn167, Thr120, Ile123, Ala166, Lys74, Gly148, Leu76 |
+| chryslandicin                                                       | -9.0  | Val72 (2.74)  | Gly153, Trp50, His51, Tyr161, Leu128, Pro132, Gly151, Asn152, Asp75  |
+| ZINC000085594516                                                    | -8.8  | Ser135 (3.09)  | Leu128, Tyr150, Pro132, Phe130, Gly151, His51, Asn152, G1y153, Asp75  |
+| 6a,12a-dehydromillettone                                            | -8.7  | None   | His151, Asp75, Gly151, Gly153, Tyr150, Phe130, Pro132, Leu128  |
+| ZINC000028462577                                                    | -8.6  | Ser135 (2.67), Val72 (2.94) | Trp50, Gly151, Leu128, Phe130, His51, Gly153, Pro132, Tyr150  |
+| anhydrophlegmacin-9',10'-quinone                                    | -8.6  | Asn152 (2.88), Gly153 (2.84), Ser135 (2.94)  | Asp75, Val154, Val72, Trp50, His51, Pro132, Leu128, Gly151  |
 | 2',4'-dihydroxychalcone-(4-O-5''')-4'',2''',4'''-trihydroxychalcone | -8.6  | Leu149 (2.99), Thr120 (3.26)  | Val154, Lys73, Val72, Asn152, His51, Asp75, Gly148, Leu76, Gly153. Trp83, Lys74, Ile165, Ala166, Ala164, Asn167, Ile123  |
-| ZINC000095485910  | -8.6  | Phe130 (2.71)  | Ser135, Gly151, Leu128, His51, Asp75, Gly153, Pro132, Tyr150  |
-| ZINC000095485955  | -8.6  | Trp83 (2.84), Leu149 (3.20), Asn152 (2.80)  | Gly87, Val146, Met149, Leu76, Ala164, Asn167, Ile165, Ala166, Gly148, Leu85, Val147  |
-| ZINC000095486025  | -8.5  | Leu128 (3.34) Gly153 (2.87)  | Val72, His51, Asp75, Ser135, Gly151, Phe130, Pro132, Tyr150, Tyr161, Val54, Lys73, Asn152  |
-| ZINC000038628344  | -8.5  | His51 (2.89), Ser135 (2.68), Asp75 (2.57), Phe130 (3.06), Tyr150 (3.10)  | Pro132, Ser131, Leu128, Tyr161, Gly153, Gly151  |
-| ZINC000095486053  | -8.4  | Gly151 (2.99)  | His51, Pro132, Tyr150, Ser135, Phe130, Leu128  |
-| phaseollidin  | -8.4  | Gly87 (2.83), Val146 (2.98)  | Leu85, Trp83, Gly148, Leu149, Ala164, Leu76, Asn167. Asn152, Lys74, Ile165, Trp89, Ala166, Glu88, Glu86, Val147  |
-| 6-oxoisoiguesterin  | -8.4  | Tyr150 (2.80, Phe130 (3.16, 2.83)  | Ser131, Leu128, Gly151, Gly153, His51, Pro132  |
-| ZINC000095486052  | -8.4  | Asn152 (3.20), Gly153 (3.14)  | Pro132, Tyr150, Leu128, Tyr161, Gly151, His151, Asp75  |
-| ZINC000014444870  | -8.4  | Asn152 (3.01), Leu149 (3.19)  | Leu85, Val147, Gly87, Val146, Asn167, Ile165, Val54, Ala164, Ile123, Lys74, Gly148, Leu76, Trp83  |
-| Leflunomide  | -7.1  | None  | Asn152, Val54, Ala64, Asn167, Leu76, Lys74, Ile123, Ala166  |
-| Prednisolone  |  7.0  | Gly151 (2.90, 2.71), Asp75 (2.95), His51 (3.21), Gly153 (2.93, 3.16)  | Leu128, Phe130, Asn152, Ser135, Pro132  |
+| ZINC000095485910                                                    | -8.6  | Phe130 (2.71)  | Ser135, Gly151, Leu128, His51, Asp75, Gly153, Pro132, Tyr150  |
+| ZINC000095485955                                                    | -8.6  | Trp83 (2.84), Leu149 (3.20), Asn152 (2.80)  | Gly87, Val146, Met149, Leu76, Ala164, Asn167, Ile165, Ala166, Gly148, Leu85, Val147  |
+| ZINC000095486025                                                    | -8.5  | Leu128 (3.34) Gly153 (2.87)  | Val72, His51, Asp75, Ser135, Gly151, Phe130, Pro132, Tyr150, Tyr161, Val54, Lys73, Asn152  |
+| ZINC000038628344                                                    | -8.5  | His51 (2.89), Ser135 (2.68), Asp75 (2.57), Phe130 (3.06), Tyr150 (3.10)  | Pro132, Ser131, Leu128, Tyr161, Gly153, Gly151  |
+| ZINC000095486053                                                    | -8.4  | Gly151 (2.99)  | His51, Pro132, Tyr150, Ser135, Phe130, Leu128  |
+| phaseollidin                                                        | -8.4  | Gly87 (2.83), Val146 (2.98)  | Leu85, Trp83, Gly148, Leu149, Ala164, Leu76, Asn167. Asn152, Lys74, Ile165, Trp89, Ala166, Glu88, Glu86, Val147  |
+| 6-oxoisoiguesterin                                                  | -8.4  | Tyr150 (2.80, Phe130 (3.16, 2.83)  | Ser131, Leu128, Gly151, Gly153, His51, Pro132  |
+| ZINC000095486052                                                    | -8.4  | Asn152 (3.20), Gly153 (3.14)  | Pro132, Tyr150, Leu128, Tyr161, Gly151, His151, Asp75  |
+| ZINC000014444870                                                    | -8.4  | Asn152 (3.01), Leu149 (3.19)  | Leu85, Val147, Gly87, Val146, Asn167, Ile165, Val54, Ala164, Ile123, Lys74, Gly148, Leu76, Trp83  |
+| Leflunomide                                                         | -7.1  | None  | Asn152, Val54, Ala64, Asn167, Leu76, Lys74, Ile123, Ala166  |
+| Prednisolone                                                        |  7.0  | Gly151 (2.90, 2.71), Asp75 (2.95), His51 (3.21), Gly153 (2.93, 3.16)  | Leu128, Phe130, Asn152, Ser135, Pro132  |
 
 
 <p align="justify">
-  A visual representation of these interactions can be observed with the ZINC38628344, which had binding affinity of -8.5 kcal/mol with the NS2B/NS3 protease formed hydrogen bond interaction with His51 (2.89 Å), Ser135 (2.68 Å), Asp75 (2.57 Å), Phe130 (3.06 Å), Tyr150 (3.10 Å) and hydrophobic interactions with residues Pro132, Ser131, Leu128, Tyr161, Gly153, Gly151 as presented below.
+  A visual representation of these interactions can be observed with the ZINC38628344, which had binding affinity of -8.5 $kcal/mol$ with the NS2B/NS3 protease formed hydrogen bond interaction with His51 (2.89 $Å$), Ser135 (2.68 $Å$), Asp75 (2.57 $Å$), Phe130 (3.06 $Å$), Tyr150 (3.10 $Å$) and hydrophobic interactions with residues Pro132, Ser131, Leu128, Tyr161, Gly153, Gly151 as presented below.
 </p>
 
 <p align="center">
   <br>
   </font> 
-  <img src="figures/ZIN38628344 protein-ligand interaction_legend.png" title="Ligand ZIN38628344 docked in NS2B/NS3 binding pocket; 2D protein-ligand interaction diagram generated using PyMOL (to the left) and LigPlot (to the right)" width="650"/>
+  <img src="figures/ZIN38628344 protein-ligand interaction_legend.png" title="Ligand ZINC38628344 docked in NS2B/NS3 binding pocket; 2D protein-ligand interaction diagram generated using PyMOL and LigPlot respectively" width="650"/>
   <br>
   <font size="1">
-  <b>Ligand ZIN38628344 docked in NS2B/NS3 binding pocket; 2D protein-ligand interaction diagram generated using PyMOL and LigPlot respectively.</b>
+  <b>Fig.</b> Ligand ZINC38628344 docked in NS2B/NS3 binding pocket; 2D protein-ligand interaction diagram generated using <a href="https://www.semanticscholar.org/paper/The-PyMOL-Molecular-Graphics-System-(2002)-Delano/9b7284d0e5dfa654db0d97616fa19f371726f9c9">PyMOL</a> (to the left) and <a href="https://doi.org/10.1021/ci200227u">LigPlot</a> (to the right).</b>
   </font>
 </p>
 
 -----
 
 ### ADMET Screening of Selected Compounds
-
 <p align="justify">
-  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+Pharmacokinetics controls how medications are absorbed by the body and eventually eliminated (Wang et al., 2018). Analyses were conducted on pharmacokinetic features, including gastrointestinal (GI) absorption. Drugs taken orally can enter the bloodstream through a process known as gastrointestinal absorption (GI) (Suenderhauf et al., 2012). "High" compound absorption occurs in the GI tract. To select druglike compounds, Veber's criteria were also applied. The selected hits that do not conform to Lipinski's rule of five (RO5) were eliminated. Out of the 39 hits, 20 were in violation of the rule (see Supplementary Table 2). Twelve hits also broke one of the RO5s.  31 of the 39 hits were considered to be druglike. The remaining 7 hits: 5,7'-physcion-fallacinol, ZINC000095485956, ZINC000085594516, amentoflavone, ZINC000095486111, voucapane-18,19-di-(4-methyl)-benzenesulphonate, ZINC000095485927 showed the least drug-likeness of two RO5 violations (Table 5). Veber's rule with TPSA ≤ 140 and rotatable bonds ≤ 10 as the main determinant. 26 out of the selected hits demonstrated 0 violations with the remaining showing only one violation of the rule. The solubility and pharmacological profiles such as GI absorption were also elucidated. Only ZINC000095485927 was predicted to be insoluble (Supplementary Table 2). 14 of the hits were predicted to be moderately soluble with 4 predicted as soluble. However, 19 of the selected hits were predicted to be poorly soluble (Supplementary table 2). Compounds are considered to have met the GI absorption criteria if it is denoted as ‘High’ suggesting a high propensity of absorption into the intestinal tract for orally administered drugs. 21 and 18 of the selected hits were predicted to be High and low respectively. The mutagenicity and tumorigenicity levels of the hits were also predicted using DataWarrior (Table 5). From the results obtained, 26 out of the 39 hits tested were neither mutagenic nor tumorigenic.
 </p>
+
+**Table 4.** Prediction of ADME and toxicity profiles of top 15 selected hits.
+
+| Ligands                   | ESOL Solubility Class | GI absorption | RO5 violation | Veber’s rule violation | Mutagenicity | Tumorigenicity |
+| :------------------------ | :-------------------: | :-----------: | :-----------: | :--------------------: | :----------: | :------------: |
+| ZINC000004095704          | Soluble               | Low           | 1             | 1                      | None         | None           |
+| ZINC000095485958          | Soluble               | Low           | 1             | 1                      | None         | None           |
+| ZINC000095485940          | Soluble               | High          | 0             | 0                      | None         | None           |
+| ZINC000095485986          | Soluble               | Low           | 0             | 1                      | None         | None           |
+| dihydrolanneaflavonol     | Moderately soluble    | High          | 0             | 0                      | None         | None           |
+| lettowianthine            | Moderately soluble    | High          | 0             | 0                      | High         | High           |
+| millettosine              | Moderately soluble    | High          | 0             | 0                      | None         | None           |
+| ZINC000095486053          | Moderately soluble    | High          | 0             | 0                      | None         | None           |
+| ZINC000031168265          | Soluble               | High          | 0             | 0                      | None         | None           |
+| ZINC000095485910          | Moderately soluble    | High          | 0             | 0                      | High         | High           |
+| ZINC000014780240          | Moderately soluble    | High          | 0             | 0                      | High         | None           |
+| ZINC000085594516          | Poorly soluble        | Low           | 2             | 1                      | None         | None           |
+| 5,7'-physcion-fallacinol  | Poorly soluble        | Low           | 2             | 1                      | Low          | None           |
+| ZINC000014441502          | Moderately soluble    | High          | 0             | 0                      | None         | None           |
+| chryslandicin             |  Poorly soluble       | Low           | 1             | 1                      | None         | High           |
+
 
 ------
 
 ### Molecular Dynamics Simulations
 
 <p align="justify">
-  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+  Molecular dynamics simulations were carried out using GROMACS 2020.5 to further elucidate the stability of the predicted lead compounds within the active site of the NS2B/NS3 protein (Mazumder et al., 2017). Understanding the binding mechanisms of the various compounds in the active site is crucial for the design of better drugs. To analyze the dynamic behavior of the unbound proteins and complexes, the root mean square deviation (RMSD), the radius of gyration (Rg), and the root mean square fluctuation (RMSF) were plotted with the use of Xmgrace (Agyapong et al., 2021; Kwofie et al., 2019; Musyoka et al., 2016). All simulations were carried out for 100 ns.
 </p>
 
 Here is a simple flow chart:
