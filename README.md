@@ -439,13 +439,11 @@ Our approach seeks to train different Machine Learning models using the Anti-Den
 ### Target Selection and Molecular Docking of Predicted Compounds
 
 <p align="justify">
-  In this study, the NS2B/NS3 protease was preferentially selected as the target structure amongst the seven nonstructural proteins of the Dengue Virus for confirmation of the LR model prediction model. The NS2B/NS3 protease is an essential enzyme for viral replication and assembly, making it one of the principal antiviral targets for developing therapeutics against the virus. There are two potential locations for inhibiting DENV protease: the active site; and the attachment site of protease (NS3) to its protein cofactor (NS2B). The active site on the NS3 which is the prime target is made up of a conserved catalytic triad like His51-Asp75-Ser135. Exploration via the Protein Data Bank repository in search of a solved structure of the NS2B/NS3 for the Dengue Virus serotype showed IDs like 4M9T, 2FOM, 4M9M, and 4M9I with resolutions 1.74, 1.50, 1.53, 2.40 $Å$ and R-value work of 0.215, 0.176, 0.203 and 0.215 respectively. The 2FOM, solved using x-ray diffraction, was selected for this study since it had the lowest resolution and R-value. The three-dimensional structure of the 2FOM with a ligand docked in the active site can be seen below.
+  In this study, the <a href="https://doi.org/10.3389/fcimb.2023.1061937">NS2B/NS3 protease</a> was preferentially selected as the target structure amongst the seven nonstructural proteins of the Dengue Virus for confirmation of the LR model prediction model. The NS2B/NS3 protease is an essential enzyme for viral replication and assembly, making it one of the principal antiviral targets for developing therapeutics against the virus. There are two potential locations for inhibiting DENV protease: the active site; and the attachment site of protease (NS3) to its protein cofactor (NS2B). The active site on the NS3 which is the prime target is made up of a conserved catalytic triad like His51-Asp75-Ser135. Exploration via the Protein Data Bank repository in search of a solved structure of the NS2B/NS3 for the Dengue Virus serotype showed IDs like 4M9T, 2FOM, 4M9M, and 4M9I with resolutions 1.74, 1.50, 1.53, 2.40 $Å$ and R-value work of 0.215, 0.176, 0.203 and 0.215 respectively. The 2FOM, solved using x-ray diffraction, was selected for this study since it had the lowest resolution and R-value. The three-dimensional structure of the 2FOM with a ligand docked in the active site can be seen below.
 </p>
 
 <p align="center">
-  <br>
-  </font> 
-  <img src="figures/NS2BNS3 protease structure.png" title="PyMOL visualization of NS2B/NS3 protease structure with ligand docking representation" width="600"/>
+  <img src="figures/NS2BNS3 protease structure.png" title="PyMOL visualization of NS2B/NS3 protease structure with ligand docking representation" width="700"/>
   <br>
   <font size="1">
   <b>Fig.</b> PyMOL visualization of NS2B/NS3 protease structure with ligand docking. [A. Pale-yellow cartoon structure representation; B. Light-green surface representation of protein with a ligand (blue) docked in its active site].
