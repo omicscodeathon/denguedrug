@@ -20,7 +20,7 @@
 
 <p align="justify">
   Dengue virus (DENV) is a <i>Flaviviridae</i> family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as <i>Aedes aegypti</i> and <i>Aedes albopictus</i>, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as Dengue hemorrhagic fever (DHF) and Dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. 
-Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow diagram presented in the "<a href="#description" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" section. Regions of high prevalence of Dengue virus infection have been highlighted in the figure below.
+Our approach seeks to train different machine learning models using the Anti-Dengue dataset from PubChem to distinguish between potential anti-Dengue compounds and non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow diagram presented in the "<a href="#description" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" section. Regions of high prevalence of Dengue virus infection in Africa have been highlighted in the figure below.
 </p>
 <br>
 
@@ -444,10 +444,10 @@ Our approach seeks to train different machine learning models using the Anti-Den
 <p align="center">
   <br>
   </font> 
-  <img src="figures/NS2BNS3 protease structure.png" title="PyMOL visualization of NS2B/NS3 protease structure with ligand docking representation" width="800"/>
+  <img src="figures/NS2BNS3 protease structure.png" title="PyMOL visualization of NS2B/NS3 protease structure with ligand docking representation" width="600"/>
   <br>
   <font size="1">
-  <b>Fig. PyMOL visualization of NS2B/NS3 protease structure with ligand docking. [A. Pale-yellow cartoon structure representation; B. Light-green surface representation of protein with a ligand (blue) docked in its active site].</b>
+  <b>Fig.</b> PyMOL visualization of NS2B/NS3 protease structure with ligand docking. [A. Pale-yellow cartoon structure representation; B. Light-green surface representation of protein with a ligand (blue) docked in its active site].
   </font>
 </p>
 
@@ -460,7 +460,7 @@ Our approach seeks to train different machine learning models using the Anti-Den
 ### Mechanism of Binding Characterization of selected compounds
 
 <p align="justify">
-  In continuation of the structure-based molecular docking, to further confirm the binding affinities of the predicted compounds, the interactions of the compounds within the predicted binding pocket were determined. The biomolecular interactions between the NS2B/NS3 protease and the compounds were generated via LigPlot. Characterizing the binding interactions enabled the identification of critical residues within the active sites of the respective targets. To identify the compound that best inhibits the activities of the NS2B/NS3 protease, hydrogen and hydrophobic interactions between the shortlisted compounds and the residues in the active site were elucidated.
+  In continuation of the structure-based molecular docking, to further confirm the binding affinities of the predicted compounds, the interactions of the compounds within the predicted binding pocket were determined. The biomolecular interactions between the NS2B/NS3 protease and the compounds were generated via <a href="https://doi.org/10.1002/jcc.21334">LigPlot</a>. Characterizing the binding interactions enabled the identification of critical residues within the active sites of the respective targets. To identify the compound that best inhibits the activities of the NS2B/NS3 protease, hydrogen and hydrophobic interactions between the shortlisted compounds and the residues in the active site were elucidated.
 </p>
 
 <p align="justify">
@@ -469,28 +469,28 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
 **Table 3.** Top 20 Protein-ligand interactions of selected hits with NS2B/NS3 post-docking, including interactions of two known inhibitors.
 
-| Compound names                                                      | Binding Affinity ($`kcal/mol`$) | Hydrogen bonding with bond length ($`Å`$) | Hydrophobic contacts |
-| :------------------------------------------------------------------ | :-----------------------------: | :---------------------------------------: | :------------------: |
-| anhydrophlegmacin                                                   | -9.2  | Asn152 (2.76), Gly153 (2.88), Ser135 (3.06), Gly151 (2.86) | Val72, Asp75, His51, Pro132, Tyr150, Leu128 |
-| anhydrophlegmacin-9,10-quinones_B2                                  | -9.2  | Val72 (2.96), Asp75 (2.57), His51 (2.86), Lys73 (2.94) | Leu128, Pro132, Gly151, Gly153, Tyr161, Trp50 |
-| ZINC000035941652                                                    | -9.1  | Leu149 (3.06)  | Trp83, Asn152, Ala164, Ile165, Lys73, Asn167, Thr120, Ile123, Ala166, Lys74, Gly148, Leu76 |
-| chryslandicin                                                       | -9.0  | Val72 (2.74)  | Gly153, Trp50, His51, Tyr161, Leu128, Pro132, Gly151, Asn152, Asp75  |
-| ZINC000085594516                                                    | -8.8  | Ser135 (3.09)  | Leu128, Tyr150, Pro132, Phe130, Gly151, His51, Asn152, G1y153, Asp75  |
-| 6a,12a-dehydromillettone                                            | -8.7  | None   | His151, Asp75, Gly151, Gly153, Tyr150, Phe130, Pro132, Leu128  |
-| ZINC000028462577                                                    | -8.6  | Ser135 (2.67), Val72 (2.94) | Trp50, Gly151, Leu128, Phe130, His51, Gly153, Pro132, Tyr150  |
-| anhydrophlegmacin-9',10'-quinone                                    | -8.6  | Asn152 (2.88), Gly153 (2.84), Ser135 (2.94)  | Asp75, Val154, Val72, Trp50, His51, Pro132, Leu128, Gly151  |
-| 2',4'-dihydroxychalcone-(4-O-5''')-4'',2''',4'''-trihydroxychalcone | -8.6  | Leu149 (2.99), Thr120 (3.26)  | Val154, Lys73, Val72, Asn152, His51, Asp75, Gly148, Leu76, Gly153. Trp83, Lys74, Ile165, Ala166, Ala164, Asn167, Ile123  |
-| ZINC000095485910                                                    | -8.6  | Phe130 (2.71)  | Ser135, Gly151, Leu128, His51, Asp75, Gly153, Pro132, Tyr150  |
-| ZINC000095485955                                                    | -8.6  | Trp83 (2.84), Leu149 (3.20), Asn152 (2.80)  | Gly87, Val146, Met149, Leu76, Ala164, Asn167, Ile165, Ala166, Gly148, Leu85, Val147  |
-| ZINC000095486025                                                    | -8.5  | Leu128 (3.34) Gly153 (2.87)  | Val72, His51, Asp75, Ser135, Gly151, Phe130, Pro132, Tyr150, Tyr161, Val54, Lys73, Asn152  |
-| ZINC000038628344                                                    | -8.5  | His51 (2.89), Ser135 (2.68), Asp75 (2.57), Phe130 (3.06), Tyr150 (3.10)  | Pro132, Ser131, Leu128, Tyr161, Gly153, Gly151  |
-| ZINC000095486053                                                    | -8.4  | Gly151 (2.99)  | His51, Pro132, Tyr150, Ser135, Phe130, Leu128  |
-| phaseollidin                                                        | -8.4  | Gly87 (2.83), Val146 (2.98)  | Leu85, Trp83, Gly148, Leu149, Ala164, Leu76, Asn167. Asn152, Lys74, Ile165, Trp89, Ala166, Glu88, Glu86, Val147  |
-| 6-oxoisoiguesterin                                                  | -8.4  | Tyr150 (2.80, Phe130 (3.16, 2.83)  | Ser131, Leu128, Gly151, Gly153, His51, Pro132  |
-| ZINC000095486052                                                    | -8.4  | Asn152 (3.20), Gly153 (3.14)  | Pro132, Tyr150, Leu128, Tyr161, Gly151, His151, Asp75  |
-| ZINC000014444870                                                    | -8.4  | Asn152 (3.01), Leu149 (3.19)  | Leu85, Val147, Gly87, Val146, Asn167, Ile165, Val54, Ala164, Ile123, Lys74, Gly148, Leu76, Trp83  |
-| Leflunomide                                                         | -7.1  | None  | Asn152, Val54, Ala64, Asn167, Leu76, Lys74, Ile123, Ala166  |
-| Prednisolone                                                        |  7.0  | Gly151 (2.90, 2.71), Asp75 (2.95), His51 (3.21), Gly153 (2.93, 3.16)  | Leu128, Phe130, Asn152, Ser135, Pro132  |
+| N°  | Compound names                                                      | Binding Affinity ($`kcal/mol`$) | Hydrogen bonding with bond length ($`Å`$) | Hydrophobic contacts |
+| :-- | :------------------------------------------------------------------ | :-----------------------------: | :---------------------------------------: | :------------------: |
+| 1   | anhydrophlegmacin                                                   | -9.2  | Asn152 (2.76), Gly153 (2.88), Ser135 (3.06), Gly151 (2.86) | Val72, Asp75, His51, Pro132, Tyr150, Leu128 |
+| 2   | anhydrophlegmacin-9,10-quinones_B2                                  | -9.2  | Val72 (2.96), Asp75 (2.57), His51 (2.86), Lys73 (2.94) | Leu128, Pro132, Gly151, Gly153, Tyr161, Trp50 |
+| 3   | ZINC000035941652                                                    | -9.1  | Leu149 (3.06)  | Trp83, Asn152, Ala164, Ile165, Lys73, Asn167, Thr120, Ile123, Ala166, Lys74, Gly148, Leu76 |
+| 4   | chryslandicin                                                       | -9.0  | Val72 (2.74)  | Gly153, Trp50, His51, Tyr161, Leu128, Pro132, Gly151, Asn152, Asp75  |
+| 5   | ZINC000085594516                                                    | -8.8  | Ser135 (3.09)  | Leu128, Tyr150, Pro132, Phe130, Gly151, His51, Asn152, G1y153, Asp75  |
+| 6   | 6a,12a-dehydromillettone                                            | -8.7  | None   | His151, Asp75, Gly151, Gly153, Tyr150, Phe130, Pro132, Leu128  |
+| 7   | ZINC000028462577                                                    | -8.6  | Ser135 (2.67), Val72 (2.94) | Trp50, Gly151, Leu128, Phe130, His51, Gly153, Pro132, Tyr150  |
+| 8   | anhydrophlegmacin-9',10'-quinone                                    | -8.6  | Asn152 (2.88), Gly153 (2.84), Ser135 (2.94)  | Asp75, Val154, Val72, Trp50, His51, Pro132, Leu128, Gly151  |
+| 9   | 2',4'-dihydroxychalcone-(4-O-5''')-4'',2''',4'''-trihydroxychalcone | -8.6  | Leu149 (2.99), Thr120 (3.26)  | Val154, Lys73, Val72, Asn152, His51, Asp75, Gly148, Leu76, Gly153. Trp83, Lys74, Ile165, Ala166, Ala164, Asn167, Ile123  |
+| 10  | ZINC000095485910                                                    | -8.6  | Phe130 (2.71)  | Ser135, Gly151, Leu128, His51, Asp75, Gly153, Pro132, Tyr150  |
+| 11  | ZINC000095485955                                                    | -8.6  | Trp83 (2.84), Leu149 (3.20), Asn152 (2.80)  | Gly87, Val146, Met149, Leu76, Ala164, Asn167, Ile165, Ala166, Gly148, Leu85, Val147  |
+| 12  | ZINC000095486025                                                    | -8.5  | Leu128 (3.34) Gly153 (2.87)  | Val72, His51, Asp75, Ser135, Gly151, Phe130, Pro132, Tyr150, Tyr161, Val54, Lys73, Asn152  |
+| 13  | ZINC000038628344                                                    | -8.5  | His51 (2.89), Ser135 (2.68), Asp75 (2.57), Phe130 (3.06), Tyr150 (3.10)  | Pro132, Ser131, Leu128, Tyr161, Gly153, Gly151  |
+| 14  | ZINC000095486053                                                    | -8.4  | Gly151 (2.99)  | His51, Pro132, Tyr150, Ser135, Phe130, Leu128  |
+| 15  | phaseollidin                                                        | -8.4  | Gly87 (2.83), Val146 (2.98)  | Leu85, Trp83, Gly148, Leu149, Ala164, Leu76, Asn167. Asn152, Lys74, Ile165, Trp89, Ala166, Glu88, Glu86, Val147  |
+| 16  | 6-oxoisoiguesterin                                                  | -8.4  | Tyr150 (2.80, Phe130 (3.16, 2.83)  | Ser131, Leu128, Gly151, Gly153, His51, Pro132  |
+| 17  | ZINC000095486052                                                    | -8.4  | Asn152 (3.20), Gly153 (3.14)  | Pro132, Tyr150, Leu128, Tyr161, Gly151, His151, Asp75  |
+| 18  | ZINC000014444870                                                    | -8.4  | Asn152 (3.01), Leu149 (3.19)  | Leu85, Val147, Gly87, Val146, Asn167, Ile165, Val54, Ala164, Ile123, Lys74, Gly148, Leu76, Trp83  |
+| 19  | Leflunomide                                                         | -7.1  | None  | Asn152, Val54, Ala64, Asn167, Leu76, Lys74, Ile123, Ala166  |
+| 20  | Prednisolone                                                        |  7.0  | Gly151 (2.90, 2.71), Asp75 (2.95), His51 (3.21), Gly153 (2.93, 3.16)  | Leu128, Phe130, Asn152, Ser135, Pro132  |
 
 
 <p align="justify">
@@ -511,28 +511,28 @@ Our approach seeks to train different machine learning models using the Anti-Den
 
 ### ADMET Screening of Selected Compounds
 <p align="justify">
-Pharmacokinetics controls how medications are absorbed by the body and eventually eliminated (Wang et al., 2018). Analyses were conducted on pharmacokinetic features, including gastrointestinal (GI) absorption. Drugs taken orally can enter the bloodstream through a process known as gastrointestinal absorption (GI) (Suenderhauf et al., 2012). "High" compound absorption occurs in the GI tract. To select druglike compounds, Veber's criteria were also applied. The selected hits that do not conform to Lipinski's rule of five (RO5) were eliminated. Out of the 39 hits, 20 were in violation of the rule (see Supplementary Table 2). Twelve hits also broke one of the RO5s.  31 of the 39 hits were considered to be druglike. The remaining 7 hits: 5,7'-physcion-fallacinol, ZINC000095485956, ZINC000085594516, amentoflavone, ZINC000095486111, voucapane-18,19-di-(4-methyl)-benzenesulphonate, ZINC000095485927 showed the least drug-likeness of two RO5 violations (Table 5). Veber's rule with TPSA ≤ 140 and rotatable bonds ≤ 10 as the main determinant. 26 out of the selected hits demonstrated 0 violations with the remaining showing only one violation of the rule. The solubility and pharmacological profiles such as GI absorption were also elucidated. Only ZINC000095485927 was predicted to be insoluble (Supplementary Table 2). 14 of the hits were predicted to be moderately soluble with 4 predicted as soluble. However, 19 of the selected hits were predicted to be poorly soluble (Supplementary table 2). Compounds are considered to have met the GI absorption criteria if it is denoted as ‘High’ suggesting a high propensity of absorption into the intestinal tract for orally administered drugs. 21 and 18 of the selected hits were predicted to be High and low respectively. The mutagenicity and tumorigenicity levels of the hits were also predicted using DataWarrior (Table 5). From the results obtained, 26 out of the 39 hits tested were neither mutagenic nor tumorigenic.
+Pharmacokinetics controls how medications are absorbed by the body and eventually eliminated (Wang et al., 2018). Analyses were conducted on pharmacokinetic features, including gastrointestinal (GI) absorption. Drugs taken orally can enter the bloodstream through a process known as gastrointestinal absorption (GI) (Suenderhauf et al., 2012). "High" compound absorption occurs in the GI tract. To select druglike compounds, Veber's criteria were also applied. The selected hits that do not conform to Lipinski's rule of five (RO5) were eliminated. Out of the 39 hits, 20 violated the rule (<a href="output/Molecular Docking/Supplemental 2 - ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and Physicochemical profiles.csv">Supplementary Table 2</a>). Twelve hits also broke one of the RO5s.  31 of the 39 hits were considered to be druglike. The remaining 7 hits: 5,7'-physcion-fallacinol, ZINC000095485956, ZINC000085594516, amentoflavone, ZINC000095486111, voucapane-18,19-di-(4-methyl)-benzenesulphonate, ZINC000095485927 showed the least drug-likeness of two RO5 violations (Table 5). Veber's rule with TPSA ≤ 140 and rotatable bonds ≤ 10 as the main determinant. 26 out of the selected hits demonstrated 0 violations with the remaining showing only one violation of the rule. The solubility and pharmacological profiles such as GI absorption were also elucidated. Only ZINC000095485927 was predicted to be insoluble (Supplementary Table 2). 14 of the hits were predicted to be moderately soluble with 4 predicted as soluble. However, 19 of the selected hits were predicted to be poorly soluble (Supplementary table 2). Compounds are considered to have met the GI absorption criteria if it is denoted as ‘High’ suggesting a high propensity of absorption into the intestinal tract for orally administered drugs. 21 and 18 of the selected hits were predicted to be High and low respectively. The mutagenicity and tumorigenicity levels of the hits were also predicted using DataWarrior (Table 5). From the results obtained, 26 out of the 39 hits tested were neither mutagenic nor tumorigenic.
 </p>
 
 **Table 4.** Prediction of ADME and toxicity profiles of top 15 selected hits.
 
-| Ligands                   | ESOL Solubility Class | GI absorption | RO5 violation | Veber’s rule violation | Mutagenicity | Tumorigenicity |
-| :------------------------ | :-------------------: | :-----------: | :-----------: | :--------------------: | :----------: | :------------: |
-| ZINC000004095704          | Soluble               | Low           | 1             | 1                      | None         | None           |
-| ZINC000095485958          | Soluble               | Low           | 1             | 1                      | None         | None           |
-| ZINC000095485940          | Soluble               | High          | 0             | 0                      | None         | None           |
-| ZINC000095485986          | Soluble               | Low           | 0             | 1                      | None         | None           |
-| dihydrolanneaflavonol     | Moderately soluble    | High          | 0             | 0                      | None         | None           |
-| lettowianthine            | Moderately soluble    | High          | 0             | 0                      | High         | High           |
-| millettosine              | Moderately soluble    | High          | 0             | 0                      | None         | None           |
-| ZINC000095486053          | Moderately soluble    | High          | 0             | 0                      | None         | None           |
-| ZINC000031168265          | Soluble               | High          | 0             | 0                      | None         | None           |
-| ZINC000095485910          | Moderately soluble    | High          | 0             | 0                      | High         | High           |
-| ZINC000014780240          | Moderately soluble    | High          | 0             | 0                      | High         | None           |
-| ZINC000085594516          | Poorly soluble        | Low           | 2             | 1                      | None         | None           |
-| 5,7'-physcion-fallacinol  | Poorly soluble        | Low           | 2             | 1                      | Low          | None           |
-| ZINC000014441502          | Moderately soluble    | High          | 0             | 0                      | None         | None           |
-| chryslandicin             |  Poorly soluble       | Low           | 1             | 1                      | None         | High           |
+| N°  | Ligands                   | ESOL Solubility Class | GI absorption | RO5 violation | Veber’s rule violation | Mutagenicity | Tumorigenicity |
+| :-- | :------------------------ | :-------------------: | :-----------: | :-----------: | :--------------------: | :----------: | :------------: |
+| 1   | ZINC000004095704          | Soluble               | Low           | 1             | 1                      | None         | None           |
+| 2   | ZINC000095485958          | Soluble               | Low           | 1             | 1                      | None         | None           |
+| 3   | ZINC000095485940          | Soluble               | High          | 0             | 0                      | None         | None           |
+| 4   | ZINC000095485986          | Soluble               | Low           | 0             | 1                      | None         | None           |
+| 5   | dihydrolanneaflavonol     | Moderately soluble    | High          | 0             | 0                      | None         | None           |
+| 6   | lettowianthine            | Moderately soluble    | High          | 0             | 0                      | High         | High           |
+| 7   | millettosine              | Moderately soluble    | High          | 0             | 0                      | None         | None           |
+| 8   | ZINC000095486053          | Moderately soluble    | High          | 0             | 0                      | None         | None           |
+| 9   | ZINC000031168265          | Soluble               | High          | 0             | 0                      | None         | None           |
+| 10  | ZINC000095485910          | Moderately soluble    | High          | 0             | 0                      | High         | High           |
+| 11  | ZINC000014780240          | Moderately soluble    | High          | 0             | 0                      | High         | None           |
+| 12  | ZINC000085594516          | Poorly soluble        | Low           | 2             | 1                      | None         | None           |
+| 13  | 5,7'-physcion-fallacinol  | Poorly soluble        | Low           | 2             | 1                      | Low          | None           |
+| 14  | ZINC000014441502          | Moderately soluble    | High          | 0             | 0                      | None         | None           |
+| 15  | chryslandicin             |  Poorly soluble       | Low           | 1             | 1                      | None         | High           |
 
 
 ------
