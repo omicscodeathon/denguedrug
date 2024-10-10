@@ -626,7 +626,8 @@ graph TD;
 #### Per-residue Energy Decomposition
 
 <p align="justify">
-  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+  By using per-residue decomposition, binding free energies can be computed using the MMPBSA approach. This entails breaking down each residue by taking into account the interactions that each residue participates in. These offer helpful information on significant interactions between crucial residues in the free energy contribution. Critical residues for binding a ligand to a protein are those that contribute binding free energy of at least ± 5 kJ/mol (Kwofie, Dankwa, et al., 2019).
+For every complex, the per-residue energy decomposition computation was carried out (Fig. 9 and Supplementary Figs. 1A-D). For the <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC14441502.png">NS2B/NS3-ZINC14441502 complex</a>, only Tyr161 contributed energy of -6.4629 kJ/mol as seen below. For the <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC38628344.png">NS2/NS3B-ZINC38628344 complex</a>, Tyr161 and Leu128 contributed individual energies of -6.6957 and -3.4011 kJ/mol respectively. Key residues interacting with ZINC95485940, 2',4'-dihydroxychalcone, and Prednisolone contributed minor energies.
 </p>
 
 <p align="center">
