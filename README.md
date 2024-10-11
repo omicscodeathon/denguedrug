@@ -110,8 +110,8 @@ Our approach seeks to train different Machine Learning models using the Anti-Den
 
 
 ## Description
-<br>
 
+<br>
 This figure illustrates the proposed DengueDrug pipeline to be utilized to identify Dengue Virus Inhibitors.<a name="description-section"></a>
 <br>
 <p align="center">
@@ -134,7 +134,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 
  - The unprocessed database can be found [here](data/unprocessed_database_PubChem_651640).
 
- - The molecular descriptors of the [actives](data/Actives.smi) and [inactive](data/Inactives.smi) were calculated using [PaDEL-Descriptors](http://www.yapcwsoft.com/dd/padeldescriptor/). The descriptors of the [actives and inactives](data) were calculated using the [Descriptor Calculator](scripts/DescriptorCalculator.py) Python script.
+ - The molecular descriptors of the [actives](data/Actives.smi) and [inactive](data/Inactives.smi) were calculated using [PaDEL-Descriptors](http://www.yapcwsoft.com/dd/padeldescriptor/). The descriptors of the [actives and inactives](data) were calculated using the [`Descriptor Calculator`](scripts/DescriptorCalculator.py) Python script.
 
  - The actives and inactives databases were combined and all missing descriptors were filled with the value 0. Next dimensionality reduction was conducted using a variance filter (scikit-learn VarianceThreshold library).
 
@@ -206,7 +206,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
   <img src="figures/Correlation%20between%20actives%20and%20inactives%20from%20ML_legend.jpeg" title="Three-dimensional plot showing the correlation between the active and inactive compounds from the processed data, based on ALogP, XLogP, and Zagreb" width="650"/>
   <br>
   <font size="1">
-  <b>Fig.</b> Three-dimensional plot presenting the correlation between active and inactive compounds in the processed dataset according to ALogP, XLogP, and Zagreb.
+  <b>Figure 1.<a name="figure-1"></a></b> Three-dimensional plot of the correlation between active and inactive compounds in the processed dataset according to ALogP, XLogP, and Zagreb.
   </font>
 </p>
 
@@ -266,7 +266,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 --->
 
 <!---
-**Table 1.** Comparison of ML models performance on withheld data sets.
+**Table 1.<a name="table-1"></a>** Comparison of ML models performance on withheld data sets.
 
 | Model | Accuracy | Precision | Recall | F1 Score |
 | :---- | :------: | :-------: | :----: | :------: |
@@ -283,7 +283,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
   <img src="figures/ML_Val_Results.jpeg" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="650"/>
   <br>
   <font size="1">
-  <b>Fig. Bar plot of model performance for each model based on statistical evaluation parameters.</b>
+  <b>Figure 2.<a name="figure-2"></a></b> Bar plot of model performance for each model based on statistical evaluation parameters.
   </font>
 </p>
 
@@ -295,8 +295,8 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
   18 known Dengue Virus inhibitors retrieved from literature were used for initial testing and further validation of the model performance. Of these inhibitors, the Logistic Regression model predicted 11 as active, outperforming the other ML models as seen in the table below. Preprocessing of these compounds was conducted in the same manner as the training data to ensure consistency in descriptor calculation and transformation. Pentoxifylline, Prochlorperazine, Balapiravir, Celgosivir, and Bortezomib were accurately classified as active by Logistic Regression, just to cite a few. The <a href="output/models/">LR model</a> was employed to predict 812 compounds from the ZINC and 1871 from the EANPDB database. Of the 2683 assessed compounds, <a href="output/ML output">933 compounds</a> were predicted as active and suitable for further exploration. This approach sought to highlight the significance of proper descriptor selection and data preprocessing in QSAR modeling towards effectively handling imbalanced data.
 </p>
 
-**Table 2.** Kwnown Dengue Virus inhibitors prediction results using LR.
-
+<!---
+**Table 2.<a name="table-2"></a>** Kwnown Dengue Virus inhibitors prediction results using LR.
 <p align=center>
   <table>
     <tr>
@@ -436,7 +436,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 </p>
 
 &emsp; 0 = Inactive, 1 = Active
-
+--->
 -----
 
 ### Target Selection and Molecular Docking of Predicted Compounds
@@ -449,7 +449,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
   <img src="figures/NS2BNS3 protease structure.png" title="PyMOL visualization of NS2B/NS3 protease structure with ligand docking representation" width="700"/>
   <br>
   <font size="1">
-  <b>Fig.</b> NS2B/NS3 protease structure as visualized in PyMOL, highlighting ligand docking. [A. Pale-yellow cartoon structure representation of the protein structure; B. Light-green surface representation of the protein with a ligand (blue) positioned in the active site].
+  <b>Figure 3.<a name="figure-3"></a></b> NS2B/NS3 protease structure as visualized in PyMOL, highlighting ligand docking. [A. Pale-yellow cartoon structure representation of the protein structure; B. Light-green surface representation of the protein with a ligand (blue) positioned in the active site].
   </font>
 </p>
 
@@ -472,8 +472,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 </p>
 
 <!---
-
-**Table 3.** Top 20 Protein-ligand interactions between selected hits and NS2B/NS3 post-docking, including two known inhibitors.
+**Table 3.<a name="table-3"></a>** Top 20 Protein-ligand interactions between selected hits and NS2B/NS3 post-docking, including two known inhibitors.
 
 | N°  | Compound names                                                      | Binding Affinity ($`kcal/mol`$) | Hydrogen bonding with bond length ($`Å`$) | Hydrophobic contacts |
 | :-- | :------------------------------------------------------------------ | :-----------------------------: | :---------------------------------------: | :------------------: |
@@ -497,7 +496,6 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 | 18  | ZINC000014444870                                                    | -8.4  | Asn152 (3.01), Leu149 (3.19)  | Leu85, Val147, Gly87, Val146, Asn167, Ile165, Val54, Ala164, Ile123, Lys74, Gly148, Leu76, Trp83  |
 | 19  | Leflunomide                                                         | -7.1  | None  | Asn152, Val54, Ala64, Asn167, Leu76, Lys74, Ile123, Ala166  |
 | 20  | Prednisolone                                                        | -7.0  | Gly151 (2.90, 2.71), Asp75 (2.95), His51 (3.21), Gly153 (2.93, 3.16)  | Leu128, Phe130, Asn152, Ser135, Pro132  |
-
 --->
 
 The compound ZINC38628344, with a binding affinity of -8.5 kcal/mol, formed hydrogen bonds with His51 (2.89 Å), Ser135 (2.68 Å), Asp75 (2.57 Å), Phe130 (3.06 Å), and Tyr150 (3.10 Å), in addition to hydrophobic interactions with residues such as Pro132, Ser131, Leu128, Tyr161, Gly153, and Gly151 (Fig. 5).
@@ -512,7 +510,7 @@ The compound ZINC38628344, with a binding affinity of -8.5 kcal/mol, formed hydr
   <img src="figures/ZIN38628344 protein-ligand interaction_legend.png" title="Ligand ZINC38628344 docked in NS2B/NS3 binding pocket; 2D protein-ligand interaction diagram generated using PyMOL and LigPlot respectively" width="650"/>
   <br>
   <font size="1">
-  <b>Fig.</b> Ligand ZINC38628344 docked into the NS2B/NS3 binding pocket, with 2D protein-ligand interaction diagrams generated using <a href="https://www.semanticscholar.org/paper/The-PyMOL-Molecular-Graphics-System-(2002)-Delano/9b7284d0e5dfa654db0d97616fa19f371726f9c9">PyMOL</a> (left) and <a href="https://doi.org/10.1021/ci200227u">LigPlot</a> (right).</b>
+  <b>Figure 4.<a name="figure-4"></a></b> Ligand ZINC38628344 docked into the NS2B/NS3 binding pocket, with 2D protein-ligand interaction diagrams generated using <a href="https://www.semanticscholar.org/paper/The-PyMOL-Molecular-Graphics-System-(2002)-Delano/9b7284d0e5dfa654db0d97616fa19f371726f9c9">PyMOL</a> (left) and <a href="https://doi.org/10.1021/ci200227u">LigPlot</a> (right).</b>
   </font>
 </p>
 
@@ -527,7 +525,7 @@ The compound ZINC38628344, with a binding affinity of -8.5 kcal/mol, formed hydr
 
 
 <!---
-**Table 4.** Prediction of ADME (absorption, distribution, metabolism, excretion) and toxicity profiles for the top 15 selected hits.
+**Table 4.<a name="table-4"></a>** Prediction of ADME (absorption, distribution, metabolism, excretion) and toxicity profiles for the top 15 selected hits.
 
 | N°  | Ligands                   | ESOL Solubility Class | GI absorption | RO5 violation | Veber’s rule violation | Mutagenicity | Tumorigenicity |
 | :-- | :------------------------ | :-------------------: | :-----------: | :-----------: | :--------------------: | :----------: | :------------: |
@@ -580,7 +578,7 @@ graph TD;
   <img src="figures/RMSD for NS2B_NS3pro-ligand MD simulations.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="630"/>
   <br>
   <font size="1">
-  <b>RMSD vs. time graph for the unbound protein and NS2B/NS3pro-ligand complexes generated throughout the 100 ns MD simulation.</b>
+  <b>Figure 5.<a name="figure-5"></a></b> RMSD vs. time graph for the unbound protein and NS2B/NS3pro-ligand complexes generated throughout the 100 ns MD simulation.
   </font>
 </p>
 
@@ -596,7 +594,7 @@ graph TD;
   <img src="figures/Rg vs time for NS2B_NS3pro-ligand MD simulations.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="630"/>
   <br>
   <font size="1">
-  <b>Rg graph comparing NS2B/NS3pro-ligand complexes and the unbound protein.</b>
+  <b>Figure 6.<a name="figure-6"></a></b> Rg graph comparing NS2B/NS3pro-ligand complexes and the unbound protein.
   </font>
 </p>
 
@@ -612,7 +610,7 @@ graph TD;
   <img src="figures/RMSF fluctuations for NS2B_NS3pro-ligand MD simulations.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="630"/>
   <br>
   <font size="1">
-  <b>Analysis of the RMSF trajectories of the NS2B/NS3pro-ligand complexes and the unbound protein residues.</b>
+  <b>Figure 7.<a name="figure-7"></a></b> Analysis of the RMSF trajectories of the NS2B/NS3pro-ligand complexes and the unbound protein residues.
   </font>
 </p>
 
@@ -631,7 +629,7 @@ graph TD;
 </p>
 
 <!---
-**Table 5.** MMPBSA energy contributions for NS2B/NS3-ligand complexes presented as averages ± standard deviations in kJ/mol.
+**Table 5.<a name="table-5"></a>** MMPBSA energy contributions for NS2B/NS3-ligand complexes presented as averages ± standard deviations in kJ/mol.
 
 | N°   | Compounds             | van der Waal energy ($`kJ/mol`$) | Electrostatic energy ($`kJ/mol`$) | Polar solvation energy ($`kJ/mol`$) | SASA energy ($`kJ/mol`$) | Binding energy ($`kJ/mol`$) |
 | :--: | :-------------------- | :------------------------------: | :-------------------------------: | :---------------------------------: | :----------------------: | :-------------------------: |
@@ -658,7 +656,7 @@ For every complex, the per-residue energy decomposition computation was carried 
   <img src="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC14441502.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="650"/>
   <br>
   <font size="1">
-  <b>MMPBSA plot illustrating binding free energy contributions per residue for the NS2B/NS3-ZINC14441502 complex.</b>
+  <b>Figure 8.<a name="figure-8"></a></b> MMPBSA plot illustrating binding free energy contributions per residue for the NS2B/NS3-ZINC14441502 complex.
   </font>
 </p>
 
