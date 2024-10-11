@@ -9,7 +9,7 @@
 
 # denguedrug
 
-<font size=+>
+<font size="2">
   <b>Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus.</b>
 </font>
 
@@ -19,8 +19,8 @@
 </p>
 
 <p align="justify">
-  Dengue virus (DENV) is a <i>Flaviviridae</i> family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as <i>Aedes aegypti</i> and <i>Aedes albopictus</i>, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as Dengue hemorrhagic fever (DHF) and Dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. 
-Our approach seeks to train different Machine Learning models using the Anti-Dengue dataset from PubChem to discriminate potential anti-Dengue compounds from non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow diagram presented in the "<a href="#description" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" section. Regions of high prevalence of Dengue virus infection in Africa have been highlighted in the figure below.
+  Dengue virus (DENV) is a <i>Flaviviridae</i> family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as <i>Aedes aegypti</i> and <i>Aedes albopictus</i>, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as Dengue hemorrhagic fever (DHF) and Dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. Regions of high prevalence of Dengue virus infection in Africa have been highlighted in the figure below.
+Our approach seeks to train different Machine Learning models using the Anti-Dengue dataset from PubChem to discriminate potential anti-Dengue compounds from non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the workflow diagram presented in the <a name="description-section"></a> "<a href="#description" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" section.
 </p>
 <br>
 
@@ -104,17 +104,18 @@ Our approach seeks to train different Machine Learning models using the Anti-Den
 - [X] Virtual screening of predicted actives into identified protein crystal structures.
 - [X] Assess and identify hits using criterion: docking score, interactions with important residues.
 - [X] Assess hits ADMET properties.
-- [X] Conduct MD simulations to determine compounds' binding mode stability and binding free energy.
-- [X] Compile results.
+- [X] Conduct MD simulations to determine compounds' binding mode stability and binding free energy, and MMPBSA computations.
+- [X] Compile results and observations.
+- [X] Finalize write-up.
 
 
 ## Description
+<br>
 
+This figure illustrates the proposed [DengueDrug pipeline](#description-section) to be utilized to identify Dengue Virus Inhibitors.</a>
+<br>
 <p align="center">
   <br>
-  <font size="1">
-  The figure illustrates the proposed DengueDrug pipeline to be utilized to identify Dengue Virus Inhibitors.</a>
-   <br><br>
   </font> 
   <img src="workflow/DengueDrug%20project%20workflow%20diagram.png" alt="Proposed Dengue Drug Identification Pipeline" title="Proposed Dengue Drug Identification Pipeline" width="800"/>
   <br>
