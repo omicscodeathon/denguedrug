@@ -112,7 +112,7 @@ Our approach seeks to train different Machine Learning models using the Anti-Den
 ## Description
 
 <br>
-This figure illustrates the proposed DengueDrug pipeline to be utilized to identify Dengue Virus Inhibitors.<a name="description-section"></a>
+This figure illustrates the proposed DengueDrug pipeline to be utilized to identify potent Dengue Virus Inhibitors.<a name="description-section"></a>
 <br>
 <p align="center">
   <br>
@@ -127,7 +127,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 ### Step 1: Identification of Dengue Virus inhibitors database for ML training
 
 <p align="justify">
-  The ligand database was obtained from PubChem <a href="https://pubchem.ncbi.nlm.nih.gov/bioassay/651640">BioAssay ID: 651640</a>. The ligand database was experimentally generated using "<i>in vivo</i>" DENV2 CPE-Based HTS measured in Cell-Based and Microorganism Combination System, method by the <a href="http://www.broadinstitute.org/">Broad Institute</a>. A total of 347,136 compounds were analyzed for their Dengue Virus inhibition and 5,946 actives and 324,845 non-actives were identified. An active is represented as a compound that can exhibit an ATP activity level above 20% at 10 $\mu M$.
+  The ligand database was obtained from PubChem <a href="https://pubchem.ncbi.nlm.nih.gov/bioassay/651640">BioAssay ID: 651640</a>. The ligand database was experimentally generated using "<i>in vivo</i>" DENV2 CPE-Based HTS computed in Cell-Based and Microorganism Combination System, method by the <a href="http://www.broadinstitute.org/">Broad Institute</a>. A total of 347,136 compounds were analyzed for their Dengue Virus inhibition and 5,946 actives and 324,845 non-actives were identified. An active is represented as a compound that can exhibit an ATP activity level above <b>20%</b> at <b>10 $\mu M$</b>.
 </p>
 
 ### Step 2: Preprocessing
@@ -136,7 +136,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 
  - The molecular descriptors of the [actives](data/Actives.smi) and [inactive](data/Inactives.smi) were calculated using [PaDEL-Descriptors](http://www.yapcwsoft.com/dd/padeldescriptor/). The descriptors of the [actives and inactives](data) were calculated using the [`Descriptor Calculator`](scripts/DescriptorCalculator.py) Python script.
 
- - The actives and inactives databases were combined and all missing descriptors were filled with the value 0. Next dimensionality reduction was conducted using a variance filter (scikit-learn VarianceThreshold library).
+ - The actives and inactives databases were combined and all missing descriptors were filled with the value 0. Next, dimensionality reduction was conducted using a variance filter (scikit-learn VarianceThreshold library).
 
  - The data was then standardized using the mean and standard deviation [metrics](data/metrics.csv) of various assessment parameters.
 
@@ -146,9 +146,9 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 
 - The ML models were constructed using [lazy predict](https://github.com/shankarpandala/lazypredict) python package. The models that exhibited the greatest Accuracy, F1-score, Balanced Accuracy, and ROC AUC [metrics](figures/Lazy_predict_results.jpeg) were selected for validation.
 
-- <p align="justify">The models chosen for further validation were K-Nearest Neighbours, Naive Bayes, Support Vector Machine, Random Forest and Logistic regression. The models can be found <a href="output/models">here</a>. Using K-fold splitting of the training data the models were cross-validated and the model's suitability was evaluated using the Accuracy, F1-score, Precision, Recall, and Specificity, and false and true positive and negative rate <a href="ML_results_for_model_selection.jpeg">metrics</a>.</p>
+- <p align="justify">The <a href="output/models">models</a> chosen for further validation were K-Nearest Neighbours, Gaussian Naïve Bayes, Support Vector Machine, Random Forest and Logistic regression. Using K-fold splitting of the training data, the models were cross-validated and the model's suitability was evaluated using the Accuracy, F1-score, Precision, Recall, and Specificity, and false and true positive and negative rate as <a href="ML_results_for_model_selection.jpeg">selection metrics</a>.</p>
 
-- The models' prediction ability was assessed using the test data. The model's prediction accuracy was determined using Accuracy, F1-score, Precision, and Recall [metrics](figures/Model_selection_results_on_test_dataset.png).
+- The models' prediction ability was assessed using the test data. The model's prediction accuracy was determined using Accuracy, F1-score, Precision, and Recall [evaluation metrics](figures/Model_selection_results_on_test_dataset.png).
 
 - The logistic regression (LR) model exhibited the greatest results on the test dataset and therefore was evaluated on the external dataset. The LR model obtained an 82% active and 98% inactive accuracy.
 
@@ -162,9 +162,9 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 
 ### Step 5: Molecular Docking
 
-- The crystal structure of the dengue 2 virus envelope protein ([PDB: 10KE](https://doi.org/10.2210/pdb1OKE/pdb)) was identified for structure-based virtual screening.
+- The crystal structure of the Dengue 2 virus envelope protein ([PDB: 2FOM](https://doi.org/10.2210/pdb2FOM/pdb)) was identified for structure-based virtual screening.
 
-- [AutoDock Vina](https://vina.scripps.edu) was utilized to screen the 7,722 compounds into the dengue 2 virus envelope protein.
+- [AutoDock Vina](https://vina.scripps.edu) was utilized to screen the 7,722 compounds into the Dengue 2 virus envelope protein.
 
 - The potential hits were selected using the criterion:
   - AutoDock Vina binding score.
@@ -172,15 +172,15 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
  
 ### Step 6: ADMET prediction
 
-- The ADMET properties of the identified hits will be predicted using [SwissADME](http://www.swissadme.ch), applying Veber's rule and Lipinski's rule.
+- The ADMET properties of the identified hits will be predicted using [SwissADME](http://www.swissadme.ch), applying <a href="https://doi.org/10.3390/molecules25020321">Veber's rule</a> and <a href="https://doi.org/10.1016/j.drudis.2019.10.014">Lipinski's Rule of Five</a> (Ro5).
 - The hits with potential pharmacokinetic and toxicity moieties will be removed.
 
 ### Step 7: Molecular Dynamics (MD) Simulations
 
-- The hits binding mode stability will be assessed through 100-nanosecond (ns) MD simulations utilizing GROMACS.
-- The stability will be assessed using metrics like root-mean-square deviation (RMSD) and fluctuation (RMSF), Radius of Gyration (Rg), etc.
+- The hits binding mode stability will be assessed through 100-nanosecond (ns) MD simulations utilizing <a href="https://doi.org/10.1021/ci500020m">GROMACS</a>.
+- The stability will be assessed using metrics like root-mean-square deviation (RMSD) and fluctuation (RMSF), Radius of Gyration (Rg), etc., using <a href="https://doi.org/10.1163/_q3_SIM_00374">Xmgrace</a>.
 - The compounds binding interactions retention with important residues throughout the MD simulations will be assessed with the [ProLIF](https://prolif.readthedocs.io/en/stable/) python library.
-- The compounds' binding free energies throughout the MD simulation were calculated using Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA).
+- The compounds' binding free energies throughout the MD simulation were calculated using <a href="https://doi.org/10.1021/ci500020m">Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA)</a>.
 
 ## Manuscript
 
@@ -198,12 +198,13 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 ### Data Acquisition and Processing
 
 <p align="justify">
-  The <a href="data/unprocessed_database_PubChem_651640/DENV2_PubChem_database_AID_651640_datatable.csv">bioactive dataset</a> obtained from PubChem consisted of imbalanced data from which 1/3 where active compounds and inactive compounds dominated the dataset as seen on the figure below. Using <a href="https://doi.org/10.1002/jcc.21707">PaDEL</a>, 1,444 molecular descriptors were generated, providing a mathematical representation of the compounds for QSAR modeling via convertion of chemical information to numerical values. The dataset of 21,250 compounds was split into training, validation, and test sets as follows: <a href="data/Training Data.csv.zip">14,875 training data</a>, <a href="data/Test Data.csv">3,187 test data</a>, and <a href="data/External Data.csv">3,188 externally held data</a>. Applying a variance filter with a threshold of <b>0.1</b> reduced descriptors from 1,444 to 684 filtering out descriptors with minimal variance, to ensure only the most informative features were withheld for posterior modeling. 
+  The <a href="data/unprocessed_database_PubChem_651640/DENV2_PubChem_database_AID_651640_datatable.csv">bioactive dataset</a> obtained from <a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> consisted of imbalanced data from which 1/3 where active compounds, and inactive compounds dominated the dataset as seen in <a href="#figure-1">Figure 1</a> below. <a href="https://doi.org/10.1002/jcc.21707">PaDEL</a> was used to generate 1,444 molecular descriptors, providing a mathematical representation of compounds for QSAR modeling via the convertion of chemical information to numerical values. The dataset of 21,250 compounds was split into: <a href="data/Training Data.csv.zip">14,875 training set</a>, <a href="data/Test Data.csv">3,187 test set</a>, and <a href="data/External Data.csv">3,188 externally held set</a>. Applying a variance filter with a threshold value of <b><code>0.1</code></b> shortened descriptors from 1,444 to 684, filtering out those with minimal variance, guaranteeing only the most informative features were withheld for posterior modeling. 
 </p>
+
 <p align="center">
   <br>
   </font> 
-  <img src="figures/Correlation%20between%20actives%20and%20inactives%20from%20ML_legend.jpeg" title="Three-dimensional plot showing the correlation between the active and inactive compounds from the processed data, based on ALogP, XLogP, and Zagreb" width="650"/>
+  <img src="figures/Correlation%20between%20actives%20and%20inactives%20from%20ML_legend.jpeg" title="Three-dimensional plot presenting the correlation between active compounds and inactive compounds from the processed data, based on ALogP, XLogP, and Zagreb metrics" width="650"/>
   <br>
   <font size="1">
   <b>Figure 1.<a name="figure-1"></a></b> Three-dimensional plot of the correlation between active and inactive compounds in the processed dataset according to ALogP, XLogP, and Zagreb.
@@ -215,7 +216,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 ### Model Development and Evaluation
 
 <p align="justify">
- Five machine learning algorithms (k-NN, Gaussian Naïve Bayes, SVM, Random Forest, and Logistic Regression) were employed to build robust predictive <a href="output/models">models</a>, each assessed based on several statistical parameters including accuracy, precision, recall, and F1 score. LR produced the best results across most metrics, followed by the SVM model. With 81% accuracy and an F1 score of 0.51, Gaussian Naïve Bayes was depicted as least performing model. Its low precision (0.55) and recall (0.47) show it struggled to balance between identification of true positives and minimization of false positives. Given its robust performance via the different evaluation metrics, <a href="output/Models/LR_model.pkl">Logistic Regression</a> appeared as the most reliable model for predicting potential inhibitors. The results of each model's performance are shown below.
+ Five machine learning algorithms (k-NN, Gaussian Naïve Bayes, SVM, Random Forest, and Logistic Regression) were employed to build robust predictive <a href="output/models">models</a>, each assessed based on several statistical parameters including the accuracy, precision, recall, and F1 score. LR produced the best results across most metrics, followed by the SVM model. With <i>81%</i> accuracy and an F1 score of <i>0.51</i>, Gaussian Naïve Bayes was depicted as least performing model, and it struggled to balance between identification of true positives and minimization of false positives given its low precision (0.55) and recall (0.47). Given its robustness via the different evaluation metrics, <a href="output/Models/LR_model.pkl">Logistic Regression</a> appeared as the most dependable model for predicting potential inhibitors (<a href="#table-1">Table 1</a>).
 </p>
 
 <!---
@@ -265,8 +266,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
   </table>
 --->
 
-<!---
-**Table 1.<a name="table-1"></a>** Comparison of ML models performance on withheld data sets.
+**Table 1.<a name="table-1"></a>** Evaluation of ML models performance on retained datasets.
 
 | Model | Accuracy | Precision | Recall | F1 Score |
 | :---- | :------: | :-------: | :----: | :------: |
@@ -275,15 +275,14 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 | KNN   | 0.92     | 0.89      | 0.68   | 0.77     |
 | RF    | 0.91     | 0.94      | 0.60   | 0.73     |
 | NB    | 0.81     | 0.55      | 0.47   | 0.51     |
---->
 
 <p align="center">
   <br>
   </font> 
-  <img src="figures/ML_Val_Results.jpeg" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="650"/>
+  <img src="figures/ML_Val_Results.jpeg" title="Bar plot of model performance of each machine learning model based on accuracy, precision, recall, and F1 score" width="650"/>
   <br>
   <font size="1">
-  <b>Figure 2.<a name="figure-2"></a></b> Bar plot of model performance for each model based on statistical evaluation parameters.
+  <b>Figure 2.<a name="figure-2"></a></b> Bar plot of performance metrics for each Machine Learning model.
   </font>
 </p>
 
@@ -292,11 +291,10 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 ### Prediction of Inhibitors and New Compounds 
 
 <p align="justify">
-  18 known Dengue Virus inhibitors retrieved from literature were used for initial testing and further validation of the model performance. Of these inhibitors, the Logistic Regression model predicted 11 as active, outperforming the other ML models as seen in the table below. Preprocessing of these compounds was conducted in the same manner as the training data to ensure consistency in descriptor calculation and transformation. Pentoxifylline, Prochlorperazine, Balapiravir, Celgosivir, and Bortezomib were accurately classified as active by Logistic Regression, just to cite a few. The <a href="output/models/">LR model</a> was employed to predict 812 compounds from the ZINC and 1871 from the EANPDB database. Of the 2683 assessed compounds, <a href="output/ML output">933 compounds</a> were predicted as active and suitable for further exploration. This approach sought to highlight the significance of proper descriptor selection and data preprocessing in QSAR modeling towards effectively handling imbalanced data.
+  Eighteen (18) known Dengue Virus inhibitors sourced from literature were used for initial testing and further ascertainment of the model performance. Amongst these inhibitors, the Logistic Regression model successfully identified 11 as active, surpassing the performance of other ML models as indicated below (<a href="#table-2">Table 2</a>). To ensure consistency in descriptor calculation and transformation, these compounds underwent the same preprocessing as training data. Notable active compounds predicted by the LR model included Pentoxifylline, Prochlorperazine, Balapiravir, Celgosivir, and Bortezomib, just to cite a few. This effective validation showed it could extrapolate to compounds with same mode of action. The <a href="output/Models/LR_model.pkl">LR model</a> was employed to predict activity in 812 and 1871 compounds from the ZINC and EANPDB database respectively. Of the 2683 evaluated compounds, <a href="output/ML output"><b>933</b></a> were predicted as active and suitable for further investigation. This approach sought to highlight the significance of careful descriptor selection and data preprocessing in QSAR modeling towards properly addressing imbalanced data in anti-Dengue drug discovery.
 </p>
 
-<!---
-**Table 2.<a name="table-2"></a>** Kwnown Dengue Virus inhibitors prediction results using LR.
+**Table 2.<a name="table-2"></a>** Prediction results for known Dengue Virus inhibitors using LR.
 <p align=center>
   <table>
     <tr>
@@ -436,13 +434,13 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 </p>
 
 &emsp; 0 = Inactive, 1 = Active
---->
+
 -----
 
 ### Target Selection and Molecular Docking of Predicted Compounds
 
 <p align="justify">
-  This research focused on the <a href="https://doi.org/10.3389/fcimb.2023.1061937">NS2B/NS3 protease</a>, chosen as primary target from the seven nonstructural proteins of the Dengue Virus to validate the Logistic Regression (LR) model predictions. As a crucial enzyme involved in viral replication and assembly process, it represents a significant target for antiviral drug development. Potential inhibition sites for the DENV protease include the active site and the binding site of the NS3 protease with its cofactor, NS2B. The active site, which is the main target for intervention, comprises a conserved catalytic triad His51-Asp75-Ser135. A search through the <a href="https://www.rcsb.org/">Protein Data Bank</a> revealed several solved structures for the NS2B/NS3 complex in Dengue Virus serotype, identified by PDB IDs such as 4M9T, 2FOM, 4M9M, and 4M9I, with resolutions of 1.74, 1.50, 1.53, and 2.40 $Å$, and R-values of 0.215, 0.176, 0.203, and 0.215, respectively. For this study, 2FOM was selected due to its favorable resolution and R-value, allowing for visualization of its 3D structure with a ligand docked at the active site, as represented below.
+  This research focused on the <a href="https://doi.org/10.3389/fcimb.2023.1061937">NS2B/NS3 protease</a>, chosen as primary target from the seven nonstructural proteins of the Dengue Virus to validate the Logistic Regression (LR) model predictions. As a crucial enzyme involved in the viral replication and assembly process, it represents a significant target for antiviral drug development. Potential inhibition sites for the DENV protease include the active site and the binding site of the NS3 protease with its cofactor, NS2B. The active site, which is the main target for intervention, comprises a preserved catalytic triad consisting of His51, Asp75, and Ser135. Searching through the <a href="https://www.rcsb.org/">Protein Data Bank</a> revealed several solved structures for the NS2B/NS3 complex in Dengue Virus serotype, identified by PDB IDs like 4M9T, 2FOM, 4M9M, and 4M9I, with resolutions of 1.74, 1.50, 1.53, and 2.40 $Å$, and R-values of 0.215, 0.176, 0.203, and 0.215, respectively. For this study, 2FOM was selected due to its favorable resolution and R-value, allowing for visualization of its 3D structure with a ligand docked at the active site (possessing other residues like Leu128, Pro132, Ser131, & Tyr161), as represented below (<a href="#figure-3">Figure 3</a>).
 </p>
 
 <p align="center">
@@ -454,7 +452,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 </p>
 
 <p align="justify">
-  A total of 853 compounds, curated from the <a href="output/ML output">total ML outputs</a>, predicted by the Logistic Regression model were docked into the active site of the NS2B/NS3 protease using <a href="https://doi.org/10.1002/jcc.21334">Autodock Vina</a>. Among these, <b>anhydrophlegmacin</b> exhibited the highest binding affinity of <i>-9.2 $kcal/mol$</i>, surpassing all other docked ligands. The <a href="output/Molecular%20Docking/ranked_output.tab">binding affinities</a> of the compounds ranged from -9.2 to -3.6 $kcal/mol$, supporting the predictive capability of the Logistic Regression model. With a threshold set at -8.0 $kcal/mol$, <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">59 compounds</a> with equivalent or better binding energies were selected for further investigation. This threshold exceeded the conventional -7.0 $kcal/mol$ standard for classifying compounds as active against a specific target(<a href="https://doi.org/10.1002/cbdv.202200160">Kwofie et al., 2022</a>). The binding affinity reflects the strength of interaction between ligands and target protein. Visual inspections of the protein-ligand complexes were conducted using <a href="https://www.semanticscholar.org/paper/The-PyMOL-Molecular-Graphics-System-(2002)-Delano/9b7284d0e5dfa654db0d97616fa19f371726f9c9">PyMOL</a> to identify the most promising docked compounds. Known inhibitors (Leflunomide and Prednisolone) were included as controls, demonstrating binding affinities of -7.1 and -7.0 $kcal/mol$, respectively. The <a href="output/Molecular%20Docking/ranked_output.tab">binding affinities</a> for all predicted compounds and inhibitors were systematically recorded and expressed below.
+  853 compounds, curated from the <a href="output/ML output">total ML outputs</a>, predicted by the Logistic Regression model were docked into the active site of the NS2B/NS3 protease using <a href="https://doi.org/10.1002/jcc.21334">Autodock Vina</a>. Among these, <b>anhydrophlegmacin</b> exhibited the highest binding affinity of <i>-9.2 $kcal/mol$</i>, surpassing all other docked ligands. The <a href="output/Molecular%20Docking/ranked_output.tab">binding affinities</a> of the compounds ranged from -9.2 to -3.6 $kcal/mol$, supporting the predictive capability of the Logistic Regression model. With a threshold set at -8.0 $kcal/mol$, <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">59 compounds</a> with equivalent or better binding energies were selected for further investigation. This threshold exceeded the conventional -7.0 $kcal/mol$ standard for classifying compounds as active against a given target(<a href="https://doi.org/10.1002/cbdv.202200160">Kwofie et al., 2022</a>). The binding affinity reflects the strength of interaction between ligands and target protein. Visual inspections of the protein-ligand complexes were conducted using <a href="https://www.semanticscholar.org/paper/The-PyMOL-Molecular-Graphics-System-(2002)-Delano/9b7284d0e5dfa654db0d97616fa19f371726f9c9">PyMOL</a> to identify the most promising docked compounds. Known inhibitors - Leflunomide and Prednisolone - were included as controls, respectively demonstrating binding affinities of -7.1 and -7.0 $kcal/mol$. The binding affinities for all predicted compounds and inhibitors were systematically recorded and stored <a href="output/Molecular%20Docking/ranked_output.tab">here</a>.
 </p>
 
 -----
@@ -462,16 +460,13 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 ### Mechanism of Binding Characterization of selected compounds
 
 <p align="justify">
-  Building on the structure-based molecular docking approach, interactions between the predicted compounds and the identified binding pocket were analyzed. Biomolecular interactions between the NS2B/NS3 protease and docked compounds were illustrated using <a href="https://doi.org/10.1002/jcc.21334">LigPlot</a>, crucial investigation step for identification of promising lead compounds, to help identify key residues within the proteins' active sites. Hydrogen and hydrophobic interactions between the shortlisted compounds and active site residues were investigated to identify suitable inhibitors of the NS2B/NS3 protease.
+  Building on the structure-based molecular docking approach, interactions between the predicted compounds and the identified binding pocket were analyzed. Biomolecular interactions between the NS2B/NS3 protease and docked compounds were illustrated using <a href="https://doi.org/10.1002/jcc.21334">LigPlot</a>, to help identify key residues within the proteins' active sites, crucial investigation step for identification of promising lead compounds. Hydrogen bonding and hydrophobic interactions between the selected compounds and active site residues were investigated to identify potent inhibitors of the NS2B/NS3 protease.
 </p>
 
 <p align="justify">
-  The interactions of the ligands docked in the active site were evaluated, revealing interactions with essential residues like His51, Ser135, Leu128, Pro132, Ser131, Tyr161, and Asp75, as detailed in the <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">Supplementary file 1</a>. Anhydrophlegmacin and anhydrophlegmacin-9,10-quinones_B2, which showed highest binding affinities, interacted with several of the same residues, including His51, Asp75, Gly151, Leu128, Pro132, and Gly153. These ligands formed hydrogen bonds with the catalytic triad residues Asp75, Ser135, and His51, with bond lengths measuring 2.57, 3.06, and 2.86 $Å$, respectively. The known inhibitor Prednisolone established hydrogen bonds with Gly151 (2.90 $Å$, 2.71 $Å$), Asp75 (2.95 $Å$), His51 (3.21 $Å$), and Gly153 (2.93 $Å$, 3.16 $Å$). Furthermore, ZINC14441502 interacted through hydrogen bonds with Gly151 and Ser135 at bond lengths of 2.86 and 2.99 Å, respectively, and exhibited hydrophobic interactions with Leu128, Gly153, Asn152, Val72, Asp75, His151, and Phe130 (Supplementary Table 2). A total of 39 out of 56 compounds docked effectively, interacting with key residues in the active site and were selected for downstream analysis.
-  
-<!---  For the interactions of the protease, the ligands docked to the active site were seen to interact with the proposed residues such as His51, Ser135, Leu128, Pro132, Ser131, Tyr161, and Asp75, as shown for the best hits in the Table below and fully detailed in the <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">Supplementary file 1</a>. Anhydrophlegmacin and anhydrophlegmacin-9,10-quinones_B2 which had the highest binding affinities interacted with similar residues such as His51, Asp75, Gly151, Leu128, Pro132, and Gly153. They interacted with conserved catalytic triad residues Asp75, Ser135, and His51 through hydrogen bonding with bond lengths of 2.57, 3.06, and 2.86 $Å$ respectively. The inhibitor Prednisolone interacted via hydrogen bonding with Gly151 (2.90 $Å$, 2.71 $Å$), Asp75 (2.95 $Å$), His51 (3.21 $Å$), Gly153 (2.93 $Å$, 3.16 $Å$). In addition ZINC14441502 formed hydrogen bonds with Gly151 and Ser135 with bond length 2.86 and 2.99 $Å$ respectively; and hydrophobic bonding with Leu128, Gly153, Asn152, Val72, Asp75, His151 and Phe130. <b>39</b> out of 56 hits docked firmly, interacted with critical residues in the active site, and were selected for downstream analysis. --->
+  Ligands docking to the protease's active site showed interactions with essential residues like His51, Ser135, Leu128, Pro132, Ser131, Tyr161, and Asp75, as detailed in <a href="#table-3">Table 3</a> and the accompanying <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">Supplementary file 1</a>. With highest binding affinities, anhydrophlegmacin and anhydrophlegmacin-9,10-quinones_B2, interacted with same residues, including His51, Asp75, Gly151, Leu128, Pro132, and Gly153. These ligands formed hydrogen bonds with Asp75-Ser135-His51, with bond lengths measuring 2.57, 3.06, and 2.86 $Å$, respectively. Prednisolone established hydrogen bonds with Gly151 (2.90 $Å$, 2.71 $Å$), Asp75 (2.95 $Å$), His51 (3.21 $Å$), and Gly153 (2.93 $Å$, 3.16 $Å$). Furthermore, ZINC14441502 interacted with Gly151 and Ser135 at bond lengths of 2.86 and 2.99 $Å$, respectively, and engaged in hydrophobic bonding with Leu128, Gly153, Asn152, Val72, Asp75, His151, and Phe130 (<a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">Supplementary file 1</a>). A total of <b>39</b> from the 56 compounds docked effectively, showing strong interactions with key active site residues and were chosen for subsequent analysis.
 </p>
 
-<!---
 **Table 3.<a name="table-3"></a>** Top 20 Protein-ligand interactions between selected hits and NS2B/NS3 post-docking, including two known inhibitors.
 
 | N°  | Compound names                                                      | Binding Affinity ($`kcal/mol`$) | Hydrogen bonding with bond length ($`Å`$) | Hydrophobic contacts |
@@ -496,21 +491,19 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 | 18  | ZINC000014444870                                                    | -8.4  | Asn152 (3.01), Leu149 (3.19)  | Leu85, Val147, Gly87, Val146, Asn167, Ile165, Val54, Ala164, Ile123, Lys74, Gly148, Leu76, Trp83  |
 | 19  | Leflunomide                                                         | -7.1  | None  | Asn152, Val54, Ala64, Asn167, Leu76, Lys74, Ile123, Ala166  |
 | 20  | Prednisolone                                                        | -7.0  | Gly151 (2.90, 2.71), Asp75 (2.95), His51 (3.21), Gly153 (2.93, 3.16)  | Leu128, Phe130, Asn152, Ser135, Pro132  |
---->
 
-The compound ZINC38628344, with a binding affinity of -8.5 kcal/mol, formed hydrogen bonds with His51 (2.89 Å), Ser135 (2.68 Å), Asp75 (2.57 Å), Phe130 (3.06 Å), and Tyr150 (3.10 Å), in addition to hydrophobic interactions with residues such as Pro132, Ser131, Leu128, Tyr161, Gly153, and Gly151 (Fig. 5).
 
 <p align="justify">
-  A visual representation of these interactions can be observed with the ZINC38628344, which had binding affinity of -8.5 $kcal/mol$ with the NS2B/NS3 protease formed hydrogen bond interaction with His51 (2.89 $Å$), Ser135 (2.68 $Å$), Asp75 (2.57 $Å$), Phe130 (3.06 $Å$), Tyr150 (3.10 $Å$) and hydrophobic interactions with residues Pro132, Ser131, Leu128, Tyr161, Gly153, Gly151 as presented below.
+  A visual representation of the interactions can be observed between ZINC38628344 and the NS2B/NS3 protease, with binding affinity of -8.5 $kcal/mol$, that established hydrogen bonds with His51 (2.89 $Å$), Asp75 (2.57 $Å$), Phe130 (3.06 $Å$), in addition to hydrophobic interactions with residues Pro132, Ser131, Leu128, Tyr161, Gly153, Gly151 (<a href="#figure-4">Figure 4</a>).
 </p>
 
 <p align="center">
   <br>
   </font> 
-  <img src="figures/ZIN38628344 protein-ligand interaction_legend.png" title="Ligand ZINC38628344 docked in NS2B/NS3 binding pocket; 2D protein-ligand interaction diagram generated using PyMOL and LigPlot respectively" width="650"/>
+  <img src="figures/ZIN38628344 protein-ligand interaction_legend.png" title="Ligand ZINC38628344 docked in NS2B/NS3 binding pocket; 2D protein-ligand interaction diagram made using PyMOL and LigPlot respectively" width="650"/>
   <br>
   <font size="1">
-  <b>Figure 4.<a name="figure-4"></a></b> Ligand ZINC38628344 docked into the NS2B/NS3 binding pocket, with 2D protein-ligand interaction diagrams generated using <a href="https://www.semanticscholar.org/paper/The-PyMOL-Molecular-Graphics-System-(2002)-Delano/9b7284d0e5dfa654db0d97616fa19f371726f9c9">PyMOL</a> (left) and <a href="https://doi.org/10.1021/ci200227u">LigPlot</a> (right).</b>
+  <b>Figure 4.<a name="figure-4"></a></b> Ligand ZINC38628344 docked into the NS2B/NS3 binding pocket, with 2D protein-ligand interaction visual produced with <a href="https://www.semanticscholar.org/paper/The-PyMOL-Molecular-Graphics-System-(2002)-Delano/9b7284d0e5dfa654db0d97616fa19f371726f9c9">PyMOL</a> (left) and <a href="https://doi.org/10.1021/ci200227u">LigPlot</a> (right).</b>
   </font>
 </p>
 
@@ -519,12 +512,9 @@ The compound ZINC38628344, with a binding affinity of -8.5 kcal/mol, formed hydr
 ### ADMET Screening of Selected Compounds
 
 <p align="justify">
-  Pharmacokinetics is essential for understanding how medications are absorbed and eliminated by the body (G. Y. Wang et al., 2018). Pharmacokinetic analyses, including gastrointestinal (GI) absorption, were performed. Oral drugs enter systemic circulation through GI absorption (Suenderhauf et al., 2012). Compounds with "high" GI absorption potential indicate strong absorption in the GI tract. Veber's criteria were applied to identify drug-like compounds. Out of the 39 hits, 20 violated Lipinski's rule of five (RO5) (Ogbodo et al., 2023), with 12 of these compounds breaching one of the RO5 criteria. The remaining seven hits, including 5,7'-physcion-fallacinol, ZINC000095485956, ZINC000085594516, amentoflavone, ZINC000095486111, voucapane-18,19-di-(4-methyl)-benzenesulphonate, and ZINC000095485927, displayed minimal drug-likeness with two RO5 violations (Table 5). Veber's rule was also applied, setting TPSA ≤ 140 and rotatable bonds ≤ 10 as criteria (Veber et al., 2002). Among the selected hits, 26 exhibited zero violations, while the remainder showed only one violation. The solubility and pharmacological profiles, including GI absorption, were further evaluated. Only ZINC000095485927 was predicted to be insoluble (Supplementary Table 3). Four of the 14 hits showed moderate solubility predictions, and another four were deemed soluble; however, 19 were anticipated to have poor solubility (Supplementary Table 3). Compounds that meet GI absorption criteria are classified as ‘High’, indicating favorable absorption potential in the intestinal tract for orally administered drugs. Among the selected hits, 21 were estimated to have high absorption potential, while 18 were predicted to have low absorption. The mutagenicity and tumorigenicity of the hits were also assessed using DataWarrior (Table 5). Results indicated that 26 out of the 39 tested hits were neither mutagenic nor tumorigenic.
-<!--- Pharmacokinetics controls how medications are absorbed by the body and eventually eliminated (Wang et al., 2018). Analyses were conducted on pharmacokinetic features, including gastrointestinal (GI) absorption. Drugs taken orally can enter the bloodstream through a process known as gastrointestinal absorption (GI) (Suenderhauf et al., 2012). "High" compound absorption occurs in the GI tract. To select druglike compounds, Veber's criteria were also applied. The selected hits that do not conform to Lipinski's rule of five (RO5) were eliminated. Out of the 39 hits, 20 violated the rule (<a href="output/Molecular Docking/Supplemental 2 - ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and Physicochemical profiles.csv">Supplementary Table 2</a>). Twelve hits also broke one of the RO5s.  31 of the 39 hits were considered to be druglike. The remaining 7 hits: 5,7'-physcion-fallacinol, ZINC000095485956, ZINC000085594516, amentoflavone, ZINC000095486111, voucapane-18,19-di-(4-methyl)-benzenesulphonate, ZINC000095485927 showed the least drug-likeness of two RO5 violations (Table 5). Veber's rule with TPSA ≤ 140 and rotatable bonds ≤ 10 as the main determinant. 26 out of the selected hits demonstrated 0 violations with the remaining showing only one violation of the rule. The solubility and pharmacological profiles such as GI absorption were also elucidated. Only ZINC000095485927 was predicted to be insoluble (Supplementary Table 2). 14 of the hits were predicted to be moderately soluble with 4 predicted as soluble. However, 19 of the selected hits were predicted to be poorly soluble (<a href="output/Molecular Docking/Supplemental 2 - ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and Physicochemical profiles.csv">Supplementary Table 2</a>). Compounds are considered to have met the GI absorption criteria if it is denoted as ‘High’ suggesting a high propensity of absorption into the intestinal tract for orally administered drugs. 21 and 18 of the selected hits were predicted to be High and low respectively. The mutagenicity and tumorigenicity levels of the hits were also predicted using DataWarrior (Table 5). From the results obtained, 26 out of the 39 hits tested were neither mutagenic nor tumorigenic. --->
+  Pharmacokinetic analyses focus on how medications are absorbed and eliminated by the body (<a href="https://doi.org/10.22099/ijvr.2018.4761">Wang et al., 2018</a>). Key features, including gastrointestinal (GI) absorption, were assessed. Compounds demonstrating "High" GI absorption potential are the most favourable. Veber's criteria were applied, and 20 out of 39 hits that did not comply with Lipinski's Rule of Five (RO5) were eliminated, 12 of which breached one of the RO5 criteria (<a href="output/Molecular Docking/Supplemental 2 - ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and Physicochemical profiles.csv">Supplementary Table 2</a>). Overall, 31 compounds were deemed drug-like, while 7 showed poor drug-likeness, including 5,7'-physcion-fallacinol, ZINC000095485956, ZINC000085594516, amentoflavone, ZINC000095486111, voucapane-18,19-di-(4-methyl)-benzenesulphonate, and ZINC000095485927, with two RO5 violations (<a href="#table-4">Table 4</a>). Veber’s rule, emphasizing <code>TPSA ≤ 140</code> and <code>rotatable bonds ≤ 10</code>, further filtered the hits, with 26 demonstrating <b>zero</b> violations. Solubility and pharmacological profiles indicated that while only one compound (ZINC000095485927) was predicted to be insoluble, many others showed moderate to poor solubility (<a href="output/Molecular Docking/Supplemental 2 - ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and Physicochemical profiles.csv">Supplementary Table 2</a>). Following GI absorption criteria compounds classified as ‘High’, display favorable absorption potential in the intestinal tract for oral drugs; 21 of the selected hits were marked High, while 18 were predicted Low. The mutagenicity and tumorigenicity of the hits were also assessed with <a href="https://openmolecules.org/datawarrior/">DataWarrior</a>.
 </p>
 
-
-<!---
 **Table 4.<a name="table-4"></a>** Prediction of ADME (absorption, distribution, metabolism, excretion) and toxicity profiles for the top 15 selected hits.
 
 | N°  | Ligands                   | ESOL Solubility Class | GI absorption | RO5 violation | Veber’s rule violation | Mutagenicity | Tumorigenicity |
@@ -544,38 +534,25 @@ The compound ZINC38628344, with a binding affinity of -8.5 kcal/mol, formed hydr
 | 13  | 5,7'-physcion-fallacinol  | Poorly soluble        | Low           | 2             | 1                      | Low          | None           |
 | 14  | ZINC000014441502          | Moderately soluble    | High          | 0             | 0                      | None         | None           |
 | 15  | chryslandicin             |  Poorly soluble       | Low           | 1             | 1                      | None         | High           |
---->
 
 ------
 
 ### Molecular Dynamics Simulations
 
 <p align="justify">
-  To further investigate the stability of the predicted lead compounds within the NS2B/NS3 active site, molecular dynamics simulations were conducted using GROMACS 2020.5 (Mazumder et al., 2017). Understanding the binding mechanisms of the various molecules within the active site is essential for effective drug design. Dynamic behavior analyses of both unbound proteins and their complexes were performed, plotting metrics such as root mean square deviation (RMSD), radius of gyration (Rg), and root mean square fluctuation (RMSF) using Xmgrace (Agyapong et al., 2021; Kwofie et al., 2019; Musyoka et al., 2016). All simulations were executed over a duration of 100 ns.
-
-<!---  Molecular dynamics simulations were carried out using GROMACS 2020.5 to further elucidate the stability of the predicted lead compounds within the active site of the NS2B/NS3 protein (Mazumder et al., 2017). Understanding the binding mechanisms of the various compounds in the active site is crucial for the design of better drugs. To analyze the dynamic behavior of the unbound proteins and complexes, the root mean square deviation (RMSD), the radius of gyration (Rg), and the root mean square fluctuation (RMSF) were plotted with the use of Xmgrace (Agyapong et al., 2021; Kwofie et al., 2019; Musyoka et al., 2016). All simulations were carried out for 100 ns. --->
+  To further investigate the stability of predicted lead compounds within the active site, Molecular Dynamics Simulations were conducted using <a href="https://doi.org/10.1021/ci500020m">GROMACS 2020.5</a>. The binding mechanisms of the various molecules within the active site is essential for effective drug design. Dynamic behavior analyses of both unbound proteins and their complexes were performed, plotting metrics such as root mean square deviation (RMSD), radius of gyration (Rg), and root mean square fluctuation (RMSF) using <a href="https://plasma-gate.weizmann.ac.il/Grace/">Xmgrace</a>. All simulations were executed over a duration of 100 ns.
 </p>
-
-Here is a simple flow chart:
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
 
 #### Root mean square deviation (RMSD) for 100 ns MD simulations
 
 <p align="justify">
-  The RMSD serves as a reliable indicator of protein stability, evaluating the stability of the complex against the original atomic coordinates of the protein backbone (Adinortey et al., 2022; Kwofie et al., 2022). Analysis of the RMSD plots revealed that both the unbound protein and the four lead compounds maintained stability throughout the 100 ns simulation, except for the inhibitor Prednisolone, which exhibited instability until the 70 ns mark. The unbound protein showed the least fluctuation overall. The RMSD for the NS2B/NS3pro-Prednisolone complex sharply increased from 0 to 0.26 nm and displayed substantial fluctuations until reaching stability at 70 ns (Fig. 6). In contrast, the NS2B/NS3pro-ZINC38628344 RMSD peaked at 0.25 nm and stabilized toward the end of the simulation, averaging 0.22 nm. The complexes NS2B/NS3pro-ZINC95485940, ZINC14441502, and NS2B/NS3pro-2',4'-dihydroxychalcone exhibited similar fluctuation patterns, averaging around 0.17 nm (Fig. 6).
+  The RMSD is a well grounded indicator of protein stability, evaluating the complex against the original atomic coordinates of the protein backbone. The RMSD analysis, which assesses protein stability, indicated that both the unbound protein and the four lead compounds were stable during a 100 ns simulation, except for Prednisolone, which showed instability until 70 ns (<a href="#figure-5">Figure 5</a>). The NS2B/NS3pro-Prednisolone complex demonstrated significant fluctuations before stabilizing, NS2B/NS3pro-ZINC38628344 RMSD peaked at 0.25 nm and then stabilized (averaging 0.22 nm), while the other complexes maintained a more stable RMSD, averaging around 0.17 nm. The unbound protein showed the least fluctuation overall.
 </p>
 
 <p align="center">
   <br>
   </font> 
-  <img src="figures/RMSD for NS2B_NS3pro-ligand MD simulations.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="630"/>
+  <img src="figures/RMSD for NS2B_NS3pro-ligand MD simulations.png" title="RMSD versus time graph of unbound protein and NS2B/NS3pro-ligand complexes for a MD run of 100 ns" width="630"/>
   <br>
   <font size="1">
   <b>Figure 5.<a name="figure-5"></a></b> RMSD vs. time graph for the unbound protein and NS2B/NS3pro-ligand complexes generated throughout the 100 ns MD simulation.
@@ -585,13 +562,13 @@ graph TD;
 #### Radius of gyration for 100 ns MD simulations
 
 <p align="justify">
-  The folding and compactness of the five complexes and the unbound protein were assessed by plotting the radius of gyration (Rg) over the 100 ns simulation period (Liao et al., 2014). A stably folded protein typically exhibits a relatively stable Rg throughout the simulation. The Rg values for both the unbound NS2B/NS3 protease and the protein-ligand complexes ranged from 1.51 to 1.59 nm (Fig. 7). The unbound protease showed steady fluctuations until around 50 ns, after which it experienced a sharp increase until the simulation concluded. The protein-ligand complexes displayed comparable fluctuation trends throughout the 100 ns period. The NS2B/NS3pro-Prednisolone complex exhibited the greatest fluctuations, peaking at 1.59 nm (Fig. 7). Notably, the NS2B/NS3pro-2',4'-dihydroxychalcone complex showed the most pronounced fluctuations, especially between 40 to 80 ns.
+  The folding and compactness of the 05 complexes and the unbound protein were assessed by plotting the radius of gyration (Rg) over the 100 ns simulation period. The Rg values for both the unbound NS2B/NS3 protease and the protein-ligand complexes ranged from 1.51 to 1.59 nm as seen in <a href="#figure-6">Figure 6</a>. The unbound protease showed steady fluctuations until around 50 ns, where it rose till the end, whereas the protein-ligand complexes displayed comparable fluctuation trends throughout the 100 ns. The NS2B/NS3pro-Prednisolone complex exhibited the greatest fluctuations, peaking at 1.59 nm.
 </p>
 
 <p align="center">
   <br>
   </font> 
-  <img src="figures/Rg vs time for NS2B_NS3pro-ligand MD simulations.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="630"/>
+  <img src="figures/Rg vs time for NS2B_NS3pro-ligand MD simulations.png" title="Radius of Gyration graph for the NS2B/NS3pro-ligand complexes and unbound protein." width="630"/>
   <br>
   <font size="1">
   <b>Figure 6.<a name="figure-6"></a></b> Rg graph comparing NS2B/NS3pro-ligand complexes and the unbound protein.
@@ -601,7 +578,7 @@ graph TD;
 #### Root mean square fluctuations (RMSF) for 100 ns MD simulations
 
 <p align="justify">
-  Furthermore, the RMSF trajectories of the protein-ligand complexes and the unbound NS2B/NS3 were analyzed (L. Adams et al., 2023; Ashley et al., 2024). According to Cheng and Ivanov (2012), the RMSF indicates protein flexibility across various domains, which is often linked to crystallographic B-factors. This analysis helps identify residues contributing to structural fluctuations, with higher RMSF values indicating greater variation. Fluctuations are typically more pronounced in areas of the protein associated with catalysis and ligand binding (Dong et al., 2018). All predicted lead compounds caused noticeable changes in similar regions, as reflected in the RMSF plot (Fig. 8). Significant fluctuations were observed from residue index 28-33, with additional variations between residue indices 60-65 and 116-123. The RMSF graph also indicated fluctuations in the unbound protein, particularly around residues 102-106 (Fig. 8).
+  Furthermore, the RMSF trajectories of the protein-ligand complexes and the unbound NS2B/NS3 were analyzed. All predicted lead compounds caused noticeable changes in similar regions, as reflected in the <a href="#figure-7">RMSF plot</a>. Significant fluctuations were observed from residue index 28-33, with additional variations between residue indices 60-65 and 116-123. The RMSF graph also indicated fluctuations in the unbound protein, particularly around residues 102-106.
 </p>
 
 <p align="center">
@@ -619,16 +596,15 @@ graph TD;
 ### MMPBSA Computations
 
 <p align="justify">
-  When using the pipeline or findings for research or commercial purposes please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research.
+  MMPBSA Computations helped assess potential activity via assessment of free binding energies.
 </p>
 
 #### Contributing Energy Terms 
 
 <p align="justify">
-  The binding free energies of the complexes were calculated using the Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA) approach (Genheden & Ryde, 2015) (Table 6). Contributions to binding free energy include van der Waals energies, electrostatic interactions, polar solvation, and solvent-accessible surface area energy (Asiedu et al., 2021; Boateng et al., 2020). Average values and standard deviations were computed for the binding free energies. The lead compounds ZIN38628344, ZINC95485940, ZINC14441502, and 2',4'-dihydroxychalcone exhibited binding free energies of -44.957, -18.586, -25.881, and -55.805 kJ/mol, respectively, with 2',4'-dihydroxychalcone displaying the lowest binding free energy while ZINC95485940 had the highest among the four lead compounds. The known inhibitor Prednisolone had a binding free energy of -17.682 kJ/mol. Research indicates that compounds with high polar energies and low electrostatic energies are typically active against their target receptors (Gupta et al., 2018).
+  The binding free energies of the complexes were calculated using the <a href="https://doi.org/10.1517/17460441.2015.1032936">Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA) approach</a>. Contributions to binding free energy include van der Waals energies, electrostatic interactions, polar solvation, and solvent-accessible surface area energy, and average values and standard deviations were computed for all. The lead compounds ZIN38628344, ZINC95485940, ZINC14441502, and 2',4'-dihydroxychalcone exhibited binding free energies of -44.957, -18.586, -25.881, and -55.805 $kJ/mol$, respectively, with 2',4'-dihydroxychalcone displaying the lowest binding free energy while ZINC95485940 had the highest among the four lead compounds. The known inhibitor Prednisolone had a binding free energy of -17.682 kJ/mol.
 </p>
 
-<!---
 **Table 5.<a name="table-5"></a>** MMPBSA energy contributions for NS2B/NS3-ligand complexes presented as averages ± standard deviations in kJ/mol.
 
 | N°   | Compounds             | van der Waal energy ($`kJ/mol`$) | Electrostatic energy ($`kJ/mol`$) | Polar solvation energy ($`kJ/mol`$) | SASA energy ($`kJ/mol`$) | Binding energy ($`kJ/mol`$) |
@@ -638,29 +614,36 @@ graph TD;
 | 3    | ZINC14441502          | -52.459 ± 3.949                  | -22.090 ± 2.316                   | 41.318 ± 3.042                      | -6.400 ± 0.476           | -25.881± 3.519              |
 | 4    | Prednisolone          | -39.913 ± 4.112                  | -9.190 ± 1.346                    | 36.390 ± 3.989                      | -5.355 ± 0.527           | -17.682 ± 3.583             |
 | 5    | 2',4'-dihydroxychalcone-(4-O-5''')-4'',2''',4'''-trihydroxychalcone   | -160.105 ± 5.769          | -41.801 ± 2.540          | 164.633 ± 6.076             | -18.440 ± 0.639        | -55.805 ± 3.467         |
---->
 
 #### Per-residue Energy Decomposition
 
 
 <p align="justify">
-  By employing per-residue decomposition, binding free energies were computed via the MMPBSA method, which involves analyzing the contributions of individual residues based on their interactions. This analysis yields valuable insights into significant interactions among critical residues and their contributions to free energy. Residues that contribute a binding free energy of at least ± 5 $kJ/mol$ are considered critical for ligand binding (Kwofie et al., 2019). The per-residue energy decomposition was performed for each complex (Fig. 9 and Supplementary Figs. 1A-D). In the <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC14441502.png">NS2B/NS3-ZINC14441502 complex</a>, only Tyr161 contributed a binding energy of -6.4629 $kJ/mol$ (Fig. 9). For the <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC38628344.png">NS2B/NS3-ZINC38628344 complex</a>, Tyr161 and Leu128 contributed energies of -6.6957 and -3.4011 $kJ/mol$. Other key residues interacting with <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC95485940.png">ZINC95485940</a>, <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-2',4'-dihydroxychalcone.png">2',4'-dihydroxychalcone</a>, and <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-Prednisolone.png">Prednisolone</a> contributed minor energy values.
-
-<!---  By using per-residue decomposition, binding free energies can be computed using the MMPBSA approach. This entails breaking down each residue by taking into account the interactions that each residue participates in. These offer helpful information on significant interactions between crucial residues in the free energy contribution. Critical residues for binding a ligand to a protein are those that contribute binding free energy of at least ± 5 kJ/mol (Kwofie, Dankwa, et al., 2019).
-For every complex, the per-residue energy decomposition computation was carried out (Fig. 9 and Supplementary Figs. 1A-D). For the <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC14441502.png">NS2B/NS3-ZINC14441502 complex</a>, only Tyr161 contributed energy of -6.4629 kJ/mol as seen below. For the <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC38628344.png">NS2/NS3B-ZINC38628344 complex</a>, Tyr161 and Leu128 contributed individual energies of -6.6957 and -3.4011 kJ/mol respectively. Key residues interacting with ZINC95485940, 2',4'-dihydroxychalcone, and Prednisolone contributed minor energies. --->
+  By employing per-residue decomposition, binding free energies were computed via the MMPBSA method, which involves analyzing the contributions of individual residues based on their interactions. Residues that contribute a binding free energy of at least ± 5 $kJ/mol$ are considered critical for ligand binding. Per-residue energy decomposition was performed for each complex. In <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC14441502.png">NS2B/NS3-ZINC14441502 complex</a>, only Tyr161 contributed a binding energy of -6.4629 $kJ/mol$ (<a href="#figure-8">Figure 8</a>). For the <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC38628344.png">NS2B/NS3-ZINC38628344 complex</a>, Tyr161 and Leu128 contributed energies of -6.6957 and -3.4011 $kJ/mol$. Other key residues interacting with <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC95485940.png">ZINC95485940</a>, <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-2',4'-dihydroxychalcone.png">2',4'-dihydroxychalcone</a>, and <a href="figures/MMPBSA plot of binding free energy for NS2B_NS3-Prednisolone.png">Prednisolone</a> contributed minor energy values.
 </p>
 
 <p align="center">
   <br>
   </font> 
-  <img src="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC14441502.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="650"/>
+  <img src="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC14441502.png" title="MMPBSA plot of binding free energy contributions per residue for NS2B/NS3-ZINC14441502 complex" width="650"/>
   <br>
   <font size="1">
-  <b>Figure 8.<a name="figure-8"></a></b> MMPBSA plot illustrating binding free energy contributions per residue for the NS2B/NS3-ZINC14441502 complex.
+  <b>Figure 8.<a name="figure-8"></a></b> MMPBSA plot illustrating binding free energy contributions for NS2B/NS3-ZINC14441502 complex.
   </font>
 </p>
 
 -------
+
+Here is a simple flow chart:
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 
 ## How to use
 
@@ -683,7 +666,7 @@ The data utilized for the project can be found [here](data).
 > [!NOTE]
 > <p align="justify">The codes and scripts were run on <a href="https://www.python.org/ftp/python/3.8.0/python-3.8.0-amd64.exe"><b>Python 3.8</b></a>, <a href=""><b>Anaconda 2023</b></a> and <b>Jupyter Notebook version</b>.</p>
 > 
-> <a href="https://cran.r-project.org/bin/windows/base/old/4.3.0/R-4.3.0-win.exe"><b>R 4.3.0</b></a> was used for some of the data visualization.
+> <a href="https://cran.r-project.org/bin/windows/base/old/4.3.0/R-4.3.0-win.exe"><b>R 4.3.0</b></a> was used for some of the data visualization to plot graphs from MMPBSA computations.
 
 ## Credits
 
