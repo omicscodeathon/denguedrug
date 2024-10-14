@@ -20,7 +20,7 @@
 
 <p align="justify">
   Dengue virus (DENV) is a <i>Flaviviridae</i> family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as <i>Aedes aegypti</i> and <i>Aedes albopictus</i>, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as Dengue hemorrhagic fever (DHF) and Dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. Regions of high prevalence of Dengue virus infection in Africa have been highlighted in the figure below.
-Our approach seeks to train different Machine Learning models using the Anti-Dengue dataset from PubChem to discriminate potential anti-Dengue compounds from non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the pipeline can be found in the presented in the  "<a href="#description-section" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" section.
+Our approach seeks to train different Machine Learning models using the Anti-Dengue dataset from PubChem to discriminate potential anti-Dengue compounds from non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the <a href="#workflow-diagram">pipeline</a> can be found in the presented in the  "<a href="#description-section" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" section.
 </p>
 <br>
 
@@ -110,13 +110,14 @@ Our approach seeks to train different Machine Learning models using the Anti-Den
 
 
 ## Description
-
+<a name="description-section"></a>
 <br>
-This figure illustrates the proposed DengueDrug pipeline to be utilized to identify potent Dengue Virus Inhibitors.<a name="description-section"></a>
+This figure illustrates the proposed DengueDrug pipeline to be utilized to identify potent Dengue Virus Inhibitors.
 <br>
 <p align="center">
   <br>
-  </font> 
+  </font>
+  <a name="workflow-diagram"></a>
   <img src="workflow/DengueDrug%20project%20workflow%20diagram.png" alt="Proposed Dengue Drug Identification Pipeline" title="Proposed Dengue Drug Identification Pipeline" width="800"/>
   <br>
   <font size="1">
@@ -185,7 +186,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 ## Manuscript
 
 > [!IMPORTANT]
-> <p align="justify">When using the pipeline or findings for research or commercial purposes, please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1"><b>cite</b></a> our research and <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars"><b>star</b></a> the repository.</p>
+> <p align="justify"><b>When using the pipeline or findings for research or commercial purposes, please <a href="https://x.com/natfriedman/status/1420122675813441540/photo/1">cite</a> our research and <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars">star</a> the repository.</b></p>
 
 ## Results
 
@@ -198,16 +199,16 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 ### Data Acquisition and Processing
 
 <p align="justify">
-  The <a href="data/unprocessed_database_PubChem_651640/DENV2_PubChem_database_AID_651640_datatable.csv">bioactive dataset</a> obtained from <a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> consisted of imbalanced data from which 1/3 where active compounds, and inactive compounds dominated the dataset as seen in <a href="#figure-1">Figure 1</a> below. <a href="https://doi.org/10.1002/jcc.21707">PaDEL</a> was used to generate 1,444 molecular descriptors, providing a mathematical representation of compounds for QSAR modeling via the convertion of chemical information to numerical values. The dataset of 21,250 compounds was split into: <a href="data/Training Data.csv.zip">14,875 training set</a>, <a href="data/Test Data.csv">3,187 test set</a>, and <a href="data/External Data.csv">3,188 externally held set</a>. Applying a variance filter with a threshold value of <b><code>0.1</code></b> shortened descriptors from 1,444 to 684, filtering out those with minimal variance, guaranteeing only the most informative features were withheld for posterior modeling. 
+  The <a href="data/unprocessed_database_PubChem_651640/DENV2_PubChem_database_AID_651640_datatable.csv">bioactive dataset</a> obtained from <a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a> consisted of imbalanced data from which 1/3 where active compounds, and inactives dominated the dataset as seen in <a href="#figure-1">Figure 1</a> below. <a href="https://doi.org/10.1002/jcc.21707">PaDEL</a> was used to generate 1,444 molecular descriptors, providing a mathematical representation of compounds for QSAR modeling via the convertion of chemical information to numerical values. The dataset of 21,250 compounds was split into: <a href="data/Training Data.csv.zip">14,875 training set</a>, <a href="data/Test Data.csv">3,187 test set</a>, and <a href="data/External Data.csv">3,188 externally-held set</a>. Applying a variance filter with threshold value <b><code>0.1</code></b> shortened descriptors from 1,444 to 684, filtering out those with minimal variance, guaranteeing only the most informative features were withheld for posterior modeling. 
 </p>
 
 <p align="center">
   <br>
-  </font> 
+  <a name="figure-1"></a>
   <img src="figures/Correlation%20between%20actives%20and%20inactives%20from%20ML_legend.jpeg" title="Three-dimensional plot presenting the correlation between active compounds and inactive compounds from the processed data, based on ALogP, XLogP, and Zagreb metrics" width="650"/>
   <br>
   <font size="1">
-  <b>Figure 1.<a name="figure-1"></a></b> Three-dimensional plot of the correlation between active and inactive compounds in the processed dataset according to ALogP, XLogP, and Zagreb.
+  <b>Figure 1.</b> Three-dimensional plot of the correlation between active and inactive compounds in the processed dataset according to ALogP, XLogP, and Zagreb.
   </font>
 </p>
 
@@ -216,7 +217,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 ### Model Development and Evaluation
 
 <p align="justify">
- Five machine learning algorithms (k-NN, Gaussian Naïve Bayes, SVM, Random Forest, and Logistic Regression) were employed to build robust predictive <a href="output/models">models</a>, each assessed based on several statistical parameters including the accuracy, precision, recall, and F1 score. LR produced the best results across most metrics, followed by the SVM model. With <i>81%</i> accuracy and an F1 score of <i>0.51</i>, Gaussian Naïve Bayes was depicted as least performing model, and it struggled to balance between identification of true positives and minimization of false positives given its low precision (0.55) and recall (0.47). Given its robustness via the different evaluation metrics, <a href="output/Models/LR_model.pkl">Logistic Regression</a> appeared as the most dependable model for predicting potential inhibitors (<a href="#table-1">Table 1</a>).
+ Five machine learning algorithms (k-NN, Gaussian Naïve Bayes, SVM, Random Forest, and Logistic Regression) were employed to build robust predictive <a href="output/models">models</a>, each assessed based on several statistical parameters including the accuracy, precision, recall, and F1 score. LR produced the best results across most metrics, followed by the SVM model. With <i>81%</i> accuracy and an F1 score of <i>0.51</i>, Gaussian Naïve Bayes was depicted as least performing, and it struggled to balance between identification of true positives and minimization of false positives, given its low precision (0.55) and recall (0.47). Given its robustness via the various evaluation metrics, <a href="output/Models/LR_model.pkl">Logistic Regression</a> appeared as the most dependable model for predicting potential inhibitors (<a href="#table-1">Table 1</a>).
 </p>
 
 <!---
@@ -278,11 +279,11 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 
 <p align="center">
   <br>
-  </font> 
+  <a name="figure-2"></a>
   <img src="figures/ML_Val_Results.jpeg" title="Bar plot of model performance of each machine learning model based on accuracy, precision, recall, and F1 score" width="650"/>
   <br>
   <font size="1">
-  <b>Figure 2.<a name="figure-2"></a></b> Bar plot of performance metrics for each Machine Learning model.
+  <b>Figure 2.</b> Bar plot of performance metrics for each Machine Learning model.
   </font>
 </p>
 
@@ -291,7 +292,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 ### Prediction of Inhibitors and New Compounds 
 
 <p align="justify">
-  Eighteen (18) known Dengue Virus inhibitors sourced from literature were used for initial testing and further ascertainment of the model performance. Amongst these inhibitors, the Logistic Regression model successfully identified 11 as active, surpassing the performance of other ML models as indicated below (<a href="#table-2">Table 2</a>). To ensure consistency in descriptor calculation and transformation, these compounds underwent the same preprocessing as training data. Notable active compounds predicted by the LR model included Pentoxifylline, Prochlorperazine, Balapiravir, Celgosivir, and Bortezomib, just to cite a few. This effective validation showed it could extrapolate to compounds with same mode of action. The <a href="output/Models/LR_model.pkl">LR model</a> was employed to predict activity in 812 and 1871 compounds from the ZINC and EANPDB database respectively. Of the 2683 evaluated compounds, <a href="output/ML output"><b>933</b></a> were predicted as active and suitable for further investigation. This approach sought to highlight the significance of careful descriptor selection and data preprocessing in QSAR modeling towards properly addressing imbalanced data in anti-Dengue drug discovery.
+  Eighteen (18) known Dengue Virus inhibitors sourced from literature were used for initial testing and further ascertainment of the model performance. Amongst these inhibitors, the Logistic Regression model successfully depicted 11 as active as seen below (<a href="#table-2">Table 2</a>), surpassing the performance of other ML models. To ensure consistency in descriptor calculation and transformation, these compounds underwent the same preprocessing as training data. Notable active compounds predicted by the LR model included Pentoxifylline, Prochlorperazine, Balapiravir, Celgosivir, and Bortezomib, just to cite a few. This effective validation showed it could extrapolate to compounds with same mode of action. The <a href="output/Models/LR_model.pkl">LR model</a> was employed to predict activity in 812 and 1871 compounds from the ZINC and EANPDB database respectively. Of the 2683 evaluated compounds, <a href="output/ML output"><b>933</b></a> were predicted as active and suitable for further investigation. This approach sought to highlight the significance of careful descriptor selection and data preprocessing in QSAR modeling towards properly addressing imbalanced data in anti-Dengue drug discovery.
 </p>
 
 **Table 2.<a name="table-2"></a>** Prediction results for known Dengue Virus inhibitors using LR.
@@ -444,10 +445,11 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 </p>
 
 <p align="center">
+  <a name="figure-3"></a>
   <img src="figures/NS2BNS3 protease structure.png" title="PyMOL visualization of NS2B/NS3 protease structure with ligand docking representation" width="700"/>
   <br>
   <font size="1">
-  <b>Figure 3.<a name="figure-3"></a></b> NS2B/NS3 protease structure as visualized in PyMOL, highlighting ligand docking. [A. Pale-yellow cartoon structure representation of the protein structure; B. Light-green surface representation of the protein with a ligand (blue) positioned in the active site].
+  <b>Figure 3.</b> NS2B/NS3 protease structure as visualized in PyMOL, highlighting ligand docking. [A. Pale-yellow cartoon structure representation of the protein structure; B. Light-green surface representation of the protein with a ligand (blue) positioned in the active site].
   </font>
 </p>
 
@@ -499,11 +501,11 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 
 <p align="center">
   <br>
-  </font> 
+  <a name="figure-4"></a>
   <img src="figures/ZIN38628344 protein-ligand interaction_legend.png" title="Ligand ZINC38628344 docked in NS2B/NS3 binding pocket; 2D protein-ligand interaction diagram made using PyMOL and LigPlot respectively" width="650"/>
   <br>
   <font size="1">
-  <b>Figure 4.<a name="figure-4"></a></b> Ligand ZINC38628344 docked into the NS2B/NS3 binding pocket, with 2D protein-ligand interaction visual produced with <a href="https://www.semanticscholar.org/paper/The-PyMOL-Molecular-Graphics-System-(2002)-Delano/9b7284d0e5dfa654db0d97616fa19f371726f9c9">PyMOL</a> (left) and <a href="https://doi.org/10.1021/ci200227u">LigPlot</a> (right).</b>
+  <b>Figure 4.</b> Ligand ZINC38628344 docked into the NS2B/NS3 binding pocket, with 2D protein-ligand interaction visual produced with <a href="https://www.semanticscholar.org/paper/The-PyMOL-Molecular-Graphics-System-(2002)-Delano/9b7284d0e5dfa654db0d97616fa19f371726f9c9">PyMOL</a> (left) and <a href="https://doi.org/10.1021/ci200227u">LigPlot</a> (right).</b>
   </font>
 </p>
 
@@ -551,11 +553,11 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 
 <p align="center">
   <br>
-  </font> 
+  <a name="figure-5"></a>
   <img src="figures/RMSD for NS2B_NS3pro-ligand MD simulations.png" title="RMSD versus time graph of unbound protein and NS2B/NS3pro-ligand complexes for a MD run of 100 ns" width="630"/>
   <br>
   <font size="1">
-  <b>Figure 5.<a name="figure-5"></a></b> RMSD vs. time graph for the unbound protein and NS2B/NS3pro-ligand complexes generated throughout the 100 ns MD simulation.
+  <b>Figure 5.</b> RMSD vs. time graph for the unbound protein and NS2B/NS3pro-ligand complexes generated throughout the 100 ns MD simulation.
   </font>
 </p>
 
@@ -567,27 +569,27 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 
 <p align="center">
   <br>
-  </font> 
+  <a name="figure-6"></a> 
   <img src="figures/Rg vs time for NS2B_NS3pro-ligand MD simulations.png" title="Radius of Gyration graph for the NS2B/NS3pro-ligand complexes and unbound protein." width="630"/>
   <br>
   <font size="1">
-  <b>Figure 6.<a name="figure-6"></a></b> Rg graph comparing NS2B/NS3pro-ligand complexes and the unbound protein.
+  <b>Figure 6.</b> Rg graph comparing NS2B/NS3pro-ligand complexes and the unbound protein.
   </font>
 </p>
 
 #### Root mean square fluctuations (RMSF) for 100 ns MD simulations
 
 <p align="justify">
-  Furthermore, the RMSF trajectories of the protein-ligand complexes and the unbound NS2B/NS3 were analyzed. All predicted lead compounds caused noticeable changes in similar regions, as reflected in the <a href="#figure-7">RMSF plot</a>. Significant fluctuations were observed from residue index 28-33, with additional variations between residue indices 60-65 and 116-123. The RMSF graph also indicated fluctuations in the unbound protein, particularly around residues 102-106.
+  Furthermore, the RMSF trajectories of the protein-ligand complexes and the unbound NS2B/NS3 were analyzed. All predicted lead compounds caused noticeable changes in similar regions, as reflected in the <a href="#figure-7">RMSF plot</a>. Significant fluctuations were observed from residue index 28-33, with additional variations between indices 60-65 and 116-123. The graph also indicated fluctuations in the unbound protein, particularly around residues 102-106.
 </p>
 
 <p align="center">
   <br>
-  </font> 
+  <a name="figure-7"></a> 
   <img src="figures/RMSF fluctuations for NS2B_NS3pro-ligand MD simulations.png" title="Bar plot of model performance of each model based on accuracy, precision, recall, and F1 score" width="630"/>
   <br>
   <font size="1">
-  <b>Figure 7.<a name="figure-7"></a></b> Analysis of the RMSF trajectories of the NS2B/NS3pro-ligand complexes and the unbound protein residues.
+  <b>Figure 7.</b> Analysis of the RMSF trajectories of the NS2B/NS3pro-ligand complexes and the unbound protein residues.
   </font>
 </p>
 
@@ -602,7 +604,7 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 #### Contributing Energy Terms 
 
 <p align="justify">
-  The binding free energies of the complexes were calculated using the <a href="https://doi.org/10.1517/17460441.2015.1032936">Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA) approach</a>. Contributions to binding free energy include van der Waals energies, electrostatic interactions, polar solvation, and solvent-accessible surface area energy, and average values and standard deviations were computed for all. The lead compounds ZIN38628344, ZINC95485940, ZINC14441502, and 2',4'-dihydroxychalcone exhibited binding free energies of -44.957, -18.586, -25.881, and -55.805 $kJ/mol$, respectively, with 2',4'-dihydroxychalcone displaying the lowest binding free energy while ZINC95485940 had the highest among the four lead compounds. The known inhibitor Prednisolone had a binding free energy of -17.682 kJ/mol.
+  The binding free energies of the complexes were calculated using the <a href="https://doi.org/10.1517/17460441.2015.1032936">Molecular Mechanics Poisson-Boltzmann Surface Area (MMPBSA) approach</a>. Contributions to binding free energy include van der Waals energies, electrostatic interactions, polar solvation, and solvent-accessible surface area energy; average and standard deviations were computed for all. The lead compounds ZIN38628344, ZINC95485940, ZINC14441502, and 2',4'-dihydroxychalcone exhibited binding energies of -44.957, -18.586, -25.881, and -55.805 $kJ/mol$, respectively, with 2',4'-dihydroxychalcone displaying the lowest and ZINC95485940 the highest binding free energy. Prednisolone had a binding free energy of -17.682 $kJ/mol$.
 </p>
 
 **Table 5.<a name="table-5"></a>** MMPBSA energy contributions for NS2B/NS3-ligand complexes presented as averages ± standard deviations in kJ/mol.
@@ -624,11 +626,11 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 
 <p align="center">
   <br>
-  </font> 
+  <a name="figure-8"></a>
   <img src="figures/MMPBSA plot of binding free energy for NS2B_NS3-ZINC14441502.png" title="MMPBSA plot of binding free energy contributions per residue for NS2B/NS3-ZINC14441502 complex" width="650"/>
   <br>
   <font size="1">
-  <b>Figure 8.<a name="figure-8"></a></b> MMPBSA plot illustrating binding free energy contributions for NS2B/NS3-ZINC14441502 complex.
+  <b>Figure 8.</b> MMPBSA plot illustrating binding free energy contributions for NS2B/NS3-ZINC14441502 complex.
   </font>
 </p>
 
