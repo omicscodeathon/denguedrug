@@ -675,7 +675,7 @@ graph TD;
 
 ## How to use
 
-<p align="justify">The <a href="docs">documentation</a> and <a href="notebooks">notebooks</a> give a general overview of how the <a href="pipeline">pipeline</a> can be utilized to identify novel Dengue Virus inhibitors.</p>
+<p align="justify">The <a href="docs">documentation</a> and <a href="docs/ML_tutorials.txt">videos</a> give a general overview of how the <a href="pipeline">pipeline</a> was built and can be utilized to identify novel Dengue Virus inhibitors.</p>
 
 **Tutorial**
 
