@@ -15,11 +15,11 @@
 
 ## Overview 
 <p align="justify">
-  In this project, we are building a <i>in silico</i> pipeline to identify novel Dengue Virus inhibitors. We will incorporate Machine Learning (ML) and Molecular Modeling techniques into the pipeline.
+  This project aims at building an <i>in silico</i> pipeline to identify novel Dengue Virus inhibitors. We will incorporate Machine Learning (ML) and Molecular Modeling techniques into the pipeline.
 </p>
 
 <p align="justify">
-  Dengue virus (DENV) is a <i>Flaviviridae</i> family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as <i>Aedes aegypti</i> and <i>Aedes albopictus</i>, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as Dengue hemorrhagic fever (DHF) and Dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. Regions of high prevalence of Dengue virus infection in Africa have been highlighted in the figure below.
+  Dengue virus (DENV) is a <i>Flaviviridae</i> family member responsible for the most prevalent mosquito-borne viral hemorrhagic fever. Dengue virus transmission to humans primarily occurs through mosquito bites from species such as <i>Aedes aegypti</i> and <i>Aedes albopictus</i>, widespread in tropical and subtropical climates, including both urban and rural regions. The severe and sometimes fatal diseases known as Dengue hemorrhagic fever (DHF) and Dengue shock syndrome (DSS) can develop in certain people infected with DENV. The spread of dengue fever has resulted in several medical emergencies and deaths for which no drug is currently available. Despite its prevalence, the treatment administered is symptomatic. The structural information available for the DENV presented an opportunity to discover potent antiviral agents capable of disrupting the early stages of DENV infection. Regions with a high prevalence of Dengue virus infection in Africa are highlighted in the figure below.
 Our approach seeks to train different Machine Learning models using the Anti-Dengue dataset from PubChem to discriminate potential anti-Dengue compounds from non-anti-Dengue compounds. Subsequently, we will further screen the predicted compounds against a Dengue protein target for downstream analysis. Details of the <a href="#workflow-diagram">pipeline</a> can be found in the presented in the  "<a href="#description-section" _originalHref="https://github.com/omicscodeathon/denguedrug/edit/main/README.md#description" title="Detailed Workflow diagram of the project, from Data acquisition to Model implementation and Prediction, as well as Molecular Docking and MD Simulations.">description</a>" section.
 </p>
 <br>
@@ -466,10 +466,10 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 </p>
 
 <p align="justify">
-  Ligands docking to the protease's active site showed interactions with essential residues like His51, Ser135, Leu128, Pro132, Ser131, Tyr161, and Asp75, as detailed in <a href="#table-3">Table 3</a> and the accompanying <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">Supplementary file 1</a>. With highest binding affinities, anhydrophlegmacin and anhydrophlegmacin-9,10-quinones_B2, interacted with same residues, including His51, Asp75, Gly151, Leu128, Pro132, and Gly153. These ligands formed hydrogen bonds with Asp75-Ser135-His51, with bond lengths measuring 2.57, 3.06, and 2.86 $Å$, respectively. Prednisolone established hydrogen bonds with Gly151 (2.90 $Å$, 2.71 $Å$), Asp75 (2.95 $Å$), His51 (3.21 $Å$), and Gly153 (2.93 $Å$, 3.16 $Å$). Furthermore, ZINC14441502 interacted with Gly151 and Ser135 at bond lengths of 2.86 and 2.99 $Å$, respectively, and engaged in hydrophobic bonding with Leu128, Gly153, Asn152, Val72, Asp75, His151, and Phe130 (<a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">Supplementary file 1</a>). A total of <b>39</b> from the 56 compounds docked effectively, showing strong interactions with key active site residues were chosen for subsequent analysis.
+  Ligands docking to the protease's active site showed interactions with essential residues like His51, Ser135, Leu128, Pro132, Ser131, Tyr161, and Asp75, as detailed in <a href="#table-3">Table 3</a> and the accompanying <a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">Supplementary file 1</a>. With highest binding affinities, anhydrophlegmacin and anhydrophlegmacin-9,10-quinones_B2, interacted with same residues, including His51, Asp75, Gly151, Leu128, Pro132, and Gly153. These ligands formed hydrogen bonds with Asp75-Ser135-His51, with bond lengths measuring 2.57, 3.06, and 2.86 $Å$, respectively. Prednisolone established hydrogen bonds with Gly151, Asp75, His51, and Gly153 (<a href="#table-3">Table 3</a>). Furthermore, ZINC14441502 interacted with Gly151 and Ser135 at bond lengths 2.86 and 2.99 $Å$, respectively, and engaged in hydrophobic bonding with Leu128, Gly153, Asn152, Val72, Asp75, His151, and Phe130 (<a href="output/Molecular Docking/Supplemental 1 - Binding energies and intermolecular interactions between compounds and NS2B_NS3 protease.csv">Supplementary file 1</a>). A total of <b>39</b> from the 56 compounds docked effectively, showing strong interactions were chosen for subsequent analysis.
 </p>
 
-**Table 3.<a name="table-3"></a>** Top 20 Protein-ligand interactions between selected hits and NS2B/NS3 post-docking, including two known inhibitors.
+**Table 3.<a name="table-3"></a>** Top 15 Protein-ligand interactions between selected hits and NS2B/NS3 post-docking, including two known inhibitors.
 
 | N°  | Compound names                                                      | Binding Affinity ($`kcal/mol`$) | Hydrogen bonding with bond length ($`Å`$) | Hydrophobic contacts |
 | :-- | :------------------------------------------------------------------ | :-----------------------------: | :---------------------------------------: | :------------------: |
@@ -488,12 +488,14 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 | 13  | ZINC000038628344                                                    | -8.5  | His51 (2.89), Ser135 (2.68), Asp75 (2.57), Phe130 (3.06), Tyr150 (3.10)  | Pro132, Ser131, Leu128, Tyr161, Gly153, Gly151  |
 | 14  | ZINC000095486053                                                    | -8.4  | Gly151 (2.99)  | His51, Pro132, Tyr150, Ser135, Phe130, Leu128  |
 | 15  | phaseollidin                                                        | -8.4  | Gly87 (2.83), Val146 (2.98)  | Leu85, Trp83, Gly148, Leu149, Ala164, Leu76, Asn167. Asn152, Lys74, Ile165, Trp89, Ala166, Glu88, Glu86, Val147  |
+
+<!--
 | 16  | 6-oxoisoiguesterin                                                  | -8.4  | Tyr150 (2.80, Phe130 (3.16, 2.83)  | Ser131, Leu128, Gly151, Gly153, His51, Pro132  |
 | 17  | ZINC000095486052                                                    | -8.4  | Asn152 (3.20), Gly153 (3.14)  | Pro132, Tyr150, Leu128, Tyr161, Gly151, His151, Asp75  |
 | 18  | ZINC000014444870                                                    | -8.4  | Asn152 (3.01), Leu149 (3.19)  | Leu85, Val147, Gly87, Val146, Asn167, Ile165, Val54, Ala164, Ile123, Lys74, Gly148, Leu76, Trp83  |
 | 19  | Leflunomide                                                         | -7.1  | None  | Asn152, Val54, Ala64, Asn167, Leu76, Lys74, Ile123, Ala166  |
 | 20  | Prednisolone                                                        | -7.0  | Gly151 (2.90, 2.71), Asp75 (2.95), His51 (3.21), Gly153 (2.93, 3.16)  | Leu128, Phe130, Asn152, Ser135, Pro132  |
-
+-->
 
 <p align="justify">
   A visual representation of the interactions can be observed between ZINC38628344 and the NS2B/NS3 protease, with binding affinity of -8.5 $kcal/mol$, that established hydrogen bonds with His51 (2.89 $Å$), Asp75 (2.57 $Å$), Phe130 (3.06 $Å$), in addition to hydrophobic interactions with residues Pro132, Ser131, Leu128, Tyr161, Gly153, Gly151 (<a href="#figure-4">Figure 4</a>).
@@ -514,10 +516,10 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 ### ADMET Screening of Selected Compounds
 
 <p align="justify">
-  Pharmacokinetic analyses focus on how medications are absorbed and eliminated by the body (<a href="https://doi.org/10.22099/ijvr.2018.4761">Wang et al., 2018</a>). Key features, including gastrointestinal (GI) absorption, were assessed. Compounds showing "High" GI absorption potential are the most favorable. Veber's criteria were applied, and 20 out of 39 hits that did not comply with Lipinski's Rule of Five (RO5) were eliminated, 12 of which breached one of the RO5 criteria (<a href="output/Molecular Docking/Supplemental 2 - ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and Physicochemical profiles.csv">Supplementary Table 2</a>). Overall, 31 compounds were deemed drug-like, while 7 showed poorest drug-likeness, including 5,7'-physcion-fallacinol, ZINC000095485956, ZINC000085594516, amentoflavone, ZINC000095486111, voucapane-18,19-di-(4-methyl)-benzenesulphonate, and ZINC000095485927, with two RO5 violations (<a href="#table-4">Table 4</a>). Veber’s rule, emphasizing <code>TPSA ≤ 140</code> and <code>rotatable bonds ≤ 10</code>, further filtered the hits, with 26 demonstrating <b>zero</b> violations. Solubility and pharmacological profiles indicated that while only one compound (ZINC000095485927) was predicted to be insoluble, many others showed moderate to poor solubility (<a href="output/Molecular Docking/Supplemental 2 - ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and Physicochemical profiles.csv">Supplementary Table 2</a>). Owing to GI absorption, compounds classified as "High", display favorable absorption potential in the intestinal tract for oral drugs; 21 selected hits were marked High, against 18 Low. The mutagenicity and tumorigenicity of the hits were also assessed with <a href="https://openmolecules.org/datawarrior/">DataWarrior</a>.
+  Pharmacokinetic analyses focus on absorption and elimination of medications by the body. Key features, including gastrointestinal (GI) absorption, were assessed; "High" absorption potential being the most favorable. Veber's criteria were applied, and 20 out of 39 hits that did not comply with Lipinski's Rule of Five (RO5) were eliminated, 12 of which breached one of the RO5 criteria (<a href="output/Molecular Docking/Supplemental 2 - ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and Physicochemical profiles.csv">Supplementary Table 2</a>). Overall, 31 compounds were deemed drug-like, while 7 showed poorest drug-likeness, including 5,7'-physcion-fallacinol, ZINC000095485956, ZINC000085594516, amentoflavone, ZINC000095486111, voucapane-18,19-di-(4-methyl)-benzenesulphonate, and ZINC000095485927, with two RO5 violations (<a href="output/Molecular Docking/Supplemental 2 - ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and Physicochemical profiles.csv">Supplementary Table 2</a>). Veber’s rule, emphasizing <code>TPSA ≤ 140</code> and <code>rotatable bonds ≤ 10</code>, further filtered the hits, with 26 demonstrating <b>zero</b> violations. Solubility and pharmacological profiles indicated that while only one compound (ZINC000095485927) was predicted to be insoluble, many others showed moderate to poor solubility (<a href="output/Molecular Docking/Supplemental 2 - ADME Prediction of selected hits and known inhibitors for Pharmacokinetics and Physicochemical profiles.csv">Supplementary Table 2</a>). Owing to GI absorption, 21 selected hits were marked High, against 18 Low. The mutagenicity and tumorigenicity of the hits were also assessed with <a href="https://openmolecules.org/datawarrior/">DataWarrior</a> (<a href="#table-4">Table 4</a>).
 </p>
 
-**Table 4.<a name="table-4"></a>** Prediction of ADME (absorption, distribution, metabolism, excretion) and toxicity profiles for the top 15 selected hits.
+**Table 4.<a name="table-4"></a>** Prediction of ADME (absorption, distribution, metabolism, excretion) and toxicity profiles for the top selected hits.
 
 | N°  | Ligands                   | ESOL Solubility Class | GI absorption | RO5 violation | Veber’s rule violation | Mutagenicity | Tumorigenicity |
 | :-- | :------------------------ | :-------------------: | :-----------: | :-----------: | :--------------------: | :----------: | :------------: |
@@ -531,12 +533,14 @@ This figure illustrates the proposed DengueDrug pipeline to be utilized to ident
 | 8   | ZINC000095486053          | Moderately soluble    | High          | 0             | 0                      | None         | None           |
 | 9   | ZINC000031168265          | Soluble               | High          | 0             | 0                      | None         | None           |
 | 10  | ZINC000095485910          | Moderately soluble    | High          | 0             | 0                      | High         | High           |
+
+<!--
 | 11  | ZINC000014780240          | Moderately soluble    | High          | 0             | 0                      | High         | None           |
 | 12  | ZINC000085594516          | Poorly soluble        | Low           | 2             | 1                      | None         | None           |
 | 13  | 5,7'-physcion-fallacinol  | Poorly soluble        | Low           | 2             | 1                      | Low          | None           |
 | 14  | ZINC000014441502          | Moderately soluble    | High          | 0             | 0                      | None         | None           |
-| 15  | chryslandicin             |  Poorly soluble       | Low           | 1             | 1                      | None         | High           |
-
+| 15  | chryslandicin             | Poorly soluble        | Low           | 1             | 1                      | None         | High           |
+-->
 ------
 
 ### Molecular Dynamics Simulations
@@ -641,38 +645,49 @@ Here is a summary of the data flow chart throughout this research:
 ```mermaid
 graph TD;
     A[Bioactive Dataset - 343,305 compounds]--Data preprocessing (Compound standardization)-->B[21,250 Study data: 4470 actives + 16780 inactive];
-    B[21,250 Study data: 4470 actives + 16780 inactives]--Data splitting-->C[14,875 training data + 3,187 test + 3,188 externally held];
+    B[21,250 Study data: 4470 actives + 16780 inactives]--Data splitting (1:4)-->C[14,875 training data + 3,187 test + 3,188 externally held];
     C[14,875 training data + 3,187 test + 3,188 externally held]--Evaluation data-->D[3,188 externally held];
-    D[3,188 externally held]--Model validation-->E{Logistic Regression};
-    F[PaDEL descriptors: 1,444]-->G[Validated descriptors: 684];
-
-    E[933 active compounds]-->F[853 compounds];
-    E[933 active compounds]-->F[853 compounds];
-    E[18 Known inhibitors]--LR model prediction-->G[11 active inhibitors];
-    E[2683 New compounds: 812 ZINC & 1871 EANPDB]--LR model prediction-->E[933 active compounds];
-    E[853 selected compounds]--NS2B_NS3 Molecular Docking-->G[56 approved hits + 2 Known inhibitors];
-    E[56 hits]--Protein-Ligand interactions postdocking-->G[39 selected hits - Top=anhydrophlegmacin];
-    F[39 selected hits]---->G{ADMET Screening};
-    F{ADMET Screening}--Veber's rules & Lipinski's RO5-->G[20 hits];
-    T{Molecular Dynamics Simulations}--RMSD-->U[2',4'-dihydroxychalcone/ZINC14441502/ZINC95485940 > ZINC38628344];
-    T{Molecular Dynamics Simulations}--Rg-->V[ZINC38628344/ZINC14441502/ZINC95485940 > 2',4'-dihydroxychalcone];
-    T{Molecular Dynamics Simulations}--RMSF-->W[ZINC38628344 \ ZINC95485940 \ 2',4'-dihydroxychalcone \ ZINC14441502];
-    X{MMPBSA Computations}--Contributing energy Terms-->Y[2',4'-dihydroxychalcone > ZINC38628344 > ZINC14441502 > ZINC95485940];
-    X{MMPBSA Computations}--Per-residue Decomposition-->Z[ZINC38628344 > ZINC14441502 > ZINC95485940 > 2',4'-dihydroxychalcone];
+    D[3,188 externally held]--Model validation-->E{ML Model pool};
+    E{ML Model pool}--Model selection-->F{QSAR models};
+    G[PaDEL descriptors: 1,444]--Variance filter (Threshold = 0.1)-->H[Approved descriptors: 684];
+    H[Approved descriptors: 684]--QSAR modeling-->F{QSAR models};
+    I[18 Known inhibitors‡]--※Further model validation-->F{QSAR models};
+    F{QSAR models}-->J{Logistic Regression};
+    F{QSAR models}--※LR output-->K[11 Inhibitors marked **Active**‡];
+    L[2683 New compounds: 812 ZINC & 1871 EANPDB]--LR model prediction-->J{Logistic Regression};
+    J{Logistic Regression}--Yes-->M[933 active compounds];
+    J{Logistic Regression}--No-->N[1750 inactive compounds];
+    M[933 active compounds]--Compound selection based on 2FOM structure-->O[853 selected compounds];
+    O[853 selected compounds]--NS2B_NS3 Molecular Docking (Affinity ≤ -8.0 kcal)-->P[59 ligands + 2 Known inhibitors];
+    P[59 ligands + 2 Known inhibitors]--Binding affinities postdocking-->Q[39 Top docked hits];
+    Q[39 Top docked hits]---->R{ADMET Screening};
+    R{ADMET Screening}--Veber's rules & Lipinski's RO5-->S[20 Top non-violating hits];
+    S[20 Top non-violating hits]-->T[Top Protein-Ligand complexes];
+    T[Top Protein-Ligand complexes]-->U{Molecular Dynamics Simulations};
+    T[Top Protein-Ligand complexes]-->V{MMPBSA Computations};
+    U{Molecular Dynamics Simulations}--RMSD-->W[2',4'-dihydroxychalcone/ZINC14441502/ZINC95485940 > ZINC38628344];
+    U{Molecular Dynamics Simulations}--Rg-->X[ZINC38628344/ZINC14441502/ZINC95485940 > 2',4'-dihydroxychalcone];
+    U{Molecular Dynamics Simulations}--RMSF-->Y[ZINC38628344 \ ZINC95485940 \ 2',4'-dihydroxychalcone \ ZINC14441502];
+    V{MMPBSA Computations}--Contributing energy Terms-->Z[2',4'-dihydroxychalcone > ZINC38628344 > ZINC14441502 > ZINC95485940];
+    V{MMPBSA Computations}--Per-residue Decomposition-->AA[ZINC38628344 > ZINC14441502 > ZINC95485940 > 2',4'-dihydroxychalcone];
 ```
 
 
 ## How to use
 
-<p align="justify">The <a href="docs">documentation</a> and <a href="notebooks">tutorial</a> give a general overview of how the [pipeline](pipeline/README.md) can be utilized to identify novel Dengue Virus inhibitors.</p>
+<p align="justify">The <a href="docs">documentation</a> and <a href="notebooks">notebooks</a> give a general overview of how the <a href="pipeline">pipeline</a> can be utilized to identify novel Dengue Virus inhibitors.</p>
 
-**Tutorial 1**
+**Tutorial**
 
-[ML pipeline](notebooks/ML_Dengue.ipynb) describes how the models were constructed, validated, and selected.
+<p align="justify">
+  <a href="pipeline/README.md">Study pipeline</a> describes how the models were constructed, selected, validtaed and implemented. It also pinpoints how the various scripts were written and put into action.
+
+  <b><i>Molecular Docking and Dynamics Simulations</i></b> though computerized, are also briefly described, and some of the scripts run to compute these analyses are identified and put into action.
+</p>
 
 **Tutorial 2**
 
-Molecular docking and dynamics
+Construction of a possible PyPi installation package for novel antiviral therapeutics prediction and discovery.
 
 ## Data Availability
 
@@ -690,13 +705,13 @@ The data utilized for the project can be found [here](data).
 **The Team members include:**
 1. George Hanson – George.hanson417@gmail.com
 2. Joseph Adams - jkojoadams@gmail.com
-3. Kepgang Daveson Innocento Brank - davesonbrank@gmail.com
+3. Daveson Innocento Brank Kepgang - davesonbrank@gmail.com
 4. Andy Asante - pkandy001@gmail.com
 5. Emmanuel Israel Nsedu - emmanuel.israelpgs@stu.cu.edu.ng
 6. Hem Bondarwad – hembondarwad@gmail.com
-7. Kisaakye Maureen -  maureenkisaakye6@gmail.com
+7. Maureen Kisaakye -  maureenkisaakye6@gmail.com
 8. Lewis Tem Bueh -  lewistem8@gmail.com
-9. Luke Zondagh -  lukeshandzondagh@gmail.com
+9. Luke S. Zondagh -  lukeshandzondagh@gmail.com
 10. Soham Amod Shirolkar -  sohamshirolkar@usf.edu
 11. Olaitan I. Awe - laitanawe@gmail.com
 
