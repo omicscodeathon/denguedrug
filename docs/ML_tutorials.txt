@@ -1,0 +1,3 @@
+Here are the links to the turials for the Machine Learning models being used for this project:
+1. https://drive.google.com/file/d/1EvH4pcHNax9a1G5TlRr8t2Kic4otX1Q4/view?usp=drive_link
+2. https://drive.google.com/file/d/17Koxj-kjr81LQgdnQeEnjrEzji0T4WVG/view?usp=drive_link
