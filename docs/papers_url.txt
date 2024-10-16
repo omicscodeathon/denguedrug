@@ -50,4 +50,9 @@ Here are the links for some papers being used, that provide solid grounds for th
 - https://doi.org/10.3390/biom11050653 (Asiedu et al., 2021)
 - https://doi.org/10.1186/s12936-020-03512-1 (Boateng et al., 2020)
 - https://doi.org/10.1016/j.ijbiomac.2018.07.050 (Gupta et al., 2018)
-- 
+- https://doi.org/10.1038/nature12060 (Bhatt, 2013)
+- https://doi.org/10.3390/ijms241411488 (Niazi & Mariam, 2023)
+- https://doi.org/10.1016/j.drudis.2019.10.014 (Japkowicz & Shah, 2011)
+- https://doi.org/10.1248/cpb.c17-00794 (Tian et al., 2018)
+- https://doi.org/10.1101/2023.08.09.552643 (Mwanga et al., 2023)
+- https://doi.org/10.3390/biom11010042 (Saleh & Kamisah, 2021)
