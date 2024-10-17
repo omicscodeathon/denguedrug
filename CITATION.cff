@@ -25,8 +25,11 @@ authors:
 - family-names: "Kisaakye"
   given-names: "Maureen"
   orcid: "https://orcid.org/0009-0009-3419-0483"
+- family-names: "Bondarwad"
+  given-names: "Hem"
+  orcid: "https://orcid.org/0009-0005-9663-7843"
 - family-names: "Awe"
-  given-names: "Olaitan I."
+  given-names: "Olaitan Igbabo"
   orcid: "https://orcid.org/0000-0002-4257-3611"
 title: "Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus"
 version: 1
@@ -60,11 +63,14 @@ preferred-citation:
   - family-names: "Kisaakye"
     given-names: "Maureen"
     orcid: "https://orcid.org/0009-0009-3419-0483"
+  - family-names: "Bondarwad"
+    given-names: "Hem"
+    orcid: "https://orcid.org/0009-0005-9663-7843"
   - family-names: "Awe"
     given-names: "Olaitan I."
     orcid: "https://orcid.org/0000-0002-4257-3611"
   doi: "10.0000/00000"
-  journal: "Journal Title"
+  journal: "Frontiers in Chemistry"
   month: 10
   start: 1 # First page number
   end: 10 # Last page number
