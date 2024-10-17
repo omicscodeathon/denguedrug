@@ -680,7 +680,7 @@ graph TD;
 **Tutorial**
 
 <p align="justify">
-  <a href="pipeline/README.md">Study pipeline</a> describes how the models were constructed, selected, validtaed and implemented. It also pinpoints how the various scripts were written and put into action.
+  <a href="pipeline/README.md">Study pipeline</a> describes how the models were constructed, selected, validated, and implemented. It also pinpoints how the various scripts were written and put into action.
 
   <b><i>Molecular Docking and Dynamics Simulations</i></b> though computerized, are also briefly described, and some of the scripts run to compute these analyses are identified and put into action.
 </p>
@@ -696,7 +696,7 @@ The data utilized for the project can be found [here](data).
 ## Reproducibility Prerequisites
 
 > [!NOTE]
-> <p align="justify">The codes and scripts were run on <a href="https://www.python.org/ftp/python/3.8.0/python-3.8.0-amd64.exe"><b>Python 3.8</b></a>, <a href=""><b>Anaconda 2023</b></a> and <b>Jupyter Notebook version</b>.</p>
+> <p align="justify">The codes and scripts were run on <a href="https://www.python.org/ftp/python/3.8.0/python-3.8.0-amd64.exe"><b>Python 3.8</b></a>, <a href="https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Windows-x86_64.exe"><b>Anaconda3 2024.06.1</b></a> and <b>Jupyter Notebook version 7</b>.</p>
 > 
 > <a href="https://cran.r-project.org/bin/windows/base/old/4.3.0/R-4.3.0-win.exe"><b>R 4.3.0</b></a> was used for some of the data visualization to plot graphs from MMPBSA computations.
 
@@ -714,5 +714,4 @@ The data utilized for the project can be found [here](data).
 9. Luke S. Zondagh -  lukeshandzondagh@gmail.com
 10. Soham Amod Shirolkar -  sohamshirolkar@usf.edu
 11. Olaitan I. Awe - laitanawe@gmail.com
-
 
