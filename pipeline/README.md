@@ -13,6 +13,19 @@ python descriptorCalculator.py
 ## Data Wrangling and Preprocessing
 
 
+scripts/descriptorCalculator.py
+scripts/molecular_docking.sh
+scripts/rank_binding_affinity.py
+scripts/split_sdf.py
+scripts/toSMI.py
+notebooks/EDA_1_Wrangling.ipynb
+notebooks/EDA_2_Visualization.ipynb
+notebooks/ML_Dengue.ipynb
+output/Models
+output/Models/LR_model.pkl
+
+
+
 ## Reproducibility check
 
 ## Model Assessment and Validation
@@ -29,7 +42,7 @@ python rank_vina
 
 ## ADMET Screening of Selected Compounds
 
-After sing OSIRIS DataWarrior, the hits with potential pharmacokinetic and toxicity moieties will be removed.
+After using OSIRIS DataWarrior, the hits with potential pharmacokinetic and toxicity moieties will be removed.
 
 
 ## Calculations of Ligand-Receptor Complexes using MMPBSA
