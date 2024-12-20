@@ -63,3 +63,39 @@ The binding free energies of the protein-ligand complexes and the individual ene
 
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
+
+
+
+----------
+
+Here is a summary of the data flow chart throughout this research:
+
+```mermaid
+graph TD;
+    A[Bioactive Dataset - 343,305 compounds]--Data preprocessing (Compound standardization)-->B[21,250 Study data: 4470 actives + 16780 inactive];
+    B[21,250 Study data: 4470 actives + 16780 inactives]--Data splitting (1:4)-->C[14,875 training data + 3,187 test + 3,188 externally held];
+    C[14,875 training data + 3,187 test + 3,188 externally held]--Evaluation data-->D[3,188 externally held];
+    D[3,188 externally held]--Model validation-->E{ML Model pool};
+    E{ML Model pool}--Model selection-->F{QSAR models};
+    G[PaDEL descriptors: 1,444]--Variance filter (Threshold = 0.1)-->H[Approved descriptors: 684];
+    H[Approved descriptors: 684]--QSAR modeling-->F{QSAR models};
+    I[18 Known inhibitors‡]--※Further model validation-->F{QSAR models};
+    F{QSAR models}-->J{Logistic Regression};
+    F{QSAR models}--※LR output-->K[11 Inhibitors marked **Active**‡];
+    L[2683 New compounds: 812 ZINC & 1871 EANPDB]--LR model prediction-->J{Logistic Regression};
+    J{Logistic Regression}--Yes-->M[933 active compounds];
+    J{Logistic Regression}--No-->N[1750 inactive compounds];
+    M[933 active compounds]--Compound selection based on 2FOM structure-->O[853 selected compounds];
+    O[853 selected compounds]--NS2B_NS3 Molecular Docking (Affinity ≤ -8.0 kcal)-->P[59 ligands + 2 Known inhibitors];
+    P[59 ligands + 2 Known inhibitors]--Binding affinities postdocking-->Q[39 Top docked hits];
+    Q[39 Top docked hits]---->R{ADMET Screening};
+    R{ADMET Screening}--Veber's rules & Lipinski's RO5-->S[20 Top non-violating hits];
+    S[20 Top non-violating hits]-->T[Top Protein-Ligand complexes];
+    T[Top Protein-Ligand complexes]-->U{Molecular Dynamics Simulations};
+    T[Top Protein-Ligand complexes]-->V{MMPBSA Computations};
+    U{Molecular Dynamics Simulations}--RMSD-->W[2',4'-dihydroxychalcone/ZINC14441502/ZINC95485940 > ZINC38628344];
+    U{Molecular Dynamics Simulations}--Rg-->X[ZINC38628344/ZINC14441502/ZINC95485940 > 2',4'-dihydroxychalcone];
+    U{Molecular Dynamics Simulations}--RMSF-->Y[ZINC38628344 \ ZINC95485940 \ 2',4'-dihydroxychalcone \ ZINC14441502];
+    V{MMPBSA Computations}--Contributing energy Terms-->Z[2',4'-dihydroxychalcone > ZINC38628344 > ZINC14441502 > ZINC95485940];
+    V{MMPBSA Computations}--Per-residue Decomposition-->AA[ZINC38628344 > ZINC14441502 > ZINC95485940 > 2',4'-dihydroxychalcone];
+```
