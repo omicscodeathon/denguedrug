@@ -33,7 +33,7 @@ authors:
   orcid: "https://orcid.org/0000-0002-4257-3611"
 title: "Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus"
 version: 1
-doi: 
+doi: "10.3389/fchem.2024.1510029"
 date-released: 2024
 url: "https://github.com/omicscodeathon/denguedrug"
 preferred-citation:
@@ -69,9 +69,9 @@ preferred-citation:
   - family-names: "Awe"
     given-names: "Olaitan I."
     orcid: "https://orcid.org/0000-0002-4257-3611"
-  doi: "10.0000/00000"
+  doi: "10.3389/fchem.2024.1510029"
   journal: "Frontiers in Chemistry"
-  month: 10
+  month: 12
   start: 1 # First page number
   end: 10 # Last page number
   title: "Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus"
