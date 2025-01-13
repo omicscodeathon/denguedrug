@@ -34,7 +34,7 @@ authors:
 title: "Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus"
 version: 1
 doi: "10.3389/fchem.2024.1510029"
-date-released: 2024
+date-released: 24/12/2024
 url: "https://github.com/omicscodeathon/denguedrug"
 preferred-citation:
   type: article
@@ -72,9 +72,9 @@ preferred-citation:
   doi: "10.3389/fchem.2024.1510029"
   journal: "Frontiers in Chemistry"
   month: 12
-  start: 1 # First page number
-  end: 10 # Last page number
+  # start: 1 # First page number
+  # end: 10 # Last page number
   title: "Machine Learning and Molecular Docking Prediction of Potential Inhibitors against Dengue Virus"
-  issue: 1
-  volume: 1
+  # issue: 1
+  volume: 12
   year: 2024
