@@ -1,5 +1,5 @@
 Here are the links for some papers being used, that provide solid grounds for the realization and implementation of this project:
-- https://doi.org/https://doi.org/10.1016/j.fuel.2022.123836 (Comesana et al., 2022)
+- https://doi.org/10.1016/j.fuel.2022.123836 (Comesana et al., 2022)
 - https://doi.org/10.3390/pr11123325 (Trinh et al., 2023)
 - https://doi.org/10.1002/jcc.21707 (Yap, 2011)
 - https://doi.org/10.3390/toxics12010087 (Viganò et al., 2024)
