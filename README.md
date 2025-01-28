@@ -710,11 +710,11 @@ The data utilized for the project can be found [here](data).
 | 1    | George Hanson (Lead)              | george.hanson417@gmail.com       | [0009-0007-2720-9102](https://orcid.org/0009-0007-2720-9102)   | 
 | 2    | Joseph Adams                      | jkojoadams@gmail.com             | [0009-0003-3871-1369](https://orcid.org/0009-0003-3871-1369)   |       
 | 3    | Daveson Innocento Brank Kepgang   | davesonbrank@gmail.com           | [0009-0004-6104-184X](https://orcid.org/0009-0004-6104-184X)   |        
-| 4    | Andy Asante                       | maaameesiannorapaflo@gmail.com   | [0009-0009-1484-4814](https://orcid.org/0009-0009-1484-4814)   |              
-| 5    | Hem Bondarwad                     | kabuteykudiabor98@gmail.com      | [0009-0005-9663-7843](https://orcid.org/0009-0005-9663-7843)   |            
-| 6    | Maureen Kisaakye                  | lawsmimi40@gmail.com             | [0009-0009-3419-0483](https://orcid.org/0009-0009-3419-0483)   |           
-| 7    | Lewis Tem Bueh                    | esungwacha@gmail.com             | [0009-0004-9564-6628](https://orcid.org/0009-0004-9564-6628)   |           
-| 8    | Soham Amod Shirolkar              | cyisufu@gmail.com                | [0009-0004-4798-899X](https://orcid.org/0009-0004-4798-899X)   |          
+| 4    | Andy Asante                       | asanteandy65@gmail.com           | [0009-0009-1484-4814](https://orcid.org/0009-0009-1484-4814)   |              
+| 5    | Hem Bondarwad                     | hembondarwad@gmail.com           | [0009-0005-9663-7843](https://orcid.org/0009-0005-9663-7843)   |            
+| 6    | Maureen Kisaakye                  | maureenkisaakye6@gmail.com       | [0009-0009-3419-0483](https://orcid.org/0009-0009-3419-0483)   |           
+| 7    | Lewis Tem Bueh                    | lewistem8@gmail.com              | [0009-0004-9564-6628](https://orcid.org/0009-0004-9564-6628)   |           
+| 8    | Soham Amod Shirolkar              | sohamshirolkar@gmail.com         | [0009-0004-4798-899X](https://orcid.org/0009-0004-4798-899X)   |          
 | 9    | Olaitan Igbabo Awe                | laitanawe@gmail.com              | [0000-0002-4257-3611](https://orcid.org/0000-0002-4257-3611)   | 
 
 
